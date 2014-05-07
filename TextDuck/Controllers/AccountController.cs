@@ -12,6 +12,7 @@ using TextDuck.Models;
 
 namespace TextDuck.Controllers
 {
+    //testingblabla
     [Authorize]
     public class AccountController : Controller
     {
