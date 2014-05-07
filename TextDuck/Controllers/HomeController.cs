@@ -7,9 +7,7 @@ using System.Web.Mvc;
 namespace TextDuck.Controllers
 {
     public class HomeController : Controller
-    {
-        // this is a fucking comment
-        
+    {   
         public ActionResult Index()
         {
             return View();
