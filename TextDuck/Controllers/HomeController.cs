@@ -9,8 +9,7 @@ namespace TextDuck.Controllers
     public class HomeController : Controller
     {
         // this is a fucking comment
-        // fuuuu
-        // anither comment
+        
         public ActionResult Index()
         {
             return View();
