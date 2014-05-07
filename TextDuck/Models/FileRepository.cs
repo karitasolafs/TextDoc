@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TextDuck.UF;
 
 namespace TextDuck.Models
 {
@@ -9,41 +10,41 @@ namespace TextDuck.Models
     {
         public class NewsRepository
         {
-            NewsContext m_db = new NewsContext();
+            UploadContext Db = new UploadContext();
 
-            public IQueryable<NewsItem> GetAllNews()
+            public IQueryable<FileUpload> GetAllNews()
             {
-                return m_db.News;
+                return Db.File;
             }
 
-            public NewsItem GetNewsById(int id)
+            public FileUpload GetNewsById(int id)
             {
-                var result = (from s in m_db.News
-                              where s.Id == id
+                var result = (from s in Db.File
+                              where s.FileId == id
                               select s).SingleOrDefault();
                 return result;
             }
 
-            public void AddNews(NewsItem s)
+            public void AddNews(FileUpload s)
             {
-                m_db.News.Add(s);
-                m_db.SaveChanges();
+                Db.File.Add(s);
+                Db.SaveChanges();
             }
 
             public void Save()
             {
-                m_db.SaveChanges();
+                Db.SaveChanges();
             }
 
-            public void UpdateNews(NewsItem s)
+            public void UpdateNews(FileUpload s)
             {
-                NewsItem t = GetNewsById(s.Id.Value);
+                FileUpload t = GetNewsById(s.FileId.Value);
                 if (t != null)
                 {
-                    t.Title = s.Title;
-                    t.Text = s.Text;
-                    t.Category = s.Category;
-                    m_db.SaveChanges();
+                    t.FileTitle = s.FileTitle;
+                    t.FileContent = s.FileContent;
+                    t.FileCategory = s.FileCategory;
+                    Db.SaveChanges();
                 }
             }
         }

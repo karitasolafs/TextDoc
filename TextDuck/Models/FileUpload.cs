@@ -8,7 +8,7 @@ namespace TextDuck.Models
 {
     public class FileUpload
     {
-        public int FileId { get; set; }
+        public int? FileId { get; set; }
 
         [Required(ErrorMessage = "Title is required.")]
         public string FileTitle { get; set; }
