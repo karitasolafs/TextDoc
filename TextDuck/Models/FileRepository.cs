@@ -8,16 +8,14 @@ namespace TextDuck.Models
 {
     public class FileRepository
     {
-        public class NewsRepository
-        {
             UploadContext Db = new UploadContext();
 
-            public IQueryable<FileUpload> GetAllNews()
+            public IQueryable<FileUpload> GetAllFiles()
             {
                 return Db.File;
             }
 
-            public FileUpload GetNewsById(int id)
+            public FileUpload GetFilesById(int id)
             {
                 var result = (from s in Db.File
                               where s.FileId == id
@@ -25,7 +23,7 @@ namespace TextDuck.Models
                 return result;
             }
 
-            public void AddNews(FileUpload s)
+            public void AddFile(FileUpload s)
             {
                 Db.File.Add(s);
                 Db.SaveChanges();
@@ -38,15 +36,16 @@ namespace TextDuck.Models
 
             public void UpdateNews(FileUpload s)
             {
-                FileUpload t = GetNewsById(s.FileId.Value);
+                FileUpload t = GetFilesById(s.FileId.Value);
                 if (t != null)
                 {
                     t.FileTitle = s.FileTitle;
                     t.FileContent = s.FileContent;
                     t.FileCategory = s.FileCategory;
+                    t.FileGenre = s.FileGenre;
                     Db.SaveChanges();
                 }
             }
         }
-    }
+    
 }
