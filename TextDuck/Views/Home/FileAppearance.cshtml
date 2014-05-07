@@ -1,5 +1,12 @@
 ﻿@model TextDuck.Models.FileUpload
 
+@using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <input type="file" name="FileUpload" /><br />
+    <input type="submit" name="Submit" id="Submit" value="Upload" />
+}
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -58,3 +65,5 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+
