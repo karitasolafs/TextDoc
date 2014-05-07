@@ -10,6 +10,7 @@ namespace TextDuck.Controllers
     {
         // this is a fucking comment
         // fuuuu
+        // anither comment
         public ActionResult Index()
         {
             return View();
