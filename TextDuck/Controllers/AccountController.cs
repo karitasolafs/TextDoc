@@ -61,12 +61,12 @@ namespace TextDuck.Controllers
             return View(model);
         }
 
-        private void AddBirthYear()
+        private void AddYear()
         {
-            List<SelectListItem> BirthYear = new List<SelectListItem>();
-            BirthYear.Add(new SelectListItem { Text = "1991", Value = "Year" });
-            BirthYear.Add(new SelectListItem { Text = "1990", Value = "Year2" });
-            ViewBag.BirthYear = BirthYear;
+            List<SelectListItem> Year = new List<SelectListItem>();
+            Year.Add(new SelectListItem { Text = "1991", Value = "Year" });
+            Year.Add(new SelectListItem { Text = "1990", Value = "Year2" });
+            ViewBag.Year = Year;
         }
 
 
