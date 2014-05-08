@@ -57,7 +57,7 @@ color:#e0993e;
 }
 
 #menu{
-    color: #1F1A17;
+    color:#1F1A17;
 }
 
 #navMain ul li a{
@@ -68,6 +68,27 @@ ul
 {
 	list-style:none;
 }
+
+a:link
+{
+	color: black;
+	text-decoration: none;
+	
+}
+
+a:visited
+{
+	color: black;
+    text-decoration: underline;
+}
+
+a:hover
+{
+	color: black;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 
 li
 {
