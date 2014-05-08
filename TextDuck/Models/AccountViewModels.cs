@@ -45,11 +45,11 @@ namespace TextDuck.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Slá verður inn nafn")]
         [Display(Name = "Nafn")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Slá verður inn netfang / Ekki rétt slegið inn")]
         [Display(Name = "Netfang")]
         public string Email { get; set; }
 
@@ -57,6 +57,7 @@ namespace TextDuck.Models
         [Display(Name = "Kyn")]
         public bool Gender { get; set; }
 
+        [Required(ErrorMessage = "Veldu fæðingarár")]
         [Display(Name = "Fæðingarár")]
         public int YearId { get; set; }
         public string BirthYear { get; set; }
@@ -74,7 +75,7 @@ namespace TextDuck.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Staðfesta lykilorð")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Ekki var samræmi milli lykilorða")]
         public string ConfirmPassword { get; set; }
     }
 }
