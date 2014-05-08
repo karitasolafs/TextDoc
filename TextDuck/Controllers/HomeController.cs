@@ -43,6 +43,7 @@ namespace TextDuck.Controllers
         private void AddGenre()
         {
             List<SelectListItem> Genre = new List<SelectListItem>();
+            Genre.Add(new SelectListItem{Text = "Veldu", Value = "Choose"});
             Genre.Add(new SelectListItem { Text = "Hasar", Value = "Action" });
             Genre.Add(new SelectListItem { Text = "Gaman", Value = "Comedy" });
             Genre.Add(new SelectListItem { Text = "Rómantík", Value = "Romance" });
