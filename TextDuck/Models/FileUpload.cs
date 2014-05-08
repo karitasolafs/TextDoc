@@ -14,7 +14,7 @@ namespace TextDuck.Models
         [Required(ErrorMessage = "Title is required.")]
         public string FileTitle { get; set; }
 
-        [ValidateFileAttribute(ErrorMessage = "Please select a PNG image smaller than 1MB")]
+        [ValidateFileAttribute(ErrorMessage = "Please select a .srt file")]
         public HttpPostedFileBase File { get; set; }
 
         public DateTime FileDate { get; set; }
