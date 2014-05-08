@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TextDuck.UF;
 
 namespace TextDuck.Models
 {
@@ -13,8 +14,8 @@ namespace TextDuck.Models
         [Required(ErrorMessage = "Title is required.")]
         public string FileTitle { get; set; }
 
-        [Required(ErrorMessage = "A file is required.")]
-        public string FileContent { get; set; }
+        [ValidateFileAttribute(ErrorMessage = "Please select a PNG image smaller than 1MB")]
+        public HttpPostedFileBase File { get; set; }
 
         public DateTime FileDate { get; set; }
 

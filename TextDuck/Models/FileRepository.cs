@@ -40,7 +40,6 @@ namespace TextDuck.Models
                 if (t != null)
                 {
                     t.FileTitle = s.FileTitle;
-                    t.FileContent = s.FileContent;
                     t.FileCategory = s.FileCategory;
                     t.FileGenre = s.FileGenre;
                     Db.SaveChanges();
