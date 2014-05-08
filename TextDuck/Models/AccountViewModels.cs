@@ -1,4 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using TextDuck.UF;
 
 namespace TextDuck.Models
 {
@@ -59,7 +64,6 @@ namespace TextDuck.Models
 
         [Required(ErrorMessage = "Veldu fæðingarár")]
         [Display(Name = "Fæðingarár")]
-        public int YearId { get; set; }
         public string BirthYear { get; set; }
 
 

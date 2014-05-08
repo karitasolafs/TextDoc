@@ -35,13 +35,13 @@
         </div>
     </div>
     
-    @*<div class="form-group">
+    <div class="form-group">
         <div class="col-md-10">
             <label for="Year">Fæðingarár: </label>
-            @Html.DropDownListFor(m => m.BirthYear, ViewBag.BirthYear as List<SelectListItem>)
+            @Html.DropDownListFor(m => m.BirthYear, ViewBag.Year as List<SelectListItem>)
         </div>
     </div>
-    *@
+    
     <div class="form-group">
         @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
