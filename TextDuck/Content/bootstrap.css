@@ -4192,6 +4192,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-brand {
+  
   float: left;
   padding: 15px 15px;
   font-size: 18px;
@@ -6813,4 +6814,9 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
+}
+.logo
+{
+    background-image: url("TextDuck.png");
+ 
 }
