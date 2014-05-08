@@ -23,21 +23,22 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.Label("female", "KVK")
+        @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+            @Html.Label("female", "KVK")
             @Html.RadioButtonFor(m => m.Gender, "false", new { @class = "female" })
         </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("male", "KK")
+    @*</div>
+    <div class="form-group">*@
         <div class="col-md-10">
+            @Html.Label("male", "KK")
             @Html.RadioButtonFor(m => m.Gender, "true", new { @class = "male" })
         </div>
     </div>
     
     <div class="form-group">
+        @Html.LabelFor(m => m.BirthYear, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <label for="Year">Fæðingarár: </label>
             @Html.DropDownListFor(model => model.BirthYear, ViewBag.Year as List<SelectListItem>)
             @Html.ValidationMessageFor(model => model.BirthYear)
         </div>
