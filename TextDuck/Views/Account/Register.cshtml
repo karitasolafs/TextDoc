@@ -38,7 +38,8 @@
     <div class="form-group">
         <div class="col-md-10">
             <label for="Year">Fæðingarár: </label>
-            @Html.DropDownListFor(m => m.BirthYear, ViewBag.Year as List<SelectListItem>)
+            @Html.DropDownListFor(model => model.BirthYear, ViewBag.Year as List<SelectListItem>)
+            @Html.ValidationMessageFor(model => model.BirthYear)
         </div>
     </div>
     

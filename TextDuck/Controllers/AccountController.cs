@@ -64,8 +64,11 @@ namespace TextDuck.Controllers
         private void AddYear()
         {
             List<SelectListItem> Year = new List<SelectListItem>();
-            Year.Add(new SelectListItem { Text = "1991", Value = "Year" });
-            Year.Add(new SelectListItem { Text = "1990", Value = "Year2" });
+            for (int i = 1900; i < 2000; i++)
+            {
+                Year.Add(new SelectListItem{ Text = i.ToString(), Value = i.ToString()});
+            }
+
             ViewBag.Year = Year;
         }
 
@@ -75,6 +78,7 @@ namespace TextDuck.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            AddYear();
             return View();
         }
 
@@ -96,6 +100,7 @@ namespace TextDuck.Controllers
                 }
                 else
                 {
+                    AddYear();
                     AddErrors(result);
                 }
             }

@@ -74,7 +74,7 @@ namespace TextDuck.Controllers
                 item.FileDate = DateTime.Now;
                 repo.AddFile(item);
                 repo.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
             else
             {
