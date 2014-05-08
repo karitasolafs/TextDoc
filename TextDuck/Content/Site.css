@@ -45,7 +45,7 @@ input[type="checkbox"].input-validation-error {
     margin: 25px 0 0 25px;
     background: #fa6705;
     font-family:Tahoma, Geneva, sans-serif;
-    font-color:#1F1A17;
+    color:#1F1A17;
     border:thin solid #e8ece9;
     width:200px;
     padding:14px 14px 0 0;
@@ -58,4 +58,10 @@ ul{
 }
 .form-horizontal {
     margin-left: 200px;
+}
+.uploadFile{
+    margin-left: 110px;
+}
+.uploadToLeft{
+    margin-left: 110px;
 }
