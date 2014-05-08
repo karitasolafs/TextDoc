@@ -40,3 +40,20 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+.MainMenu {
+    style: none;
+    font-size: medium;
+    margin: 25px 0 0 25px;
+    background: #fa6705;
+    font-family:Tahoma, Geneva, sans-serif;
+    font-color:#1F1A17;
+    border:thin solid #e8ece9;
+    width:200px;
+    padding:14px 14px 0 0;
+}
+#navMain ul li a:hover{
+color:#e0993e;
+}
+ul{
+    list-style: none;
+}
