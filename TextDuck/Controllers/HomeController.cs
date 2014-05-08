@@ -77,10 +77,12 @@ namespace TextDuck.Controllers
                 repo.Save();
                 return RedirectToAction("Index");
             }
-
-            AddCategories();
-            AddGenre();
-            return View(item); 
+            else
+            {
+                AddCategories();
+                AddGenre();
+                return View(item);
+            }
                 //View(item);
         }
     }

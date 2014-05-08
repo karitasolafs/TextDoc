@@ -1,6 +1,6 @@
 ﻿@model TextDuck.Models.FileUpload
 
-
+<div class="uploadFile">
 @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     
@@ -48,7 +48,7 @@
                 </div>
 </div>
 }
-
+    </div>
 <div>
     @Html.ActionLink("Back to basics", "Index")
 </div>

@@ -18,6 +18,10 @@ namespace TextDuck.UF
                 {
                     return false;
                 }
+                if (extension == null)
+                {
+                    return true;
+                }
                 if (extension == ".srt")
                 {
                     return true;
