@@ -57,6 +57,11 @@ namespace TextDuck.Models
         [Display(Name = "Kyn")]
         public bool Gender { get; set; }
 
+        [Display(Name = "Fæðingarár")]
+        public int YearId { get; set; }
+        public string BirthYear { get; set; }
+
+
         [Required]
         [Display(Name = "Notandanafn")]
         public string UserName { get; set; }
