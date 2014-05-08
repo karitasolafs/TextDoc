@@ -34,7 +34,7 @@ namespace TextDuck.Models
                 Db.SaveChanges();
             }
 
-            public void UpdateNews(FileUpload s)
+            public void UpdateFile(FileUpload s)
             {
                 FileUpload t = GetFilesById(s.FileId.Value);
                 if (t != null)
