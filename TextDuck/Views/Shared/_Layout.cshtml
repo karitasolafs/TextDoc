@@ -28,21 +28,20 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Heim", "Index", "Home")</li>
                     <li>@Html.ActionLink("Hjálp", "Hjalp", "Home")</li>
-                    <li>@Html.ActionLink("Hafa samband", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="MainMenu">
+    <span id="MainMenu">
         <ul>
             <h2>Valmynd</h2>
             <span id="menu"><li>@Html.ActionLink("Skjatextar", "Create", "Home")</li></span>
             <span id="menu"><li>@Html.ActionLink("I vinnslu", "Create", "Home")</li></span>
             <span id="menu"><li>@Html.ActionLink("Beidnir", "Create", "Home")</li></span>
-            <span id="menu"><li>@Html.ActionLink("Hafa samband", "Create", "Home")</li></span>
+            <span id="menu"><li>@Html.ActionLink("Hafa samband", "Contact", "Home")</li></span>
         </ul>
-    </div>
+    </span>
     <div class="container body-content">
         @RenderBody()
         <hr />

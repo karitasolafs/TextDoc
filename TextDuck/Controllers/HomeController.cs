@@ -35,6 +35,7 @@ namespace TextDuck.Controllers
         private void AddCategories()
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
+            Categories.Add(new SelectListItem { Text = "Veldu", Value = "Choose" });
             Categories.Add(new SelectListItem { Text = "Bíómynd", Value = "Movie" });
             Categories.Add(new SelectListItem { Text = "Þáttur", Value = "TvShow" });
             ViewBag.Categories = Categories;

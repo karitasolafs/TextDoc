@@ -6,8 +6,9 @@
 
 /* Set padding to keep content from hitting the edgess */
 .body-content {
-    padding-left: 15px;
+    padding-left: 200px;
     padding-right: 15px;
+    padding-top: 20px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -41,14 +42,15 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
-.MainMenu {
+#MainMenu {
     font-size: medium;
     background: #fa6705;
     font-family:Tahoma, Geneva, sans-serif;
     color:#1F1A17;
     border:thin solid #e8ece9;
+    float: left;
     width:200px;
-    padding:30px 14px 0 0;
+    padding:20px 20px 0 0;
 }
 #navMain ul li a:hover{
 color:#e0993e;
