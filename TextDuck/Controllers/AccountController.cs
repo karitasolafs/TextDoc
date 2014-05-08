@@ -15,6 +15,7 @@ namespace TextDuck.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        //hello world
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
