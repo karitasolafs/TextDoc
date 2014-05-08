@@ -34,8 +34,8 @@ namespace TextDuck.Controllers
         private void AddCategories()
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
-            Categories.Add(new SelectListItem { Text = "Biomynd", Value = "Movie" });
-            Categories.Add(new SelectListItem { Text = "Thattur", Value = "TvShow" });
+            Categories.Add(new SelectListItem { Text = "Bíómynd", Value = "Movie" });
+            Categories.Add(new SelectListItem { Text = "Þáttur", Value = "TvShow" });
             ViewBag.Categories = Categories;
         }
 
@@ -44,7 +44,7 @@ namespace TextDuck.Controllers
             List<SelectListItem> Genre = new List<SelectListItem>();
             Genre.Add(new SelectListItem { Text = "Hasar", Value = "Action" });
             Genre.Add(new SelectListItem { Text = "Gaman", Value = "Comedy" });
-            Genre.Add(new SelectListItem { Text = "Romantik", Value = "Romance" });
+            Genre.Add(new SelectListItem { Text = "Rómantík", Value = "Romance" });
             Genre.Add(new SelectListItem { Text = "Drama", Value = "Drama" });
             Genre.Add(new SelectListItem { Text = "Spennu", Value = "Thriller" });
             Genre.Add(new SelectListItem { Text = "Barna", Value = "Children" });
