@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    color: black;
 }
 
 /* Set padding to keep content from hitting the edgess */
@@ -42,20 +43,36 @@ input[type="checkbox"].input-validation-error {
 }
 .MainMenu {
     font-size: medium;
-    margin: 25px 0 0 25px;
     background: #fa6705;
     font-family:Tahoma, Geneva, sans-serif;
-    font-color:#1F1A17;
+    color:#1F1A17;
     border:thin solid #e8ece9;
     width:200px;
-    padding:14px 14px 0 0;
+    padding:30px 14px 0 0;
 }
 #navMain ul li a:hover{
 color:#e0993e;
 }
-ul{
-    list-style: none;
+
+#menu{
+    color: #1F1A17;
+}
+
+#navMain ul li a{
+color:#1F1A17;
+}
+
+ul
+{
+	list-style:none;
+}
+
+li
+{
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .form-horizontal {
     margin-left: 200px;
 }
+

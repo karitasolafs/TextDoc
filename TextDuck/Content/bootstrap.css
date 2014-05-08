@@ -136,7 +136,9 @@ sub {
 }
 
 img {
-  border: 0;
+  vertical-align: middle;
+  margin-left: -150px;
+  width: 100%;
 }
 
 svg:not(:root) {
