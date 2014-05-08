@@ -6815,8 +6815,8 @@ td.visible-print {
     display: none !important;
   }
 }
-.logo
+a.logo
 {
-    background-image: url("TextDuck.png");
+    background: url(/Users/torgsig/Desktop/Duck.png);
  
 }
