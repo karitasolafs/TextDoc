@@ -16,7 +16,6 @@ namespace TextDuck.Controllers
         {
             return View();
         }
-       //komment
         public ActionResult Hjalp()
         {
            // ViewBag.Message = "Your application description page.";
