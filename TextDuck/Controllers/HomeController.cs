@@ -31,6 +31,7 @@ namespace TextDuck.Controllers
             return View();
         }
 
+    
         private void AddCategories()
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
@@ -53,6 +54,7 @@ namespace TextDuck.Controllers
 
             ViewBag.Genre = Genre;
         }
+
 
 
         [HttpGet]
