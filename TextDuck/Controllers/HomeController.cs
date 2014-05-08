@@ -11,7 +11,7 @@ namespace TextDuck.Controllers
     public class HomeController : Controller
     {
          FileRepository repo = new FileRepository();
-        //blah með h-i
+        //blah með h-i og logo heyhey
         public ActionResult Index()
         {
             return View();
