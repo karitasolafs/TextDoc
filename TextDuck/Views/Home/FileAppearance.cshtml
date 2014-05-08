@@ -1,17 +1,9 @@
 ﻿@model TextDuck.Models.FileUpload
 
+
 @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-
-    <input type="file" name="FileUpload" /><br />
-    <input type="submit" name="Submit" id="Submit" value="Upload" />
-}
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-
+    
     <div class="form-horizontal">
         <h4>File Item</h4>
         <hr />
@@ -19,43 +11,43 @@
         @Html.HiddenFor(model => model.FileId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.FileTitle, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FileTitle)
-                @Html.ValidationMessageFor(model => model.FileTitle)
+                <label for="Upload">Velja skra: </label>
+                <input type="file" name="UploadFile" />
             </div>
-        </div>
+       </div>
+
+            <div class="form-group">
+  
+                <div class="col-md-10">
+                    <label for="Title">Nafn: </label>
+                    @Html.EditorFor(model => model.FileTitle)
+                    @Html.ValidationMessageFor(model => model.FileTitle)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <label for="Category">Flokkur: </label>
+                    @Html.DropDownListFor(model => model.FileCategory, ViewBag.Categories as List<SelectListItem>)
+                    @Html.ValidationMessageFor(model => model.FileCategory)
+                </div>
+            </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.FileContent, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.FileContent)
-                @Html.ValidationMessageFor(model => model.FileContent)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FileCategory, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.FileCategory, ViewBag.Categories as List<SelectListItem>)
-                @Html.ValidationMessageFor(model => model.FileCategory)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FileGenre, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+                <label for="Genre">Tegund: </label>
                 @Html.DropDownListFor(model => model.FileGenre, ViewBag.Genre as List<SelectListItem>)
                 @Html.ValidationMessageFor(model => model.FileGenre)
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Senda" class="btn btn-default" />
+                </div>
             </div>
         </div>
-    </div>
 }
 
 <div>
