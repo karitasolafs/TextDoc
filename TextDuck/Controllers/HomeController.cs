@@ -78,7 +78,7 @@ namespace TextDuck.Controllers
 
             AddCategories();
             AddGenre();
-            return RedirectToAction("Index"); 
+            return View(item); 
                 //View(item);
         }
     }
