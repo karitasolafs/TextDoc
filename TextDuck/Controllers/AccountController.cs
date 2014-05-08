@@ -15,7 +15,6 @@ namespace TextDuck.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        //hello world
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
@@ -61,6 +60,15 @@ namespace TextDuck.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        private void AddBirthYear()
+        {
+            List<SelectListItem> BirthYear = new List<SelectListItem>();
+            BirthYear.Add(new SelectListItem { Text = "1991", Value = "Year" });
+            BirthYear.Add(new SelectListItem { Text = "1990", Value = "Year2" });
+            ViewBag.BirthYear = BirthYear;
+        }
+
 
         //
         // GET: /Account/Register
