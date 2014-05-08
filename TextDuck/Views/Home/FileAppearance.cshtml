@@ -3,7 +3,8 @@
 <div class="uploadFile">
 @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    
+    <fieldset>
+        <legend>Senda inn nyja skra</legend>
         <div class="form-horizontal">
             <hr />
             @Html.ValidationSummary(true)
@@ -47,6 +48,7 @@
                     </div>
                 </div>
 </div>
+        </fieldset>
 }
     </div>
 

@@ -15,7 +15,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 400px;
 }
 
 /* styles for validation helpers */
@@ -96,24 +96,18 @@ li
 	padding-bottom: 5px;
 }
 .form-horizontal {
-    margin-left: 200px;
+    margin-left: 0px;
 }
 .valmyndFyrirsogn{
    margin-left: 40px;
 }
 fieldset {
-    margin-top: 50px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    border: solid 1px black;
+    border: 1px groove #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
 }
 legend {
-    border: solid 1px black;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    margin-right: 500px;
-
+    text-align: left;
+    font-weight: bold;
 }
 
