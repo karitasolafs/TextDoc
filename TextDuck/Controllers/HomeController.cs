@@ -16,8 +16,7 @@ namespace TextDuck.Controllers
         {
             return View();
         }
-        //hello world!
-        //juju mitt username nuna
+       
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
