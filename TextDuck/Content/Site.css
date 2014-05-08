@@ -101,19 +101,22 @@ li
 .valmyndFyrirsogn{
    margin-left: 40px;
 }
-fieldset {
-    margin-top: 50px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    border: solid 1px black;
-}
-legend {
-    border: solid 1px black;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    margin-right: 500px;
 
+fieldset {
+    font-family: sans-serif;
+    border: 5px solid  #1F1A17;
+    background: #ddd;
+}
+
+fieldset legend {
+    background: #fa6705;
+    color: #1F1A17;
+    padding: 5px 5px;
+    font-size: 32px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 5px #1F1A17;
+    margin-left: 20px;
+    margin-right: 100px;
+    display: inline-block;
 }
 
