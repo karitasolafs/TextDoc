@@ -5,14 +5,13 @@
 {
     
     <div class="form-horizontal">
-        <h4>File Item</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.FileId)
 
         <div class="form-group">
             <div class="col-md-10">
-                <label for="Upload">Velja skra: </label>
+                <label for="Upload">Velja skrá: </label>
                 <input type="file" name="UploadFile" />
             </div>
        </div>
