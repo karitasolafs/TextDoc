@@ -18,9 +18,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="/home">
-                    <img src='@Url.Content("TextDuck.png")' />
-                </a>
+                @Html.ActionLink("TextDuck", "Index", "Home", null, null, null, null, new { @class = "logo" })
 
 
             </div>
