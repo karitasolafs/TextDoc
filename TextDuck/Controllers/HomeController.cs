@@ -11,7 +11,7 @@ namespace TextDuck.Controllers
     public class HomeController : Controller
     {
          FileRepository repo = new FileRepository();
-
+        //blah með h-i
         public ActionResult Index()
         {
             return View();
@@ -77,7 +77,9 @@ namespace TextDuck.Controllers
             }
 
             AddCategories();
-            return View(item);
+            AddGenre();
+            return RedirectToAction("Index"); 
+                //View(item);
         }
     }
 }
