@@ -48,6 +48,7 @@ namespace TextDuck.Models
 
             public void AddFile(srtFiles entityObj)
             {
+                Db.SaveChanges();
                 
                // throw new NotImplementedException();
             }
