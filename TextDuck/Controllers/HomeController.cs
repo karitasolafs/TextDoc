@@ -11,6 +11,7 @@ namespace TextDuck.Controllers
     public class HomeController : Controller
     {
          FileRepository repo = new FileRepository();
+         
      
         public ActionResult Index()
         {
@@ -71,7 +72,12 @@ namespace TextDuck.Controllers
         [HttpGet]
         public ActionResult IVinnslu()
         {
-            return 0;
+            IQueryable<srtFiles> statusinn = (from item in repo.GetAllFiles()
+                                              orderby item.Status
+                                              where item.Title != null
+                                              select item).Take(10);
+            return View(statusinn);
+          
         }
 
         [HttpGet]

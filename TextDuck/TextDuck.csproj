@@ -173,7 +173,6 @@
     <Compile Include="Models\CommentRepository.cs" />
     <Compile Include="Models\Entities\File.cs" />
     <Compile Include="Models\Entities\srtFiles.cs" />
-    <Compile Include="Models\Entities\StatusRepository.cs" />
     <Compile Include="Models\FileRepository.cs" />
     <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\IdentityModels.cs" />
