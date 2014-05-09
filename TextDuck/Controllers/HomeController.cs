@@ -68,6 +68,11 @@ namespace TextDuck.Controllers
             Status.Add(new SelectListItem { Text = "Lokið", Value = "Finished" });
             ViewBag.Status = Status;
         }
+        [HttpGet]
+        public ActionResult IVinnslu()
+        {
+            return 0;
+        }
 
         [HttpGet]
         public ActionResult Create()
