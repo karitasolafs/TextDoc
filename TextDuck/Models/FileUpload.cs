@@ -30,7 +30,7 @@ namespace TextDuck.Models
         public string FileGenre { get; set; }
 
         [Required(ErrorMessage = "Status is required.")]
-        [Display(Name = "Astand")]
+        [Display(Name = "Ástand")]
         public string FileStatus { get; set; }
     }
 }
