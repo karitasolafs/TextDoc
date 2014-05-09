@@ -164,11 +164,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CommentItem.cs" />
+    <Compile Include="Models\CommentRepository.cs" />
     <Compile Include="Models\FileRepository.cs" />
     <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="UF\CommentContext.cs" />
+    <Compile Include="UF\CommentInitializer.cs" />
     <Compile Include="UF\UploadContext.cs" />
     <Compile Include="UF\ValidateFileAttribute.cs" />
   </ItemGroup>
@@ -220,6 +224,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\FileAppearance.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\CommentView.cshtml" />
+    <Content Include="Views\Home\CreateComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
