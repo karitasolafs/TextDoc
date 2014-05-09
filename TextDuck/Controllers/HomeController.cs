@@ -98,7 +98,7 @@ namespace TextDuck.Controllers
                 AddCategories();
                 AddGenre();
                 return View(item);
-            }
+           }
                 //View(item);
         }
     }
