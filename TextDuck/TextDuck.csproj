@@ -232,6 +232,7 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\CommentView.cshtml" />
     <Content Include="Views\Home\CreateComment.cshtml" />
+    <Content Include="Views\Home\Subtitles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
