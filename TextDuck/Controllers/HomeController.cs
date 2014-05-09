@@ -22,6 +22,10 @@ namespace TextDuck.Controllers
 
             return View();
         }
+        public ActionResult Subtitles()
+        {
+            return View();
+        }
 
         public ActionResult Contact()
         {
@@ -63,6 +67,11 @@ namespace TextDuck.Controllers
             Status.Add(new SelectListItem { Text = "Í vinnslu", Value = "Process" });
             Status.Add(new SelectListItem { Text = "Lokið", Value = "Finished" });
             ViewBag.Status = Status;
+        }
+        [HttpGet]
+        public ActionResult IVinnslu()
+        {
+            return 0;
         }
 
         [HttpGet]

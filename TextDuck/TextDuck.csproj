@@ -173,10 +173,10 @@
     <Compile Include="Models\CommentRepository.cs" />
     <Compile Include="Models\Entities\File.cs" />
     <Compile Include="Models\Entities\srtFiles.cs" />
+    <Compile Include="Models\Entities\StatusRepository.cs" />
     <Compile Include="Models\FileRepository.cs" />
     <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\StatusRepository.cs" />
     <Compile Include="Models\Upvote.cs" />
     <Compile Include="Models\UpvoteRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -233,8 +233,8 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\CommentView.cshtml" />
     <Content Include="Views\Home\CreateComment.cshtml" />
-    <Content Include="Views\Home\FileStatusView.cshtml" />
-    <Content Include="Views\Home\CreateFileStatusList.cshtml" />
+    <Content Include="Views\Home\FileListView.cshtml" />
+    <Content Include="Views\Home\Subtitles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

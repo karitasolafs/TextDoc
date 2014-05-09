@@ -16,6 +16,14 @@ namespace TextDuck.Models
                 return Db.Files;
             }
 
+            public IQueryable<srtFiles> GetStatus()
+            {
+                var Status = (from k in Db.Files
+                              where k.Status != null
+                              select k).Take(10);
+                return Status;
+            }
+
             public srtFiles GetFilesById(int id)
             {
                 var result = (from s in Db.Files
@@ -47,13 +55,7 @@ namespace TextDuck.Models
                 }
             }
 
-            //public void AddFile(srtFiles entityObj)
-            //{
-            //  //  Db.File2.Add(entityObj);
-            //    Db.SaveChanges();
-                
-            //   // throw new NotImplementedException();
-            //}
+          
     }
      
 }
