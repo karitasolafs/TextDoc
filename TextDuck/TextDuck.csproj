@@ -176,6 +176,7 @@
     <Compile Include="Models\FileRepository.cs" />
     <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\StatusRepository.cs" />
     <Compile Include="Models\Upvote.cs" />
     <Compile Include="Models\UpvoteRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -232,7 +233,7 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\CommentView.cshtml" />
     <Content Include="Views\Home\CreateComment.cshtml" />
-    <Content Include="Views\Home\Subtitles.cshtml" />
+    <Content Include="Views\Home\FileListView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
