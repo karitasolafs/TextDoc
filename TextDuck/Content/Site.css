@@ -56,10 +56,6 @@ input[type="checkbox"].input-validation-error {
 color:#e0993e;
 }
 
-#menu{
-    color:#1F1A17;
-}
-
 #navMain ul li a{
 color:#1F1A17;
 }
@@ -69,20 +65,20 @@ ul
 	list-style:none;
 }
 
-a:link
+#MainMenu li a:link
 {
 	color: black;
 	text-decoration: none;
 	
 }
 
-a:visited
+#MainMenu li a:visited
 {
 	color: black;
     text-decoration: underline;
 }
 
-a:hover
+#MainMenu li a:hover
 {
 	color: black;
     text-decoration: underline;
