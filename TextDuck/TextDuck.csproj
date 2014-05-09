@@ -233,7 +233,8 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\CommentView.cshtml" />
     <Content Include="Views\Home\CreateComment.cshtml" />
-    <Content Include="Views\Home\FileListView.cshtml" />
+    <Content Include="Views\Home\FileStatusView.cshtml" />
+    <Content Include="Views\Home\CreateFileStatusList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
