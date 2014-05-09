@@ -46,9 +46,10 @@ namespace TextDuck.Models
                 }
             }
 
-            internal void AddFile(srtFiles entityObj)
+            public void AddFile(srtFiles entityObj)
             {
-                throw new NotImplementedException();
+                
+               // throw new NotImplementedException();
             }
     }
      

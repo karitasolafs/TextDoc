@@ -98,7 +98,7 @@ namespace TextDuck.Controllers
                 item.FileDate = DateTime.Now;
                 repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("Create");
+                return RedirectToAction("Index");
             }
             else
             {
