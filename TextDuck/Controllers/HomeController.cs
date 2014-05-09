@@ -55,13 +55,22 @@ namespace TextDuck.Controllers
             ViewBag.Genre = Genre;
         }
 
-
+        private void AddStatus()
+        {
+            List<SelectListItem> Status = new List<SelectListItem>();
+            Status.Add(new SelectListItem { Text = "Veldu", Value = "Choose" });
+            Status.Add(new SelectListItem { Text = "Beiðni", Value = "Request" });
+            Status.Add(new SelectListItem { Text = "Í vinnslu", Value = "Process" });
+            Status.Add(new SelectListItem { Text = "Lokið", Value = "Finished" });
+            ViewBag.Status = Status;
+        }
 
         [HttpGet]
         public ActionResult Create()
         {
             AddCategories();
             AddGenre();
+            AddStatus();
             return View(new FileUpload());
         }
 
@@ -96,7 +105,7 @@ namespace TextDuck.Controllers
                 AddCategories();
                 AddGenre();
                 return View(item);
-            }
+           }
                 //View(item);
         }
     }
