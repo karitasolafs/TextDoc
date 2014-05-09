@@ -107,5 +107,6 @@ legend {
     font-weight: bold;
 }
 .borderUppi {
-    border-top: 5px solid black;
+    margin: 10px;
+    border-bottom: 10px groove grey;
 }

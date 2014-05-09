@@ -13,6 +13,7 @@ namespace TextDuck.Controllers
          FileRepository repo = new FileRepository();
         //blah með h-i og logo heyhey
         //blah blah comment
+        //gaman gaman
         public ActionResult Index()
         {
             return View();
@@ -30,7 +31,6 @@ namespace TextDuck.Controllers
 
             return View();
         }
-
     
         private void AddCategories()
         {
