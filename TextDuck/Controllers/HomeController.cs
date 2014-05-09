@@ -29,7 +29,6 @@ namespace TextDuck.Controllers
 
             return View();
         }
-
     
         private void AddCategories()
         {
