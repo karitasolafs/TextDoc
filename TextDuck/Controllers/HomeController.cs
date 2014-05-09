@@ -78,14 +78,18 @@ namespace TextDuck.Controllers
 
                 System.Diagnostics.Debug.Write(result);
 
-                var entityObj = new Smuuuu
+                var entityObj = new srtFiles
                 {
                     Title = item.FileTitle,
-                    Contents = result
+                    Content = result,
+                    Date = item.FileDate,
+                    Category = item.FileCategory,
+                    Genre = item.FileGenre,
+                    Status = item.FileStatus
                 };
 
                 item.FileDate = DateTime.Now;
-                repo.AddFile(item);
+                repo.AddFile(entityObj);
                 repo.Save();
                 return RedirectToAction("Create");
             }
