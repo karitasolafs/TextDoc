@@ -72,8 +72,24 @@ namespace TextDuck.Controllers
         {
             if (ModelState.IsValid)
             {
+                var b = new System.IO.BinaryReader(item.File.InputStream);
+                byte[] binData = b.ReadBytes((int)item.File.InputStream.Length);
+                string result = System.Text.Encoding.UTF8.GetString(binData);
+
+                System.Diagnostics.Debug.Write(result);
+
+                var entityObj = new srtFiles
+                {
+                    Title = item.FileTitle,
+                    Content = result,
+                    Date = item.FileDate,
+                    Category = item.FileCategory,
+                    Genre = item.FileGenre,
+                    Status = item.FileStatus
+                };
+
                 item.FileDate = DateTime.Now;
-                repo.AddFile(item);
+                repo.AddFile(entityObj);
                 repo.Save();
                 return RedirectToAction("Create");
             }

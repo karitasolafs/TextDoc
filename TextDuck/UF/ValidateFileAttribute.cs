@@ -13,14 +13,14 @@ namespace TextDuck.UF
         {
             public bool Validation(HttpPostedFile value)
             {
-                string extension = Path.GetExtension(value.FileName);
                 if (value == null)
                 {
                     return false;
                 }
+                string extension = Path.GetExtension(value.FileName);
                 if (extension == null)
                 {
-                    return true;
+                    return false;
                 }
                 if (extension == ".srt")
                 {

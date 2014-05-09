@@ -28,5 +28,9 @@ namespace TextDuck.Models
         [Required(ErrorMessage = "Genre is required.")]
         [Display(Name = "Tegund ")]
         public string FileGenre { get; set; }
+
+        [Required(ErrorMessage = "Status is required.")]
+        [Display(Name = "Astand")]
+        public string FileStatus { get; set; }
     }
 }

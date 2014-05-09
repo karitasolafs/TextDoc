@@ -3,7 +3,6 @@
 <div class="uploadFile">
 @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
- 
         <div class="form-horizontal">
             <hr />
             @Html.ValidationSummary(true)
@@ -12,7 +11,7 @@
                 <div class="form-group">
                         @Html.LabelFor(model => model.File, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.File, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.File, new { type = "file" })
                         @Html.ValidationMessageFor(model => model.File)
                     </div>
                 </div>
@@ -47,7 +46,6 @@
                     </div>
                 </div>
 </div>
-     
 }
     </div>
 
