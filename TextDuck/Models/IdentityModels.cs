@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using TextDuck.Models.Entities;
 
 namespace TextDuck.Models
 {
@@ -12,6 +15,16 @@ namespace TextDuck.Models
         public ApplicationDbContext()
             : base("AppDataContext")
         {
+        }
+
+        public DbSet<CommentItem> Comments { get; set; }
+        public DbSet<srtFiles> Files { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

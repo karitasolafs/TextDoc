@@ -8,16 +8,16 @@ namespace TextDuck.Models
 {
     public class CommentRepository
     {
-         CommentContext m_db = new CommentContext();
+         ApplicationDbContext m_db = new ApplicationDbContext();
 
         public IQueryable<CommentItem> GetAllNews()
         {
-            return m_db.Comment;
+            return m_db.Comments;
         }
 
         public CommentItem GetNewsById(int id)
         {
-            var result = (from s in m_db.Comment
+            var result = (from s in m_db.Comments
                           where s.Id == id
                           select s).SingleOrDefault();
             return result;
@@ -25,7 +25,7 @@ namespace TextDuck.Models
 
         public void AddComment(CommentItem s)
         {
-            m_db.Comment.Add(s);
+            m_db.Comments.Add(s);
             m_db.SaveChanges();
         }
 
