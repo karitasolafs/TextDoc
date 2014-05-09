@@ -89,13 +89,12 @@ namespace TextDuck.Controllers
                 {
                     Title = item.FileTitle,
                     Content = result,
-                    Date = item.FileDate,
+                    Date = DateTime.Now,
                     Category = item.FileCategory,
                     Genre = item.FileGenre,
                     Status = item.FileStatus
                 };
 
-                item.FileDate = DateTime.Now;
                 repo.AddFile(entityObj);
                 repo.Save();
                 return RedirectToAction("Index");
