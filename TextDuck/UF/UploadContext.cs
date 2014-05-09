@@ -17,6 +17,7 @@ namespace TextDuck.UF
         }
 
         public DbSet<FileUpload> File { get; set; }
+       // public DbSet<srtFiles> File2 { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
