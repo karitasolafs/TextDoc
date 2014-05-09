@@ -64,7 +64,7 @@ namespace TextDuck.Controllers
         private void AddYear()
         {
             List<SelectListItem> Year = new List<SelectListItem>();
-            for (int i = 2000; i >= 1900; i--)
+            for (int i = 1999; i >= 1900; i--)
             {
                 Year.Add(new SelectListItem{ Text = i.ToString(), Value = i.ToString()});
             }
