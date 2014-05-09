@@ -72,6 +72,18 @@ namespace TextDuck.Controllers
         {
             if (ModelState.IsValid)
             {
+                var b = new System.IO.BinaryReader(item.File.InputStream);
+                byte[] binData = b.ReadBytes((int)item.File.InputStream.Length);
+                string result = System.Text.Encoding.UTF8.GetString(binData);
+
+                System.Diagnostics.Debug.Write(result);
+
+                var entityObj = new Smuuuu
+                {
+                    Title = item.FileTitle,
+                    Contents = result
+                };
+
                 item.FileDate = DateTime.Now;
                 repo.AddFile(item);
                 repo.Save();
