@@ -21,15 +21,17 @@
                 <a href="/home">
                     <img src='@Url.Content("http://i.imgur.com/bIT1VnI.png?1?8795")' />
                 </a>
-
-
+              
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Heim", "Index", "Home")</li>
                     <li>@Html.ActionLink("Hjálp", "Hjalp", "Home")</li>
+                    <li>@Html.ActionLink("Íslenska", "Index", "Home")</li>
+                    <li>@Html.ActionLink("English", "Index", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+ 
+                    @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
@@ -43,6 +45,7 @@
             <li>@Html.ActionLink("Athugasemdir", "CreateComment", "Home")</li>
         </ul>
     </span>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
