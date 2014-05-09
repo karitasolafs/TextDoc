@@ -11,9 +11,7 @@ namespace TextDuck.Controllers
     public class HomeController : Controller
     {
          FileRepository repo = new FileRepository();
-        //blah með h-i og logo heyhey
-        //blah blah comment
-        //gaman gaman
+     
         public ActionResult Index()
         {
             return View();
@@ -70,7 +68,7 @@ namespace TextDuck.Controllers
         [HttpPost]
         public ActionResult Create(FileUpload item)
         {
-            if (ModelState.IsValid)
+          if (ModelState.IsValid)
             {
                 var b = new System.IO.BinaryReader(item.File.InputStream);
                 byte[] binData = b.ReadBytes((int)item.File.InputStream.Length);
