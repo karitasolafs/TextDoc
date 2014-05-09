@@ -3,5 +3,15 @@
 @{
     ViewBag.Title = "Skjátextar";
 }
-<h2>Flokkar</h2>
-<h2>Tegund</h2>
+<h2>Skjátextar</h2>
+<h3>Flokkar</h3>
+<div class="form-group">
+    @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.Label("female", "KVK")
+        @Html.RadioButtonFor(m => m.Gender, "false", new { @class = "female" })
+        @Html.Label("male", "KK")
+        @Html.RadioButtonFor(m => m.Gender, "true", new { @class = "male" })
+    </div>
+</div>
+<h3>Tegund</h3>
