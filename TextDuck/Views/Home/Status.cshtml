@@ -1,0 +1,20 @@
+﻿@model IQueryable<TextDuck.Models.srtFiles>
+
+<link href="/Content/Table.css" rel="stylesheet" />
+
+@foreach (var item in Model)
+{
+      <div class="jumbotron">
+        <p class="Date">
+            @Html.DisplayFor(modelItem => item.Status)
+            <span class="glyphicon glyphicon-time"></span>
+        </p>
+        <h2 class="Title">@Html.ActionLink(item.Status, "Status")</h2>
+        <p class="Text">@Html.DisplayFor(modelItem => item.Status)</p>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
