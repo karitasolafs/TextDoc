@@ -6,11 +6,11 @@
 {
       <div class="jumbotron">
         <p class="Date">
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.DisplayFor(modelItem => item.Date)
             <span class="glyphicon glyphicon-time"></span>
         </p>
         <h2 class="Title">@Html.ActionLink(item.Status, "Status")</h2>
-        <p class="Text">@Html.DisplayFor(modelItem => item.Status)</p>
+        <p class="Text">@Html.DisplayFor(modelItem => item.Title)</p>
     </div>
 
 }
