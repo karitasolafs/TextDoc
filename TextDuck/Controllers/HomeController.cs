@@ -80,8 +80,8 @@ namespace TextDuck.Controllers
     
         public ActionResult Status()
         {
-            IQueryable<srtFiles> statusinn = (from item in repo.GetStatus()
-
+            IQueryable<srtFiles> statusinn = (from item in repo.GetAllFiles()
+                                              orderby item.Category
                                               select item).Take(10);
             return View(statusinn);
           
