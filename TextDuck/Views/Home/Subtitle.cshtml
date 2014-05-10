@@ -9,11 +9,13 @@
             @Html.DisplayFor(modelItem => item.Date)
             <span class="glyphicon glyphicon-time"></span>
         </p>
-        <h2 class="Status">@Html.ActionLink(item.Title, "Subtitle")</h2>
-        <p class="Title">@Html.DisplayFor(modelItem => item.Status)</p>
-        <p class="Language">@Html.DisplayFor(modelItem => item.Language)</p>
-        <p class="Genre">@Html.DisplayFor(modelItem => item.Genre)</p>
-        <p class="Category">@Html.DisplayFor(modelItem => item.Category)</p>
+        <p>
+            <div class="Title"> @Html.ActionLink(item.Title, "Subtitle")</div>
+            @Html.DisplayFor(modelItem => item.Status)&nbsp;
+            @Html.DisplayFor(modelItem => item.Language)&nbsp;
+            @Html.DisplayFor(modelItem => item.Genre)&nbsp;
+            @Html.DisplayFor(modelItem => item.Category)
+         </p>
     </div>
 
 }

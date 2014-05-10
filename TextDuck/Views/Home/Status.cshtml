@@ -10,8 +10,8 @@
             <span class="glyphicon glyphicon-time"></span>
         </p>
         <h2 class="Status">@Html.ActionLink(item.Title, "Status")</h2>
-        <p class="Title">@Html.DisplayFor(modelItem => item.Status)</p>
-          <p class="Language">@Html.DisplayFor(modelItem => item.Language)</p>
+        @Html.DisplayFor(modelItem => item.Status) &nbsp;
+        @Html.DisplayFor(modelItem => item.Language) &nbsp;
     </div>
 
 }
