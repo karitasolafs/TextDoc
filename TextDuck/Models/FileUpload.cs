@@ -32,5 +32,11 @@ namespace TextDuck.Models
         [Required(ErrorMessage = "Status is required.")]
         [Display(Name = "Ástand")]
         public string FileStatus { get; set; }
+
+        [Required(ErrorMessage = "Language is required.")]
+        [Display(Name = "Tungumál")]
+        public string FileLanguage { get; set; }
+
+       
     }
 }

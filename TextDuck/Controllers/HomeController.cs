@@ -34,7 +34,15 @@ namespace TextDuck.Controllers
 
             return View();
         }
-    
+
+        private void AddLanguages()
+        {
+            List<SelectListItem> Language = new List<SelectListItem>();
+            Language.Add(new SelectListItem { Text = "Veldu", Value = "Choose" });
+            Language.Add(new SelectListItem { Text = "Enska", Value = "English" });
+            Language.Add(new SelectListItem { Text = "Íslenska", Value = "Icelandic" });
+            ViewBag.Language = Language;
+        }
         private void AddCategories()
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
@@ -69,21 +77,18 @@ namespace TextDuck.Controllers
             Status.Add(new SelectListItem { Text = "Lokið", Value = "Finished" });
             ViewBag.Status = Status;
         }
-        [HttpGet]
-        public ActionResult IVinnslu()
+        public ActionResult FileStatus()
         {
-            IQueryable<srtFiles> statusinn = (from item in repo.GetAllFiles()
-                                              orderby item.Status
-                                              where item.Title != null
+            IQueryable<srtFiles> statusinn = (from item in repo.GetStatus()
                                               select item).Take(10);
             return View(statusinn);
-            //þetta er faliðð
           
         }
 
         [HttpGet]
         public ActionResult Create()
         {
+            AddLanguages();
             AddCategories();
             AddGenre();
             AddStatus();
@@ -108,7 +113,9 @@ namespace TextDuck.Controllers
                     Date = DateTime.Now,
                     Category = item.FileCategory,
                     Genre = item.FileGenre,
-                    Status = item.FileStatus
+                    Status = item.FileStatus,
+                    Language = item.FileLanguage
+
                 };
 
                 repo.AddFile(entityObj);
@@ -117,6 +124,7 @@ namespace TextDuck.Controllers
             }
             else
             {
+                AddLanguages();
                 AddCategories();
                 AddGenre();
                 return View(item);
