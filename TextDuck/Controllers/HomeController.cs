@@ -82,7 +82,8 @@ namespace TextDuck.Controllers
         public ActionResult Status()
         {
             IQueryable<srtFiles> statusinn = (from item in repo.GetAllFiles()
-                                              orderby item.Category
+                                              orderby item.Date
+                                              where item.Status == "Process"
                                               select item).Take(10);
             return View(statusinn);
           

@@ -9,8 +9,9 @@
             @Html.DisplayFor(modelItem => item.Date)
             <span class="glyphicon glyphicon-time"></span>
         </p>
-        <h2 class="Title">@Html.ActionLink(item.Status, "Status")</h2>
-        <p class="Text">@Html.DisplayFor(modelItem => item.Title)</p>
+        <h2 class="Status">@Html.ActionLink(item.Status, "Status")</h2>
+        <p class="Title">@Html.DisplayFor(modelItem => item.Title)</p>
+          <p class="Language">@Html.DisplayFor(modelItem => item.Language)</p>
     </div>
 
 }
