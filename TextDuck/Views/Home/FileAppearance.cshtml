@@ -25,6 +25,14 @@
                 </div>
 
                 <div class="form-group">
+                    @Html.LabelFor(model => model.FileLanguage, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.FileLanguage, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.FileLanguage)
+                    </div>
+                </div>
+
+                <div class="form-group">
                         @Html.LabelFor(model => model.FileCategory, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
                         @Html.DropDownListFor(model => model.FileCategory, ViewBag.Categories as List<SelectListItem>)
