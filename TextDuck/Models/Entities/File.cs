@@ -10,6 +10,7 @@ namespace TextDuck.Models.Entities
         public int FileId { get; set; }
         public string FileTitle { get; set; }
         public string FileContent { get; set; }
+        public string FileLanguage { get; set; }
 
         public DateTime FileDate { get; set; }
         public string FileCategory { get; set; }
