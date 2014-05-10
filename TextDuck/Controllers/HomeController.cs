@@ -77,7 +77,7 @@ namespace TextDuck.Controllers
                                               where item.Title != null
                                               select item).Take(10);
             return View(statusinn);
-            //þetta er falið
+            //þetta er faliðð
           
         }
 
