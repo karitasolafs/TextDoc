@@ -176,6 +176,7 @@
     <Compile Include="Models\Entities\StatusRepository.cs" />
     <Compile Include="Models\FileRepository.cs" />
     <Compile Include="Models\FileUpload.cs" />
+    <Compile Include="Models\HomeViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Upvote.cs" />
     <Compile Include="Models\UpvoteRepository.cs" />
