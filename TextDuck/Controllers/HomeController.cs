@@ -10,7 +10,6 @@ namespace TextDuck.Controllers
 {
     public class HomeController : Controller
     {
-        //dont know whats happening 
         FileRepository repo = new FileRepository();
          
      
