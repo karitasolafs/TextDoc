@@ -238,6 +238,7 @@
     <Content Include="Views\Home\EpissodeChosen.cshtml" />
     <Content Include="Views\Home\Status.cshtml" />
     <Content Include="Views\Home\Subtitle.cshtml" />
+    <Content Include="Views\Home\TextBoxSrt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

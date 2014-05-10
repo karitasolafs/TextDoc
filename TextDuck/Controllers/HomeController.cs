@@ -100,6 +100,44 @@ namespace TextDuck.Controllers
                                               select item).Take(10);
             return View(statusinn);
         }
+        [HttpGet]
+        public ActionResult TextBoxSrt(int? Id)
+        {
+
+            if (Id != null)
+            {
+               FileRepository repository = new FileRepository();
+               srtFiles srt = repository.GetFilesById(Id.Value);
+
+                if (srt != null)
+                {
+                    return View(srt);
+
+                }
+                else
+                {
+                    return View("NotFound");
+                }
+            }
+            else
+            {
+                return View("NotFound");
+            }
+ 
+        }
+        [HttpPost]
+        public ActionResult TextBoxSrt(int Id, FormCollection formData)
+        {
+            FileRepository repository = new FileRepository();
+            srtFiles s = repository.GetFilesById(Id);
+            if (s != null)
+            {
+                UpdateModel(s);
+                repository.UpdateFile(s);
+                return RedirectToAction("Index");
+            }
+            else { return View("NotFound"); }
+        }
      
         [HttpGet]
         public ActionResult Create()
@@ -146,6 +184,8 @@ namespace TextDuck.Controllers
                 return View(item);
            }
                 //View(item);
+           
         }
+  
     }
 }
