@@ -1,11 +1,33 @@
-﻿@model IQueryable<TextDuck.Models.Entities.File>
-@{
-    ViewBag.Title = "FileStatusView";
-}
-@model TextDuck.Models.srtFiles
+﻿@model TextDuck.Models.FileUpload
 
-<h2>FileStatusView</h2>
+<div class="uploadFile">
+    @using (Html.BeginForm("CreateStatusList", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
 
-@{
-    Html.RenderPartial("FileStatusView");
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Id)
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Title)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Status, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Status)
+                </div>
+            </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
