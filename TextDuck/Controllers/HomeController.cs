@@ -8,7 +8,6 @@ using TextDuck.UF;
 
 namespace TextDuck.Controllers
 {
-    //gaman
     public class HomeController : Controller
     {
         FileRepository repo = new FileRepository();
@@ -25,6 +24,11 @@ namespace TextDuck.Controllers
             return View();
         }
         public ActionResult Subtitles()
+        {
+            return View();
+        }
+
+        public ActionResult Requests()
         {
             return View();
         }
