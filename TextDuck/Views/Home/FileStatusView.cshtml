@@ -1,11 +1,9 @@
-﻿@model IQueryable<TextDuck.Models.srtFiles>
+﻿@model IQueryable<TextDuck.Models.Entities.File>
 @{
     ViewBag.Title = "FileStatusView";
 }
-@model TextDuck.Models.srtFiles
+</div>
 
-<h2>FileStatusView</h2>
-
-@{
-    Html.RenderPartial("FileStatusView");
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
