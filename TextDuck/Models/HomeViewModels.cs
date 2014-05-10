@@ -10,7 +10,7 @@ namespace TextDuck.Models
     {
         [Required]
         [Display(Name = "Flokkur")]
-        public string Category { get; set; }
+        public bool Category { get; set; }
 
         [Display(Name = "Tegund")]
         public bool Type { get; set; }

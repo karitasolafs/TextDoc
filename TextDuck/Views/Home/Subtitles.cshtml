@@ -10,9 +10,9 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Category, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(m => m.Category, "false", new { @class = "movie" })
+            @Html.CheckBoxFor(m => m.Category, new { @unchecked = "movie" })
             @Html.Label("movie", "Kvikmynd")
-            @Html.RadioButtonFor(m => m.Category, "true", new { @class = "show" })
+            @Html.CheckBoxFor(m => m.Category, new { @unchecked = "show" })
             @Html.Label("show", "Sjónvarpsþáttur")
         </div>
     </div>
