@@ -235,7 +235,6 @@
     <Content Include="Views\Home\CommentView.cshtml" />
     <Content Include="Views\Home\CreateComment.cshtml" />
     <Content Include="Views\Home\Subtitles.cshtml" />
-    <Content Include="Views\Home\EpissodeChosen.cshtml" />
     <Content Include="Views\Home\Status.cshtml" />
   </ItemGroup>
   <ItemGroup>
