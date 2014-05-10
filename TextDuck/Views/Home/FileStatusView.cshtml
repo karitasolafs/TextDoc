@@ -1,0 +1,12 @@
+﻿<h2>FileStatusView</h2>
+
+@foreach (var item in Model)
+{
+    <div class="well">
+        <div class="text-right file-date">@item.Date <span class="glyphicon glyphicon-time"></span></div>
+        <div>@item.Text</div>
+        <div class="text-right file-title">@item.FileTitle</div>
+        <div class="text-right file-status">@item.Status</div>>
+        
+    </div>
+}
