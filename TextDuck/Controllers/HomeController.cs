@@ -34,7 +34,15 @@ namespace TextDuck.Controllers
 
             return View();
         }
-    
+
+        private void AddLanguages()
+        {
+            List<SelectListItem> Language = new List<SelectListItem>();
+            Language.Add(new SelectListItem { Text = "Veldu", Value = "Choose" });
+            Language.Add(new SelectListItem { Text = "Enska", Value = "English" });
+            Language.Add(new SelectListItem { Text = "Íslenska", Value = "Icelandic" });
+            ViewBag.Language = Language;
+        }
         private void AddCategories()
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
@@ -80,6 +88,7 @@ namespace TextDuck.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            AddLanguages();
             AddCategories();
             AddGenre();
             AddStatus();
@@ -115,6 +124,7 @@ namespace TextDuck.Controllers
             }
             else
             {
+                AddLanguages();
                 AddCategories();
                 AddGenre();
                 return View(item);
