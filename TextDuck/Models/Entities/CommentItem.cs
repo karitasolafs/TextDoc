@@ -16,9 +16,5 @@ namespace TextDuck.Models
         [Required(ErrorMessage = "Text is required.")]
         public string Text { get; set; }
         public DateTime DateCreated { get; set; }
-
-        public FileStatus FileStatus { get; set; }
-
-        public Status Status { get; set; }
     }
 }
