@@ -78,9 +78,11 @@ namespace TextDuck.Controllers
             Status.Add(new SelectListItem { Text = "Lokið", Value = "Finished" });
             ViewBag.Status = Status;
         }
-        public ActionResult FileStatus()
+    
+        public ActionResult Status()
         {
             IQueryable<srtFiles> statusinn = (from item in repo.GetStatus()
+
                                               select item).Take(10);
             return View(statusinn);
           
