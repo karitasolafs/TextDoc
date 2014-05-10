@@ -1,4 +1,4 @@
-﻿@model TextDuck.Models.FileUpload
+﻿@model TextDuck.Models.srtFiles
 
 <div class="uploadFile">
     @using (Html.BeginForm("CreateStatusList", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -8,7 +8,6 @@
             <hr />
             @Html.ValidationSummary(true)
             @Html.HiddenFor(model => model.Id)
-
 
 
             <div class="form-group">
