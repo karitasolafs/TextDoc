@@ -97,6 +97,14 @@ namespace TextDuck.Controllers
             IQueryable<srtFiles> statusinn = (from item in repo.GetAllFiles()
                                               orderby item.Date
                                               where item.Status == "Finished"
+                                              select item);
+            return View(statusinn);
+        }
+        public ActionResult Request()
+        {
+            IQueryable<srtFiles> statusinn = (from item in repo.GetAllFiles()
+                                              orderby item.Date
+                                              where item.Status == "Request"
                                               select item).Take(10);
             return View(statusinn);
         }
