@@ -8,9 +8,10 @@ using TextDuck.UF;
 
 namespace TextDuck.Controllers
 {
+    //gaman
     public class HomeController : Controller
     {
-         FileRepository repo = new FileRepository();
+        FileRepository repo = new FileRepository();
          
      
         public ActionResult Index()
