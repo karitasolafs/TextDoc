@@ -88,6 +88,14 @@ namespace TextDuck.Controllers
             return View(statusinn);
           
         }
+        public ActionResult Subtitle()
+        {
+            IQueryable<srtFiles> statusinn = (from item in repo.GetAllFiles()
+                                              orderby item.Date
+                                              where item.Status == "Finished"
+                                              select item).Take(10);
+            return View(statusinn);
+        }
      
         [HttpGet]
         public ActionResult Create()

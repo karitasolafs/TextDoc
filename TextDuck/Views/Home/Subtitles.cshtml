@@ -1,11 +1,10 @@
-﻿@model TextDuck.Models.SubtitlesViewModel
-
+﻿@model IQueryable<TextDuck.Models.srtFiles>
 @{
     ViewBag.Title = "Skjátextar";
 }
 <h2>Skjátextar</h2>
 
-@using (Html.BeginForm("Subtitles", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@*@using (Html.BeginForm("Subtitles", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 { 
     <div class="form-group">
         @Html.LabelFor(m => m.Category, new { @class = "col-md-2 control-label" })
@@ -35,7 +34,20 @@
             @Html.CheckBoxFor(m => m.Type, new { @unchecked = "biblio" })
             @Html.Label("biblio", "Heimilda")
         </div>
+    </div>*@
+    @foreach (var item in Model)
+{
+      <div class="jumbotron">
+        <p class="Date">
+            @Html.DisplayFor(modelItem => item.Date)
+            <span class="glyphicon glyphicon-time"></span>
+        </p>
+        <h2 class="Status">@Html.ActionLink(item.Title, "Status")</h2>
+        <p class="Title">@Html.DisplayFor(modelItem => item.Status)</p>
+          <p class="Language">@Html.DisplayFor(modelItem => item.Language)</p>
     </div>
+
+}
     
 }
 
