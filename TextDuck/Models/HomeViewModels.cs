@@ -12,5 +12,8 @@ namespace TextDuck.Models
         [Display(Name = "Flokkur")]
         public string Category { get; set; }
 
+        [Display(Name = "Tegund")]
+        public bool Type { get; set; }
+
     }
 }
