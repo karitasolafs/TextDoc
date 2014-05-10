@@ -23,6 +23,13 @@ namespace TextDuck.Models
                               select k);
                 return Status;
             }
+            public IQueryable<srtFiles> GetTexts()
+            {
+                var Status = (from k in Db.Files
+                              where k.Status == "Finished"
+                              select k);
+                return Status;
+            }
 
             public srtFiles GetFilesById(int id)
             {
