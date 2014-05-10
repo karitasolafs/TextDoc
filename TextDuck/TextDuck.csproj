@@ -239,6 +239,7 @@
     <Content Include="Views\Home\Status.cshtml" />
     <Content Include="Views\Home\Subtitle.cshtml" />
     <Content Include="Views\Home\Request.cshtml" />
+    <Content Include="Views\Home\CreateRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
