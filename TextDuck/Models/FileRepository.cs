@@ -19,8 +19,8 @@ namespace TextDuck.Models
             public IQueryable<srtFiles> GetStatus()
             {
                 var Status = (from k in Db.Files
-                              where k.Status != null
-                              select k).Take(10);
+                              where k.Status == "Í vinnslu"
+                              select k);
                 return Status;
             }
 
