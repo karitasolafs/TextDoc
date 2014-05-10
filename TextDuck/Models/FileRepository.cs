@@ -2,30 +2,39 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TextDuck.Models.Entities;
 using TextDuck.UF;
 
 namespace TextDuck.Models
 {
     public class FileRepository
     {
-            UploadContext Db = new UploadContext();
+            ApplicationDbContext Db = new ApplicationDbContext();
 
-            public IQueryable<FileUpload> GetAllFiles()
+            public IQueryable<srtFiles> GetAllFiles()
             {
-                return Db.File;
+                return Db.Files;
             }
 
-            public FileUpload GetFilesById(int id)
+            public IQueryable<srtFiles> GetStatus()
             {
-                var result = (from s in Db.File
-                              where s.FileId == id
+                var Status = (from k in Db.Files
+                              where k.Status != null
+                              select k).Take(10);
+                return Status;
+            }
+
+            public srtFiles GetFilesById(int id)
+            {
+                var result = (from s in Db.Files
+                              where s.Id == id
                               select s).SingleOrDefault();
                 return result;
             }
 
-            public void AddFile(FileUpload s)
+            public void AddFile(srtFiles s)
             {
-                Db.File.Add(s);
+                Db.Files.Add(s);
                 Db.SaveChanges();
             }
 
@@ -34,17 +43,19 @@ namespace TextDuck.Models
                 Db.SaveChanges();
             }
 
-            public void UpdateFile(FileUpload s)
+            public void UpdateFile(srtFiles s)
             {
-                FileUpload t = GetFilesById(s.FileId.Value);
+                srtFiles t = GetFilesById(s.Id);
                 if (t != null)
                 {
-                    t.FileTitle = s.FileTitle;
-                    t.FileCategory = s.FileCategory;
-                    t.FileGenre = s.FileGenre;
+                    t.Title = s.Title;
+                    t.Category = s.Category;
+                    t.Genre = s.Genre;
                     Db.SaveChanges();
                 }
             }
-        }
+
+          
+    }
      
 }

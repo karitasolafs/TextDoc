@@ -11,9 +11,8 @@ namespace TextDuck.Controllers
     public class HomeController : Controller
     {
          FileRepository repo = new FileRepository();
-        //blah með h-i og logo heyhey
-        //blah blah comment
-        //gaman gaman
+         
+     
         public ActionResult Index()
         {
             return View();
@@ -22,6 +21,10 @@ namespace TextDuck.Controllers
         {
            // ViewBag.Message = "Your application description page.";
 
+            return View();
+        }
+        public ActionResult Subtitles()
+        {
             return View();
         }
 
@@ -57,32 +60,66 @@ namespace TextDuck.Controllers
             ViewBag.Genre = Genre;
         }
 
-
+        private void AddStatus()
+        {
+            List<SelectListItem> Status = new List<SelectListItem>();
+            Status.Add(new SelectListItem { Text = "Veldu", Value = "Choose" });
+            Status.Add(new SelectListItem { Text = "Beiðni", Value = "Request" });
+            Status.Add(new SelectListItem { Text = "Í vinnslu", Value = "Process" });
+            Status.Add(new SelectListItem { Text = "Lokið", Value = "Finished" });
+            ViewBag.Status = Status;
+        }
+        [HttpGet]
+        public ActionResult IVinnslu()
+        {
+            IQueryable<srtFiles> statusinn = (from item in repo.GetAllFiles()
+                                              orderby item.Status
+                                              where item.Title != null
+                                              select item).Take(10);
+            return View(statusinn);
+          
+        }
 
         [HttpGet]
         public ActionResult Create()
         {
             AddCategories();
             AddGenre();
+            AddStatus();
             return View(new FileUpload());
         }
 
         [HttpPost]
         public ActionResult Create(FileUpload item)
         {
-            if (ModelState.IsValid)
+          if (ModelState.IsValid)
             {
-                item.FileDate = DateTime.Now;
-                repo.AddFile(item);
+                var b = new System.IO.BinaryReader(item.File.InputStream);
+                byte[] binData = b.ReadBytes((int)item.File.InputStream.Length);
+                string result = System.Text.Encoding.UTF8.GetString(binData);
+
+                System.Diagnostics.Debug.Write(result);
+
+                var entityObj = new srtFiles
+                {
+                    Title = item.FileTitle,
+                    Content = result,
+                    Date = DateTime.Now,
+                    Category = item.FileCategory,
+                    Genre = item.FileGenre,
+                    Status = item.FileStatus
+                };
+
+                repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("Create");
+                return RedirectToAction("Index");
             }
             else
             {
                 AddCategories();
                 AddGenre();
                 return View(item);
-            }
+           }
                 //View(item);
         }
     }
