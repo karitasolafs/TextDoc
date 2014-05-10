@@ -25,10 +25,17 @@ namespace TextDuck.Models
             }
             public IQueryable<srtFiles> GetTexts()
             {
-                var Status = (from k in Db.Files
+                var Text = (from k in Db.Files
                               where k.Status == "Finished"
                               select k);
-                return Status;
+                return Text;
+            }
+            public IQueryable<srtFiles> GetRequest()
+            {
+                var request = (from c in Db.Files
+                               where c.Status == "Request"
+                               select c);
+                return request;
             }
 
             public srtFiles GetFilesById(int id)
