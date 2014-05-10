@@ -105,7 +105,9 @@ namespace TextDuck.Controllers
                     Date = DateTime.Now,
                     Category = item.FileCategory,
                     Genre = item.FileGenre,
-                    Status = item.FileStatus
+                    Status = item.FileStatus,
+                    Language = item.FileLanguage
+
                 };
 
                 repo.AddFile(entityObj);
