@@ -1,28 +1,19 @@
 ﻿@model IQueryable<TextDuck.Models.srtFiles>
 
-<h2>Astand efnis</h2>
-<table>
-    <th>
-        <td>Nafn efnis</td> <&nbsp><td>Astand</td>
-    </th>
-   
+<h1> srt Textar i Vinnslu</h1>
+
 @foreach (var item in Model)
 {
-    <tr>
-        <div class="jumbotron">
-            <p class="Status">
-             <td>   @Html.DisplayFor(modelItem => item.Title) </td>
-             <td>  @Html.DisplayFor(modelItem => item.Status) </td>
-                <span class="glyphicon glyphicon-time"></span>
-            </p>
-           <h2 class="Title">@Html.ActionLink(item.Status, "Status")</h2>
-            <p class="Text">@Html.DisplayFor(modelItem => item.Status)</p>-->
-        </div>
-    </tr>
-    </table>
+      <div class="jumbotron">
+        <p class="Date">
+            @Html.DisplayFor(modelItem => item.Date)
+            <span class="glyphicon glyphicon-time"></span>
+        </p>
+        <h2 class="Title">@Html.ActionLink(item.Status, "Status")</h2>
+        <p class="Text">@Html.DisplayFor(modelItem => item.Title)</p>
+    </div>
+
 }
-  
-<link href="/Content/Table.css" rel="stylesheet" />     
 
 <div>
     @Html.ActionLink("Back to List", "Index")
