@@ -1,12 +1,11 @@
-﻿<h2>FileStatusView</h2>
+﻿
+@{
+    ViewBag.Title = "FileStatusView";
+}
+@model TextDuck.Models.srtFiles
 
-@foreach (var item in Model)
-{
-    <div class="well">
-        <div class="text-right file-date">@item.Date <span class="glyphicon glyphicon-time"></span></div>
-        <div>@item.Text</div>
-        <div class="text-right file-title">@item.FileTitle</div>
-        <div class="text-right file-status">@item.Status</div>>
-        
-    </div>
+<h2>FileStatusView</h2>
+
+@{
+    Html.RenderPartial("FileStatusView");
 }

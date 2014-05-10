@@ -69,15 +69,12 @@ namespace TextDuck.Controllers
             Status.Add(new SelectListItem { Text = "Lokið", Value = "Finished" });
             ViewBag.Status = Status;
         }
-        [HttpGet]
-        public ActionResult IVinnslu()
+        public ActionResult FileStatus()
         {
             IQueryable<srtFiles> statusinn = (from item in repo.GetAllFiles()
-                                              orderby item.Status
-                                              where item.Title != null
+                                              orderby item.Date
                                               select item).Take(10);
             return View(statusinn);
-            //þetta er faliðð
           
         }
 
@@ -108,7 +105,9 @@ namespace TextDuck.Controllers
                     Date = DateTime.Now,
                     Category = item.FileCategory,
                     Genre = item.FileGenre,
-                    Status = item.FileStatus
+                    Status = item.FileStatus,
+                    Language = item.FileLanguage
+
                 };
 
                 repo.AddFile(entityObj);
