@@ -8,42 +8,48 @@ namespace TextDuck.Models
 {
     public class CommentRepository
     {
-         ApplicationDbContext m_db = new ApplicationDbContext();
+        private static CommentRepository instance;
 
-        public IQueryable<CommentItem> GetAllNews()
+        public static CommentRepository Instance
         {
-            return m_db.Comments;
+            get
+            {
+                if (instance == null)
+                    instance = new CommentRepository();
+                return instance;
+            }
         }
 
-        public CommentItem GetNewsById(int id)
+        private List<CommentItem> comments = null;
+
+        private CommentRepository()
         {
-            var result = (from s in m_db.Comments
-                          where s.Id == id
-                          select s).SingleOrDefault();
+            this.comments = new List<CommentItem>();
+            CommentItem commment1 = new CommentItem { Id = 1, Text = "Great Video!", DateCreated = new DateTime(2014, 3, 1, 12, 30, 00), Username = "Patrekur" };
+            CommentItem commment2 = new CommentItem { Id = 2, Text = "Amazing content!", DateCreated = new DateTime(2014, 3, 5, 12, 30, 00), Username = "Siggi" };
+            this.comments.Add(commment1);
+            this.comments.Add(commment2);
+        }
+
+        public IEnumerable<CommentItem> GetComments()
+        {
+            var result = from c in comments
+                            orderby c.DateCreated ascending
+                            select c;
             return result;
         }
 
-        public void AddComment(CommentItem s)
+        public void AddComment(CommentItem c)
         {
-            m_db.Comments.Add(s);
-            m_db.SaveChanges();
-        }
-
-        public void Save()
-        {
-            m_db.SaveChanges();
-        }
-
-      /*  public void UpdateNews(CommentItem s)
-        {
-            NewsItem t = GetNewsById(s.Id.Value);
-            if(t != null)
+            int newID = 1;
+            if (comments.Count() > 0)
             {
-                t.Title = s.Title;
-                t.Text = s.Text;
-                t.Category = s.Category;
-                m_db.SaveChanges();
+                newID = comments.Max(x => x.Id) + 1;
             }
-        }*/
+            c.Id = newID;
+            c.DateCreated = DateTime.Now;
+            comments.Add(c);
+        }
     }
+    
 }

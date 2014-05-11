@@ -8,10 +8,9 @@ namespace TextDuck.Models
 {
     public class CommentItem
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
-        [Required(ErrorMessage = "Title is required.")]
-        public string Title { get; set; }
+        public String Username { get; set; }
 
         [Required(ErrorMessage = "Text is required.")]
         public string Text { get; set; }
