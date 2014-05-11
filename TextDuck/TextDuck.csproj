@@ -160,6 +160,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\FileContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +241,9 @@
     <Content Include="Views\Home\Subtitle.cshtml" />
     <Content Include="Views\Home\Request.cshtml" />
     <Content Include="Views\Home\CreateRequest.cshtml" />
+    <Content Include="Views\Home\TextBoxSrt.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

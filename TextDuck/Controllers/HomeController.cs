@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TextDuck.DAL;
 using TextDuck.Models;
 using TextDuck.UF;
 
@@ -11,6 +13,7 @@ namespace TextDuck.Controllers
     public class HomeController : Controller
     {
         FileRepository repo = new FileRepository();
+        FileContext Db = new FileContext();
          
      
         public ActionResult Index()
@@ -108,43 +111,36 @@ namespace TextDuck.Controllers
                                               select item).Take(10);
             return View(statusinn);
         }
-        [HttpGet]
+
+        [HttpGet]        
         public ActionResult TextBoxSrt(int? Id)
         {
-
-            if (Id != null)
+            if (Id == null)
             {
-               FileRepository repository = new FileRepository();
-               srtFiles srt = repository.GetFilesById(Id.Value);
-
-                if (srt != null)
-                {
-                    return View(srt);
-
-                }
-                else
-                {
-                    return View("NotFound");
-                }
+                return View("Error");
+                
             }
-            else
+            srtFiles srt = Db.srtFiles.Find(Id);
+            if (srt == null)
             {
-                return View("NotFound");
+                return View("Error");
+       
             }
- 
+            return View(srt);
         }
+
         [HttpPost]
-        public ActionResult TextBoxSrt(int Id, FormCollection formData)
+        [ValidateAntiForgeryToken]
+        public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
         {
-            FileRepository repository = new FileRepository();
-            srtFiles s = repository.GetFilesById(Id);
-            if (s != null)
+            if (ModelState.IsValid)
             {
-                UpdateModel(s);
-                repository.UpdateFile(s);
+                Db.Entry(srt).State = EntityState.Modified;
+                Db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else { return View("NotFound"); }
+            return View(srt);
+
         }
      
         [HttpGet]
