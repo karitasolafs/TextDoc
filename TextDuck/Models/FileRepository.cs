@@ -59,6 +59,7 @@ namespace TextDuck.Models
 
             public void Save()
             {
+                
                 Db.SaveChanges();
             }
 
@@ -73,10 +74,10 @@ namespace TextDuck.Models
                     Db.SaveChanges();
                 }
             }
-
-
-
-          
+            public void SetModified(object entity)
+            {
+                Db.Entry(entity).State = EntityState.Modified;
+            }
     }
      
 }

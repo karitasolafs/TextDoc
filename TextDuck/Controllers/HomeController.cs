@@ -15,7 +15,7 @@ namespace TextDuck.Controllers
     {
         FileRepository repo = new FileRepository();
         //FileContext Db = new FileContext();
-        ApplicationDbContext Db = new ApplicationDbContext();
+        //ApplicationDbContext Db = new ApplicationDbContext();
          
      
         public ActionResult Index()
@@ -176,8 +176,8 @@ namespace TextDuck.Controllers
         {
             if (ModelState.IsValid)
             {
-                Db.Entry(srt).State = EntityState.Modified;
-                Db.SaveChanges();   
+                repo.SetModified(srt);
+                repo.Save();
                 return RedirectToAction("Index");
             }
             return View(srt);
