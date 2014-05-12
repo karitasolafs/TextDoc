@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using TextDuck.DAL;
@@ -112,35 +113,7 @@ namespace TextDuck.Controllers
             return View(statusinn);
         }
        
-        public ActionResult TextBoxSrt(int? Id)
-        {
-            if (Id == null)
-            {
-                return View("Error");
-                
-            }
-            srtFiles srt = Db.srtFiles.Find(Id);
-            if (srt == null)
-            {
-                return View("Error");
-       
-            }
-            return View(srt);
-        }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
-        {
-            if (ModelState.IsValid)
-            {
-                Db.Entry(srt).State = EntityState.Modified;
-                Db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(srt);
-
-        }
         [HttpGet]
         public ActionResult Create()
         {
@@ -187,6 +160,47 @@ namespace TextDuck.Controllers
            }
                 //View(item);
            
+        }
+        public ActionResult TextBoxSrt(int Id)
+        {
+            if (Id == null)
+            {
+                return View("Error");
+
+            }
+            
+            var srt = repo.GetFilesById(Id);
+            if (srt == null)
+            {
+                return View("Error");
+
+            }
+            return View(srt);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
+        {
+            if (ModelState.IsValid)
+            {
+                Db.Entry(srt).State = EntityState.Modified;
+                Db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(srt);
+
+        }
+        public ActionResult ViewSrt(int id)
+        {
+            var statusinn = repo.GetFilesById(id).Content;
+            Response.Clear();
+            Response.ContentType = "Apllication/octet-stream"; ;
+            Response.AddHeader("Content-Disposition", string.Format("attachment; filename={0}.hl7", id.ToString()));
+            Response.Write(statusinn);
+            Response.End();
+
+            return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.hl7", id));
         }
   
     }
