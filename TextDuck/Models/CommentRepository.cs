@@ -25,8 +25,8 @@ namespace TextDuck.Models
         private CommentRepository()
         {
             this.comments = new List<CommentItem>();
-            CommentItem commment1 = new CommentItem { Id = 1, Text = "Great Video!", DateCreated = new DateTime(2014, 3, 1, 12, 30, 00), Title = "Patrekur" };
-            CommentItem commment2 = new CommentItem { Id = 2, Text = "Amazing content!", DateCreated = new DateTime(2014, 3, 5, 12, 30, 00), Title = "Siggi" };
+            CommentItem commment1 = new CommentItem { Id = 16, Text = "Great Video!", DateCreated = new DateTime(2014, 3, 1, 12, 30, 00), Title = "Patrekur" };
+            CommentItem commment2 = new CommentItem { Id = 17, Text = "Amazing content!", DateCreated = new DateTime(2014, 3, 5, 12, 30, 00), Title = "Siggi" };
             this.comments.Add(commment1);
             this.comments.Add(commment2);
         }
@@ -34,8 +34,8 @@ namespace TextDuck.Models
         public IEnumerable<CommentItem> GetComments()
         {
             var result = from c in comments
-                            orderby c.DateCreated ascending
-                            select c;
+                         orderby c.DateCreated ascending
+                         select c;
             return result;
         }
 
