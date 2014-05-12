@@ -15,12 +15,12 @@ namespace TextDuck.Controllers
     {
         FileRepository repo = new FileRepository();
         FileContext Db = new FileContext();
-         
+
      
-        public ActionResult Index()
-        {
+       public ActionResult Index()
+       {
             return View();
-        }
+       } 
         public ActionResult Hjalp()
         {
            // ViewBag.Message = "Your application description page.";

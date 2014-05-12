@@ -1,0 +1,8 @@
+﻿@model TextDuck.Models.SearchModel
+
+@using (Html.BeginForm("Search", "Home", FormMethod.Post))
+{
+    @Html.TextBoxFor(m => m.Query)
+    <input type="submit" />
+}
+

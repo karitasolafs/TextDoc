@@ -180,6 +180,8 @@
     <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\HomeViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\SearchModel.cs" />
+    <Compile Include="Models\SearchRepository.cs" />
     <Compile Include="Models\Upvote.cs" />
     <Compile Include="Models\UpvoteRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -245,6 +247,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Account\UserInfo.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
