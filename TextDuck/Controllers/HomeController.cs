@@ -111,8 +111,7 @@ namespace TextDuck.Controllers
                                               select item).Take(10);
             return View(statusinn);
         }
-
-        [HttpGet]        
+       
         public ActionResult TextBoxSrt(int? Id)
         {
             if (Id == null)
@@ -142,7 +141,6 @@ namespace TextDuck.Controllers
             return View(srt);
 
         }
-     
         [HttpGet]
         public ActionResult Create()
         {
