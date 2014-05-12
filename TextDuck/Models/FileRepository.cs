@@ -19,24 +19,24 @@ namespace TextDuck.Models
             public IQueryable<srtFiles> GetStatus()
             {
                 var Status = (from item in Db.Files
-                             orderby item.Date descending
-                             where item.Status == "Process"
+                             orderby item.Date
+                              where item.Status == "Í vinnslu"
                              select item).Take(10);
                 return Status;
             }
             public IQueryable<srtFiles> GetTexts()
             {
                 var Text = (from item in Db.Files
-                           orderby item.Date descending
-                           where item.Status == "Finished"
+                           orderby item.Date
+                            where item.Status == "Lokið"
                            select item);
                 return Text;
             }
             public IQueryable<srtFiles> GetRequest()
             {
                 var request = (from item in Db.Files
-                               orderby item.Date descending
-                               where item.Status == "Request"
+                               orderby item.Date
+                               where item.Status == "Beiðni"
                                select item).Take(10);
                 return request;
             }
