@@ -25,8 +25,8 @@ namespace TextDuck.Models
         private CommentRepository()
         {
             this.comments = new List<CommentItem>();
-            CommentItem commment1 = new CommentItem { Id = 1, Text = "Great Video!", DateCreated = new DateTime(2014, 3, 1, 12, 30, 00), Username = "Patrekur" };
-            CommentItem commment2 = new CommentItem { Id = 2, Text = "Amazing content!", DateCreated = new DateTime(2014, 3, 5, 12, 30, 00), Username = "Siggi" };
+            CommentItem commment1 = new CommentItem { Id = 1, Text = "Great Video!", DateCreated = new DateTime(2014, 3, 1, 12, 30, 00), Title = "Patrekur" };
+            CommentItem commment2 = new CommentItem { Id = 2, Text = "Amazing content!", DateCreated = new DateTime(2014, 3, 5, 12, 30, 00), Title = "Siggi" };
             this.comments.Add(commment1);
             this.comments.Add(commment2);
         }
