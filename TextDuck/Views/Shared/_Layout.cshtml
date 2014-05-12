@@ -36,12 +36,11 @@
 
     @model TextDuck.Models.SearchModel
 
-    @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+    @using (Html.BeginForm("Search", "Home", FormMethod.Get))
     {
         @Html.TextBoxFor(m => m.Query)
         <input type="submit" />
     }
-
 
     <span id="MainMenu">
         <div class="valmyndFyrirsogn"><h2>Valmynd</h2> </div>
