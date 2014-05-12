@@ -20,7 +20,7 @@ namespace TextDuck.Models
             {
                 var Status = (from item in Db.Files
                              orderby item.Date
-                             where item.Status == "Process"
+                              where item.Status == "Í vinnslu"
                              select item).Take(10);
                 return Status;
             }
@@ -28,7 +28,7 @@ namespace TextDuck.Models
             {
                 var Text = (from item in Db.Files
                            orderby item.Date
-                           where item.Status == "Finished"
+                            where item.Status == "Lokið"
                            select item);
                 return Text;
             }
@@ -36,7 +36,7 @@ namespace TextDuck.Models
             {
                 var request = (from item in Db.Files
                                orderby item.Date
-                               where item.Status == "Request"
+                               where item.Status == "Beiðni"
                                select item).Take(10);
                 return request;
             }
