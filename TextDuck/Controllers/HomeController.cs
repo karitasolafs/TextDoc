@@ -196,11 +196,11 @@ namespace TextDuck.Controllers
             var statusinn = repo.GetFilesById(id).Content;
             Response.Clear();
             Response.ContentType = "Apllication/octet-stream"; ;
-            Response.AddHeader("Content-Disposition", string.Format("attachment; filename={0}.hl7", id.ToString()));
+            Response.AddHeader("Content-Disposition", string.Format("attachment; filename={0}.srt", id.ToString()));
             Response.Write(statusinn);
             Response.End();
 
-            return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.hl7", id));
+            return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.srt", id));
         }
   
     }
