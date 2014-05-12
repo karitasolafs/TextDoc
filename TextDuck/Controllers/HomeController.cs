@@ -14,13 +14,14 @@ namespace TextDuck.Controllers
     public class HomeController : Controller
     {
         FileRepository repo = new FileRepository();
-        FileContext Db = new FileContext();
-
+        //FileContext Db = new FileContext();
+        //ApplicationDbContext Db = new ApplicationDbContext();
+         
      
-       public ActionResult Index()
-       {
+        public ActionResult Index()
+        {
             return View();
-       } 
+        }
         public ActionResult Hjalp()
         {
            // ViewBag.Message = "Your application description page.";
@@ -44,6 +45,7 @@ namespace TextDuck.Controllers
             return View();
         }
 
+        
         private void AddLanguages()
         {
             List<SelectListItem> Language = new List<SelectListItem>();
@@ -86,6 +88,13 @@ namespace TextDuck.Controllers
             Status.Add(new SelectListItem { Text = "Lokið", Value = "Lokið" });
             ViewBag.Status = Status;
         }
+
+        private void AddStatusRequest()
+        {
+            List<SelectListItem> Status = new List<SelectListItem>();
+            Status.Add(new SelectListItem { Text = "Beiðni", Value = "Beiðni" });
+            ViewBag.Status = Status;
+        }
     
         public ActionResult Status()
         {
@@ -104,7 +113,7 @@ namespace TextDuck.Controllers
             return View(statusinn);
         }
        
-
+        [Authorize]
         [HttpGet]
         public ActionResult Create()
         {
@@ -147,10 +156,59 @@ namespace TextDuck.Controllers
                 AddLanguages();
                 AddCategories();
                 AddGenre();
+                AddStatus();
                 return View(item);
            }
                 //View(item);
            
+        }
+
+        public ActionResult CreateRequest()
+        {
+            AddLanguages();
+            AddCategories();
+            AddGenre();
+            AddStatusRequest();
+            return View(new FileUpload());
+        }
+
+        [HttpPost]
+        public ActionResult CreateRequest(FileUpload item)
+        {
+            if (ModelState.IsValid)
+            {
+                var b = new System.IO.BinaryReader(item.File.InputStream);
+                byte[] binData = b.ReadBytes((int)item.File.InputStream.Length);
+                string result = System.Text.Encoding.UTF8.GetString(binData);
+
+                System.Diagnostics.Debug.Write(result);
+
+                var entityObj = new srtFiles
+                {
+                    Title = item.FileTitle,
+                    Content = result,
+                    Date = DateTime.Now,
+                    Category = item.FileCategory,
+                    Genre = item.FileGenre,
+                    Status = item.FileStatus,
+                    Language = item.FileLanguage
+
+                };
+
+                repo.AddFile(entityObj);
+                repo.Save();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                AddLanguages();
+                AddCategories();
+                AddGenre();
+                AddStatusRequest();
+                return View(item);
+            }
+            //View(item);
+
         }
         public ActionResult TextBoxSrt(int Id)
         {
@@ -175,8 +233,8 @@ namespace TextDuck.Controllers
         {
             if (ModelState.IsValid)
             {
-                Db.Entry(srt).State = EntityState.Modified;
-                Db.SaveChanges();
+                repo.SetModified(srt);
+                repo.Save();
                 return RedirectToAction("Index");
             }
             return View(srt);
