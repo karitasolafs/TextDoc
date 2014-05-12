@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using TextDuck.DAL;
@@ -189,6 +190,17 @@ namespace TextDuck.Controllers
             }
             return View(srt);
 
+        }
+        public ActionResult ViewSrt(int id)
+        {
+            var statusinn = repo.GetFilesById(id).Content;
+            Response.Clear();
+            Response.ContentType = "Apllication/octet-stream"; ;
+            Response.AddHeader("Content-Disposition", string.Format("attachment; filename={0}.hl7", id.ToString()));
+            Response.Write(statusinn);
+            Response.End();
+
+            return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.hl7", id));
         }
   
     }
