@@ -14,23 +14,15 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Content, new { @class = "control-label col-md-2" })
+          
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Content, new { @cols = "50", @rows = "5" })
+                @Html.TextAreaFor(model => model.Content, new { @cols = "150", @rows = "20" })
                 @Html.ValidationMessageFor(model => model.Content)
             </div>
         </div>
         </div>
 
 
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }
 
 
