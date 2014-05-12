@@ -112,35 +112,7 @@ namespace TextDuck.Controllers
             return View(statusinn);
         }
        
-        public ActionResult TextBoxSrt(int? Id)
-        {
-            if (Id == null)
-            {
-                return View("Error");
-                
-            }
-            srtFiles srt = Db.srtFiles.Find(Id);
-            if (srt == null)
-            {
-                return View("Error");
-       
-            }
-            return View(srt);
-        }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
-        {
-            if (ModelState.IsValid)
-            {
-                Db.Entry(srt).State = EntityState.Modified;
-                Db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(srt);
-
-        }
         [HttpGet]
         public ActionResult Create()
         {
@@ -187,6 +159,36 @@ namespace TextDuck.Controllers
            }
                 //View(item);
            
+        }
+        public ActionResult TextBoxSrt(int Id)
+        {
+            if (Id == null)
+            {
+                return View("Error");
+
+            }
+            
+            var srt = repo.GetFilesById(Id);
+            if (srt == null)
+            {
+                return View("Error");
+
+            }
+            return View(srt);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
+        {
+            if (ModelState.IsValid)
+            {
+                Db.Entry(srt).State = EntityState.Modified;
+                Db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(srt);
+
         }
   
     }
