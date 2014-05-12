@@ -194,6 +194,11 @@ namespace TextDuck.Controllers
             return View(model);
         }
 
+        public ActionResult UserInfo()
+        {
+            return View();
+        }
+
         //
         // POST: /Account/ExternalLogin
         [HttpPost]
