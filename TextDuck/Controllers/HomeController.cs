@@ -89,27 +89,18 @@ namespace TextDuck.Controllers
     
         public ActionResult Status()
         {
-            IQueryable<srtFiles> statusinn = (from item in repo.GetAllFiles()
-                                              orderby item.Date
-                                              where item.Status == "Process"
-                                              select item).Take(10);
+            var statusinn = repo.GetStatus();
             return View(statusinn);
           
         }
         public ActionResult Subtitle()
         {
-            IQueryable<srtFiles> statusinn = (from item in repo.GetAllFiles()
-                                              orderby item.Date
-                                              where item.Status == "Finished"
-                                              select item);
+            var statusinn = repo.GetTexts();
             return View(statusinn);
         }
         public ActionResult Request()
         {
-            IQueryable<srtFiles> statusinn = (from item in repo.GetAllFiles()
-                                              orderby item.Date
-                                              where item.Status == "Request"
-                                              select item).Take(10);
+            var statusinn = repo.GetRequest();
             return View(statusinn);
         }
        

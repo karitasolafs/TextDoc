@@ -18,23 +18,26 @@ namespace TextDuck.Models
 
             public IQueryable<srtFiles> GetStatus()
             {
-                var Status = (from k in Db.Files
-                              where k.Status == "Process"
-                              select k);
+                var Status = (from item in Db.Files
+                             orderby item.Date
+                             where item.Status == "Process"
+                             select item).Take(10);
                 return Status;
             }
             public IQueryable<srtFiles> GetTexts()
             {
-                var Text = (from k in Db.Files
-                              where k.Status == "Finished"
-                              select k);
+                var Text = (from item in Db.Files
+                           orderby item.Date
+                           where item.Status == "Finished"
+                           select item);
                 return Text;
             }
             public IQueryable<srtFiles> GetRequest()
             {
-                var request = (from c in Db.Files
-                               where c.Status == "Request"
-                               select c);
+                var request = (from item in Db.Files
+                               orderby item.Date
+                               where item.Status == "Request"
+                               select item).Take(10);
                 return request;
             }
 
