@@ -14,7 +14,7 @@
             <span class="glyphicon glyphicon-time"></span>
         </p>
         <p>
-            <div class="Title"> @Html.ActionLink(item.Title, "Subtitle")</div>
+            <div class="Title"> @Html.ActionLink(item.Title, "ViewSrt", new { Id = item.Id })</div>
            @* @Html.DisplayFor(modelItem => item.Status)&nbsp;|&nbsp;*@
             @Html.DisplayFor(modelItem => item.Language)&nbsp;|&nbsp;
             @Html.DisplayFor(modelItem => item.Genre)&nbsp;|&nbsp;
