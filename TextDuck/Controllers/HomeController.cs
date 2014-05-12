@@ -88,6 +88,13 @@ namespace TextDuck.Controllers
             Status.Add(new SelectListItem { Text = "Lokið", Value = "Lokið" });
             ViewBag.Status = Status;
         }
+
+        private void AddStatusRequest()
+        {
+            List<SelectListItem> Status = new List<SelectListItem>();
+            Status.Add(new SelectListItem { Text = "Beiðni", Value = "Beiðni" });
+            ViewBag.Status = Status;
+        }
     
         public ActionResult Status()
         {
@@ -149,6 +156,7 @@ namespace TextDuck.Controllers
                 AddLanguages();
                 AddCategories();
                 AddGenre();
+                AddStatus();
                 return View(item);
            }
                 //View(item);
@@ -160,7 +168,7 @@ namespace TextDuck.Controllers
             AddLanguages();
             AddCategories();
             AddGenre();
-            AddStatus();
+            AddStatusRequest();
             return View(new FileUpload());
         }
 
@@ -196,6 +204,7 @@ namespace TextDuck.Controllers
                 AddLanguages();
                 AddCategories();
                 AddGenre();
+                AddStatusRequest();
                 return View(item);
             }
             //View(item);
