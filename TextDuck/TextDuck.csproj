@@ -180,7 +180,6 @@
     <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\HomeViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\Upvote.cs" />
     <Compile Include="Models\UpvoteRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
