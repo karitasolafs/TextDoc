@@ -228,11 +228,10 @@ namespace TextDuck.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
         {
-            if (ModelState.IsValid)
-            {
+           if (ModelState.IsValid)
+            {  
                 repo.SetModified(srt);
                 repo.Save();
                 return RedirectToAction("Index");
