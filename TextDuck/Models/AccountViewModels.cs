@@ -64,7 +64,7 @@ namespace TextDuck.Models
 
         [Required(ErrorMessage = "Veldu fæðingarár")]
         [Display(Name = "Fæðingarár")]
-        public string BirthYear { get; set; }
+        public int BirthYear { get; set; }
 
 
         [Required]

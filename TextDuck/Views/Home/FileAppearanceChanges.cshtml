@@ -1,0 +1,91 @@
+﻿@model TextDuck.Models.srtFiles
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>srtFiles</h4>
+        <hr />
+
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Date)
+        @Html.HiddenFor(model => model.Content)
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Language, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.Label("Íslenska", "Íslenska")
+                @Html.RadioButtonFor(model => model.Language, "Íslenska", new { @class = "Íslenska" })
+                @Html.Label("Enska", "Enska")
+                @Html.RadioButtonFor(model => model.Language, "Enska", new { @class = "Enska" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Genre, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.Label("Hasar", "Hasar")
+                @Html.RadioButtonFor(model => model.Genre, "Hasar", new { @class = "Hasar" })
+                @Html.Label("Gaman", "Gaman")
+                @Html.RadioButtonFor(model => model.Genre, "Gaman", new { @class = "Gaman" })
+                @Html.Label("Rómantík", "Rómantík")
+                @Html.RadioButtonFor(model => model.Genre, "Rómantík", new { @class = "Rómantík" })
+                @Html.Label("Drama", "Drama")
+                @Html.RadioButtonFor(model => model.Genre, "Drama", new { @class = "Drama" })
+                @Html.Label("Spennutryllir", "Spennutryllir")
+                @Html.RadioButtonFor(model => model.Genre, "Spennutryllir", new { @class = "Spennutrylir" })
+                @Html.Label("Barna", "Barna")
+                @Html.RadioButtonFor(model => model.Genre, "Barna", new { @class = "Barna" })
+                @Html.Label("Hryllings", "Hryllings")
+                @Html.RadioButtonFor(model => model.Genre, "Hryllings", new { @class = "Hryllings" })
+                @Html.Label("Heimildamynd", "Heimildamynd")
+                @Html.RadioButtonFor(model => model.Genre, "Heimildamynd", new { @class = "Heimildamynd" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.Label("Bíómynd", "Bíómynd")
+                @Html.RadioButtonFor(model => model.Category, "Bíómynd", new { @class = "Bíómynd" })
+                @Html.Label("Þáttur", "Þáttur")
+                @Html.RadioButtonFor(model => model.Category, "Þáttur", new { @class = "Þáttur" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.Label("Beiðni", "Beiðni")
+                @Html.RadioButtonFor(model => model.Status, "Beiðni", new { @class = "Beiðni" })
+                @Html.Label("Í vinnslu", "Í vinnslu")
+                @Html.RadioButtonFor(model => model.Status, "Í vinnslu", new { @class = "Í vinnslu" })
+                @Html.Label("Lokið", "Lokið")
+                @Html.RadioButtonFor(model => model.Status, "Lokið", new { @class = "Lokið" })
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Vista breytingar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+
+}

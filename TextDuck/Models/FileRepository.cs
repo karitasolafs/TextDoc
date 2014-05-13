@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using TextDuck.Models.Entities;
 using TextDuck.UF;
 
@@ -49,6 +49,7 @@ namespace TextDuck.Models
                               select s).SingleOrDefault();
                 return result;
             }
+            
 
             public void AddFile(srtFiles s)
             {
@@ -58,6 +59,7 @@ namespace TextDuck.Models
 
             public void Save()
             {
+
                 Db.SaveChanges();
             }
 
@@ -72,29 +74,14 @@ namespace TextDuck.Models
                     Db.SaveChanges();
                 }
             }
-
-           /* public ActionResult Index(string searchBy, string search)
+            public void SetModified(object entity)
             {
-                if (searchBy == "Title")
-                {
-                    return View(Db.Files.Where(x => x.Category == search || search == null).ToList());
-                }
-                else
-                {
-                    return View(Db.Files.Where(x => x.Category.Contains(search)).ToList());
-                }*/
-                /*var files = from m in Db.srtFiles
-                             select m;
+               
+                    Db.Entry(entity).State = EntityState.Modified;
+               
+                
+            }
 
-                if (!String.IsNullOrEmpty(searchString))
-                {
-                    files = files.Where(s => s.Title.Contains(searchString));
-                }
-
-                return View(files);
-            }*/
-
-          
     }
      
 }
