@@ -1,16 +1,1 @@
-﻿@model IQueryable<TextDuck.Models.srtFiles>
-
-@foreach (var item in Model)
-{
-    <div class="jumbotron">
-        <p class="Date">
-            @Html.DisplayFor(model => item.Date)
-            <span class="glyphicon glyphicon-time"></span>
-        </p>
-        @*@Html.DisplayFor(modelItem => item.Status) &nbsp;|&nbsp;*@
-        @Html.DisplayFor(model => item.Language) &nbsp;|&nbsp;
-        @Html.DisplayFor(model => item.Genre)&nbsp;|&nbsp;
-        @Html.DisplayFor(model => item.Category)
-    </div>
-
-}
+﻿
