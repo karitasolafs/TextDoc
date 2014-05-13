@@ -27,14 +27,19 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Heim", "Index", "Home")</li>
                     <li>@Html.ActionLink("Hjálp", "Hjalp", "Home")</li>
-                    <li>@Html.ActionLink("Leita", "SearchView", "Home")</li>
                 </ul>
- 
                     @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
 
+    <span id="Search">
+    @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
+    {
+        <input type="text" id="query" name="query" placeholder="Search" />
+        <input type="submit" />
+    }
+    </span>
 
     <span id="MainMenu">
         <div class="valmyndFyrirsogn"><h2>Valmynd</h2> </div>
