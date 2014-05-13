@@ -1,6 +1,6 @@
 ﻿@model IQueryable<TextDuck.Models.srtFiles>
 
-<h1>Skjatextar</h1>
+<h1>Skjátextar</h1>
 
 <div>
     @Html.ActionLink("Bæta við skjátexta", "Create", "Home")
@@ -20,8 +20,9 @@
             @Html.DisplayFor(modelItem => item.Genre)&nbsp;|&nbsp;
             @Html.DisplayFor(modelItem => item.Category)
             <div>
-                @Html.ActionLink("Breyta skrá", "TextBoxSrt", new { Id = item.Id}, null)
+                @Html.ActionLink("Breyta skrá", "TextBoxSrt", new { Id = item.Id}, null)&nbsp;|&nbsp;
                 @Html.ActionLink("Breyta upplýsingum", "FileAppearanceChanges", new { Id = item.Id }, null)
+                @Html.ActionLink("Commenta", "AddComment", new { Id = item.Id }, null)
 
             </div>
          </p>

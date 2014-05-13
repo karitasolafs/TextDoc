@@ -8,14 +8,19 @@ namespace TextDuck.Models
 {
     public class CommentItem
     {
-        public int Id { get; set; }
-
+        public int Id               { get; set; }
         [Required(ErrorMessage = "Title is required.")]
-        public string Title { get; set; }
-
+        public string Title         { get; set; }
         [Required(ErrorMessage = "Text is required.")]
-        public string Text { get; set; }
+        public string Text          { get; set; }
         public DateTime DateCreated { get; set; }
+        public string UserName      { get; set; }
+        public int srtId            { get; set; }
+
+           public CommentItem()
+        {
+            DateCreated = DateTime.Now; // fáum tíma og dagsetningu automatically
+        }
     }
 }
 //loll
