@@ -210,7 +210,6 @@ namespace TextDuck.Controllers
             //View(item);
 
         }
-        [HttpPost]
         public ActionResult TextBoxSrt(int Id)
         {
             if (Id == null)
@@ -218,26 +217,27 @@ namespace TextDuck.Controllers
                 return View("Error");
 
             }
-            
-            srtFiles srt = repo.GetFilesById(Id);
+
+            var srt = repo.GetFilesById(Id);
             if (srt == null)
             {
                 return View("Error");
-            }
 
+            }
             return View(srt);
         }
 
         [HttpPost]
-       public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
+        public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
         {
-           if (ModelState.IsValid)
-           {
-               repo.SetModified(srt);
-               repo.Save();
-               return RedirectToAction("index");
-           }
-           return View();
+            if (ModelState.IsValid)
+            {
+                repo.SetModified(srt);
+                repo.Save();
+                return RedirectToAction("Index");
+            }
+            return View(srt);
+
         }
 
 
