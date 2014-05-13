@@ -109,7 +109,7 @@ namespace TextDuck.Controllers
             Status.Add(new SelectListItem { Text = "Beiðni", Value = "Beiðni" });
             ViewBag.Status = Status;
         }
-    
+
         public ActionResult Status()
         {
             var statusinn = repo.GetStatus();
@@ -224,6 +224,7 @@ namespace TextDuck.Controllers
             //View(item);
 
         }
+        [HttpPost]
         public ActionResult TextBoxSrt(int Id)
         {
             if (Id == null)
@@ -232,28 +233,28 @@ namespace TextDuck.Controllers
 
             }
             
-            var srt = repo.GetFilesById(Id);
+            srtFiles srt = repo.GetFilesById(Id);
             if (srt == null)
             {
                 return View("Error");
-
             }
+
             return View(srt);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
+       public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
         {
-            if (ModelState.IsValid)
-            {
-                repo.SetModified(srt);
-                repo.Save();
-                return RedirectToAction("Index");
-            }
-            return View(srt);
-
+           if (ModelState.IsValid)
+           {
+               repo.SetModified(srt);
+               repo.Save();
+               return RedirectToAction("index");
+           }
+           return View();
         }
+
+
         public ActionResult ViewSrt(int id)
         {
             var statusinn = repo.GetFilesById(id).Content;
@@ -265,6 +266,26 @@ namespace TextDuck.Controllers
 
             return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.srt", id));
         }
-  
+
+        [Authorize]
+        public ActionResult RequestMoved(int Id)
+        {
+            if (Id == null)
+            {
+                return View("Error");
+
+            }
+
+            srtFiles srt = repo.GetFilesById(Id);
+            if (srt == null)
+            {
+                return View("Error");
+
+            }
+            srt.Status = "Í vinnslu";
+            repo.Save();
+            return View();
+        }
+
     }
 }

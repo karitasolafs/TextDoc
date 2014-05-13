@@ -17,6 +17,12 @@
         @Html.DisplayFor(modelItem => item.Language) &nbsp; | &nbsp;
         @Html.DisplayFor(modelItem => item.Genre) &nbsp; | &nbsp;
        @Html.DisplayFor(modelItem => item.Category)
+       <p>@Html.ActionLink("Færa í \"í vinnslu\"", "RequestMoved", new { Id = item.Id })</p> 
+
+       <button type="button">
+           <span class="glyphicon glyphicon-arrow-up"></span>
+       </button>
+     
     </div>
     
 }
