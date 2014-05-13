@@ -14,6 +14,8 @@ namespace TextDuck.Controllers
     public class HomeController : Controller
     {
         FileRepository repo = new FileRepository();
+        FileContext Db = new FileContext();
+        CommentRepository Comment = new CommentRepository();
          
         public ActionResult Index()
         {
@@ -91,6 +93,12 @@ namespace TextDuck.Controllers
             List<SelectListItem> Status = new List<SelectListItem>();
             Status.Add(new SelectListItem { Text = "Beiðni", Value = "Beiðni" });
             ViewBag.Status = Status;
+        }
+
+        public ActionResult Comments()
+        {
+            var comment = Comment.GetNews();
+            return View(comment);
         }
 
         public ActionResult Status()
@@ -288,6 +296,50 @@ namespace TextDuck.Controllers
             //srt.Status = "Í vinnslu";
             repo.Save();
             return View();
+        }
+        [HttpGet]
+        public ActionResult AddComment()
+        {
+            /*  if(!id.HasValue)
+             {
+                 return View("Error");
+             }
+            
+             var comment = repo.GetFilesById(id.Value);
+             if (comment == null)
+             {
+                 return View("Error");
+             }*/
+            //  String strUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            return View(new CommentItem());
+
+
+
+        }
+        [HttpPost]
+        public ActionResult AddComment(FormCollection form)
+        {
+
+            /* var newItem = repo.GetFilesById(id.Value);
+            
+             if (newItem == null)
+             {
+                 return View("Error");
+             }
+             else if (id == null)
+             {
+                 return View("Error");
+             }
+             else
+             {*/
+            // String strUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            CommentItem item = new CommentItem();
+            UpdateModel(item);
+            Comment.AddNews(item);
+            Comment.Save();
+            return RedirectToAction("AddComment");
+
+
         }
 
 
