@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using TextDuck.Models.Entities;
@@ -19,7 +20,7 @@ namespace TextDuck.Models
             public IQueryable<srtFiles> GetStatus()
             {
                 var Status = (from item in Db.Files
-                             orderby item.Date descending
+                             orderby item.Date
                               where item.Status == "Í vinnslu"
                              select item).Take(10);
                 return Status;
@@ -27,7 +28,7 @@ namespace TextDuck.Models
             public IQueryable<srtFiles> GetTexts()
             {
                 var Text = (from item in Db.Files
-                           orderby item.Date descending
+                           orderby item.Date
                             where item.Status == "Lokið"
                            select item);
                 return Text;
@@ -35,7 +36,7 @@ namespace TextDuck.Models
             public IQueryable<srtFiles> GetRequest()
             {
                 var request = (from item in Db.Files
-                               orderby item.Date descending
+                               orderby item.Date
                                where item.Status == "Beiðni"
                                select item).Take(10);
                 return request;
@@ -58,6 +59,7 @@ namespace TextDuck.Models
 
             public void Save()
             {
+
                 Db.SaveChanges();
             }
 
@@ -72,10 +74,14 @@ namespace TextDuck.Models
                     Db.SaveChanges();
                 }
             }
+            public void SetModified(object entity)
+            {
+               
+                    Db.Entry(entity).State = EntityState.Modified;
+               
+                
+            }
 
-
-
-        
     }
      
 }

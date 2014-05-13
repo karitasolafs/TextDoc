@@ -15,18 +15,20 @@
         </p>
         <p>
             <div class="Title"> @Html.ActionLink(item.Title, "ViewSrt", new { Id = item.Id })</div>
-
            @* @Html.DisplayFor(modelItem => item.Status)&nbsp;|&nbsp;*@
             @Html.DisplayFor(modelItem => item.Language)&nbsp;|&nbsp;
             @Html.DisplayFor(modelItem => item.Genre)&nbsp;|&nbsp;
             @Html.DisplayFor(modelItem => item.Category)
-            <div>@Html.ActionLink("Breyta skrá", "TextBoxSrt", new { Id = item.Id })</div>
-            <div>@Html.ActionLink("Commenta", "AddComment", new { Id = item.Id })</div>
+            <div>
+                @Html.ActionLink("Breyta skrá", "TextBoxSrt", new { Id = item.Id}, null)
+                @Html.ActionLink("Breyta upplýsingum", "FileAppearanceChanges", new { Id = item.Id }, null)
+
+            </div>
          </p>
     </div>
 
 }
 
 <div>
-    @Html.ActionLink("Aftur a forsidu", "Index")
+    @Html.ActionLink("Back to List", "Index")
 </div>

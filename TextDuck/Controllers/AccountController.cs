@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using TextDuck.Models;
+using TextDuck.Models.Entities;
 
 namespace TextDuck.Controllers
 {
@@ -102,6 +103,13 @@ namespace TextDuck.Controllers
                 {
                     AddYear();
                     AddErrors(result);
+                    var entityObj = new UserInfo
+                    {
+                        Name = model.Name,
+                        Email = model.Email,
+                        Gender = model.Gender,
+                        BirthYear = model.BirthYear
+                    };
                 }
             }
 

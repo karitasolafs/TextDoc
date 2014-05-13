@@ -27,12 +27,23 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Heim", "Index", "Home")</li>
                     <li>@Html.ActionLink("Hjálp", "Hjalp", "Home")</li>
+                    <li>@Html.ActionLink("Leita", "SearchView", "Home")</li>
                 </ul>
  
                     @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+
+    @model TextDuck.Models.srtFiles
+
+    @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
+    {
+        @Html.TextBoxFor(m => m.Title)
+        <input type="submit" />
+    }
+
+
     <span id="MainMenu">
         <div class="valmyndFyrirsogn"><h2>Valmynd</h2> </div>
         <ul>

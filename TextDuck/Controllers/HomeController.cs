@@ -14,18 +14,14 @@ namespace TextDuck.Controllers
     public class HomeController : Controller
     {
         FileRepository repo = new FileRepository();
-        FileContext Db = new FileContext();
-        CommentRepository Comment = new CommentRepository();
-
-
-
+         
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult Hjalp()
         {
-            // ViewBag.Message = "Your application description page.";
+           // ViewBag.Message = "Your application description page.";
 
             return View();
         }
@@ -46,6 +42,7 @@ namespace TextDuck.Controllers
             return View();
         }
 
+        
         private void AddLanguages()
         {
             List<SelectListItem> Language = new List<SelectListItem>();
@@ -66,7 +63,7 @@ namespace TextDuck.Controllers
         private void AddGenre()
         {
             List<SelectListItem> Genre = new List<SelectListItem>();
-            Genre.Add(new SelectListItem { Text = "Veldu", Value = "Veldu" });
+            Genre.Add(new SelectListItem{Text = "Veldu", Value = "Veldu"});
             Genre.Add(new SelectListItem { Text = "Hasar", Value = "Hasar" });
             Genre.Add(new SelectListItem { Text = "Gaman", Value = "Gaman" });
             Genre.Add(new SelectListItem { Text = "Rómantík", Value = "Rómantík" });
@@ -88,17 +85,19 @@ namespace TextDuck.Controllers
             Status.Add(new SelectListItem { Text = "Lokið", Value = "Lokið" });
             ViewBag.Status = Status;
         }
-        public ActionResult Comments()
+
+        private void AddStatusRequest()
         {
-            var comment = Comment.GetNews();
-            return View(comment);
+            List<SelectListItem> Status = new List<SelectListItem>();
+            Status.Add(new SelectListItem { Text = "Beiðni", Value = "Beiðni" });
+            ViewBag.Status = Status;
         }
 
         public ActionResult Status()
         {
             var statusinn = repo.GetStatus();
             return View(statusinn);
-
+          
         }
         public ActionResult Subtitle()
         {
@@ -110,8 +109,8 @@ namespace TextDuck.Controllers
             var statusinn = repo.GetRequest();
             return View(statusinn);
         }
-
-
+       
+        [Authorize]
         [HttpGet]
         public ActionResult Create()
         {
@@ -124,6 +123,54 @@ namespace TextDuck.Controllers
 
         [HttpPost]
         public ActionResult Create(FileUpload item)
+        {
+          if (ModelState.IsValid)
+            {
+                var b = new System.IO.BinaryReader(item.File.InputStream);
+                byte[] binData = b.ReadBytes((int)item.File.InputStream.Length);
+                string result = System.Text.Encoding.UTF8.GetString(binData);
+
+                System.Diagnostics.Debug.Write(result);
+
+                var entityObj = new srtFiles
+                {
+                    Title = item.FileTitle,
+                    Content = result,
+                    Date = DateTime.Now,
+                    Category = item.FileCategory,
+                    Genre = item.FileGenre,
+                    Status = item.FileStatus,
+                    Language = item.FileLanguage
+
+                };
+
+                repo.AddFile(entityObj);
+                repo.Save();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                AddLanguages();
+                AddCategories();
+                AddGenre();
+                AddStatus();
+                return View(item);
+           }
+                //View(item);
+           
+        }
+
+        public ActionResult CreateRequest()
+        {
+            AddLanguages();
+            AddCategories();
+            AddGenre();
+            AddStatusRequest();
+            return View(new FileUpload());
+        }
+
+        [HttpPost]
+        public ActionResult CreateRequest(FileUpload item)
         {
             if (ModelState.IsValid)
             {
@@ -154,11 +201,13 @@ namespace TextDuck.Controllers
                 AddLanguages();
                 AddCategories();
                 AddGenre();
+                AddStatusRequest();
                 return View(item);
             }
             //View(item);
 
         }
+
         public ActionResult TextBoxSrt(int Id)
         {
             if (Id == null)
@@ -166,7 +215,7 @@ namespace TextDuck.Controllers
                 return View("Error");
 
             }
-
+            
             var srt = repo.GetFilesById(Id);
             if (srt == null)
             {
@@ -177,13 +226,12 @@ namespace TextDuck.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
         {
-            if (ModelState.IsValid)
-            {
-                Db.Entry(srt).State = EntityState.Modified;
-                Db.SaveChanges();
+           if (ModelState.IsValid)
+            {  
+                repo.SetModified(srt);
+                repo.Save();
                 return RedirectToAction("Index");
             }
             return View(srt);
@@ -200,49 +248,48 @@ namespace TextDuck.Controllers
 
             return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.srt", id));
         }
-        [HttpGet]
-        public ActionResult AddComment()
-        {
-           /*  if(!id.HasValue)
-            {
-                return View("Error");
-            }
-            
-            var comment = repo.GetFilesById(id.Value);
-            if (comment == null)
-            {
-                return View("Error");
-            }*/
-          //  String strUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            return View(new CommentItem());
-            
-          
 
-        }
-        [HttpPost]
-        public ActionResult AddComment(FormCollection form) 
+        [Authorize]
+        public ActionResult RequestMoved(int Id)
         {
-           
-           /* var newItem = repo.GetFilesById(id.Value);
-            
-            if (newItem == null)
+            if (Id == null)
             {
                 return View("Error");
-            }
-            else if (id == null)
-            {
-                return View("Error");
-            }
-            else
-            {*/
-               // String strUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-                CommentItem item = new CommentItem();
-                UpdateModel(item);
-                Comment.AddNews(item);
-                Comment.Save();
-                return RedirectToAction("AddComment");
-            
 
+            }
+
+            srtFiles srt = repo.GetFilesById(Id);
+            if (srt == null)
+            {
+                return View("Error");
+
+            }
+            srt.Status = "Í vinnslu";
+            repo.Save();
+            return View();
         }
+
+        [Authorize]
+        //bleh bleh 
+        public ActionResult FileAppearanceChanges(int Id)
+        {
+            if (Id == null)
+            {
+                return View("Error");
+
+            }
+
+            srtFiles srt = repo.GetFilesById(Id);
+            if (srt == null)
+            {
+                return View("Error");
+
+            }
+            //srt.Status = "Í vinnslu";
+            repo.Save();
+            return View();
+        }
+
+
     }
 }
