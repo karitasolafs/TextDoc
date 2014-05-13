@@ -20,20 +20,12 @@
         @Html.HiddenFor(model => model.Genre)
         @Html.HiddenFor(model => model.Language)
         @Html.HiddenFor(model => model.Status)
+        @Html.HiddenFor(model => model.Title)
 
-        
-
-        <div class="form-group">
-            <p>@Html.LabelFor(model => model.Title, new { @class = "col-md-2 control-label" })</p>
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Title)
-            </div>
-        </div>
 
         
         <div class="form-group">
-            @Html.LabelFor(model => model.Content, new { @class = "control-label col-md-2" })
+    
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.Content, new { @cols = "150", @rows = "20" })
                 @Html.ValidationMessageFor(model => model.Content)

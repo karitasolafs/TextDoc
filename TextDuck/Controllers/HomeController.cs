@@ -269,5 +269,27 @@ namespace TextDuck.Controllers
             return View();
         }
 
+        [Authorize]
+        //bleh
+        public ActionResult FileAppearanceChanges(int Id)
+        {
+            if (Id == null)
+            {
+                return View("Error");
+
+            }
+
+            srtFiles srt = repo.GetFilesById(Id);
+            if (srt == null)
+            {
+                return View("Error");
+
+            }
+            //srt.Status = "Í vinnslu";
+            repo.Save();
+            return View();
+        }
+
+
     }
 }

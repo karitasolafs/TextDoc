@@ -246,6 +246,7 @@
     <Content Include="Views\Account\UserInfo.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\RequestMoved.cshtml" />
+    <Content Include="Views\Home\FileAppearanceChanges.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
