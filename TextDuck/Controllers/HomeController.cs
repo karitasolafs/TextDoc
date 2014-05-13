@@ -15,7 +15,7 @@ namespace TextDuck.Controllers
     {
         FileRepository repo = new FileRepository();
         //FileContext Db = new FileContext();
-        //ApplicationDbContext Db = new ApplicationDbContext();
+       ApplicationDbContext Db = new ApplicationDbContext();
          
      
         public ActionResult Index()
@@ -45,6 +45,20 @@ namespace TextDuck.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult SearchResult(srtFiles model)
+        {
+            if (!String.IsNullOrEmpty(model.Title))
+            {
+                var all = repo.GetAllFiles();
+                var result = (from item in all
+                              orderby item.Date
+                              where item.Title.StartsWith(model.Title)
+                              select item).ToList();
+                return View(result);
+            }
+            return View();
+        }
         
         private void AddLanguages()
         {
