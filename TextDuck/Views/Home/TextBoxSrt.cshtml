@@ -1,4 +1,7 @@
 ﻿@model TextDuck.Models.srtFiles
+@{
+    ViewBag.Categories = "test";
+}
 
 
 
@@ -12,9 +15,16 @@
 
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Category)
+        @Html.HiddenFor(model => model.Date)
+        @Html.HiddenFor(model => model.Genre)
+        @Html.HiddenFor(model => model.Language)
+        @Html.HiddenFor(model => model.Status)
+
+        
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, new { @class = "col-md-2 control-label" })
+            <div>@Html.LabelFor(model => model.Title, new { @class = "col-md-2 control-label" })</div>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Title)
