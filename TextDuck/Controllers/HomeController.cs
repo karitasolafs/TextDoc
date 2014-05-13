@@ -16,14 +16,14 @@ namespace TextDuck.Controllers
         FileRepository repo = new FileRepository();
         FileContext Db = new FileContext();
         CommentRepository Comment = new CommentRepository();
-         
+
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult Hjalp()
         {
-           // ViewBag.Message = "Your application description page.";
+            // ViewBag.Message = "Your application description page.";
 
             return View();
         }
@@ -44,7 +44,7 @@ namespace TextDuck.Controllers
             return View();
         }
 
-        
+
         private void AddLanguages()
         {
             List<SelectListItem> Language = new List<SelectListItem>();
@@ -65,7 +65,7 @@ namespace TextDuck.Controllers
         private void AddGenre()
         {
             List<SelectListItem> Genre = new List<SelectListItem>();
-            Genre.Add(new SelectListItem{Text = "Veldu", Value = "Veldu"});
+            Genre.Add(new SelectListItem { Text = "Veldu", Value = "Veldu" });
             Genre.Add(new SelectListItem { Text = "Hasar", Value = "Hasar" });
             Genre.Add(new SelectListItem { Text = "Gaman", Value = "Gaman" });
             Genre.Add(new SelectListItem { Text = "Rómantík", Value = "Rómantík" });
@@ -105,7 +105,7 @@ namespace TextDuck.Controllers
         {
             var statusinn = repo.GetStatus();
             return View(statusinn);
-          
+
         }
         public ActionResult Subtitle()
         {
@@ -117,7 +117,7 @@ namespace TextDuck.Controllers
             var statusinn = repo.GetRequest();
             return View(statusinn);
         }
-       
+
         [Authorize]
         [HttpGet]
         public ActionResult Create()
@@ -132,7 +132,7 @@ namespace TextDuck.Controllers
         [HttpPost]
         public ActionResult Create(FileUpload item)
         {
-          if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var b = new System.IO.BinaryReader(item.File.InputStream);
                 byte[] binData = b.ReadBytes((int)item.File.InputStream.Length);
@@ -163,9 +163,9 @@ namespace TextDuck.Controllers
                 AddGenre();
                 AddStatus();
                 return View(item);
-           }
-                //View(item);
-           
+            }
+            //View(item);
+
         }
 
         public ActionResult CreateRequest()
@@ -223,7 +223,7 @@ namespace TextDuck.Controllers
                 return View("Error");
 
             }
-            
+
             var srt = repo.GetFilesById(Id);
             if (srt == null)
             {
@@ -236,8 +236,8 @@ namespace TextDuck.Controllers
         [HttpPost]
         public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
         {
-           if (ModelState.IsValid)
-            {  
+            if (ModelState.IsValid)
+            {
                 repo.SetModified(srt);
                 repo.Save();
                 return RedirectToAction("Index");
@@ -298,48 +298,26 @@ namespace TextDuck.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult AddComment()
+        public ActionResult AddComment(int Id)
         {
-            /*  if(!id.HasValue)
-             {
-                 return View("Error");
-             }
-            
-             var comment = repo.GetFilesById(id.Value);
-             if (comment == null)
-             {
-                 return View("Error");
-             }*/
-            //  String strUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            return View(new CommentItem());
-
-
+            return View(new CommentItem() { srtId = Id });
 
         }
+        [HttpGet]
+        public ActionResult ViewComment()
+        {
+            return View(Comment.GetNews());
+        }
+
         [HttpPost]
         public ActionResult AddComment(FormCollection form)
         {
-
-            /* var newItem = repo.GetFilesById(id.Value);
-            
-             if (newItem == null)
-             {
-                 return View("Error");
-             }
-             else if (id == null)
-             {
-                 return View("Error");
-             }
-             else
-             {*/
-            // String strUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             CommentItem item = new CommentItem();
             UpdateModel(item);
+            item.UserName = User.Identity.Name;
             Comment.AddNews(item);
             Comment.Save();
-            return RedirectToAction("AddComment");
-
-
+            return RedirectToAction("ViewComment");
         }
 
 

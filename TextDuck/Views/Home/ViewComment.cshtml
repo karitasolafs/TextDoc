@@ -1,6 +1,5 @@
 ﻿@model IQueryable<TextDuck.Models.CommentItem>
 
-
 <link href="/Content/Table.css" rel="stylesheet" />
 
 <h1>Latest Comments</h1>
@@ -12,8 +11,9 @@
             @Html.DisplayFor(modelItem => item.DateCreated)
             <span class="glyphicon glyphicon-time"></span>
         </p>
-        <h2 class="Title">@Html.ActionLink(item.Title, "Comments", new { id = item.Id })</h2>
+        <h2 class="Title">@Html.ActionLink(item.Title, "AddComment", new { id = item.Id })</h2>
         <p class="Text">@Html.DisplayFor(modelItem => item.Text)</p>
+        <p class="Text">@Html.DisplayFor(modelItem => item.UserName)</p>
     </div>
 
 }
@@ -21,3 +21,14 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

@@ -19,6 +19,7 @@
         @Html.DisplayFor(modelItem => item.Genre) &nbsp; | &nbsp;
        @Html.DisplayFor(modelItem => item.Category)
        <p>@Html.ActionLink("Færa í \"í vinnslu\"", "RequestMoved", new { Id = item.Id })</p> 
+       @Html.ActionLink("Commenta", "AddComment", new { Id = item.Id }, null)
 
        <button type="button">
            <span class="glyphicon glyphicon-arrow-up"></span>

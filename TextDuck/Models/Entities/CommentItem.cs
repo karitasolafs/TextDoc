@@ -14,7 +14,8 @@ namespace TextDuck.Models
         [Required(ErrorMessage = "Text is required.")]
         public string Text          { get; set; }
         public DateTime DateCreated { get; set; }
-        //public string UserName      { get; set; }
+        public string UserName      { get; set; }
+        public int srtId            { get; set; }
 
            public CommentItem()
         {

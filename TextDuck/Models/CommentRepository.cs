@@ -14,20 +14,21 @@ namespace TextDuck.Models
 
         public IQueryable<CommentItem> GetAllNews()
         {
-            return m_db.comment;
+            return m_db.Comments.AsQueryable();
         }
 
         public IQueryable<CommentItem> GetNews()
         {
-            var News = (from x in m_db.comment
+            var News = (from x in m_db.Comments
                         orderby x.DateCreated
+                        where x.UserName != null
                         select x);
             return News;
         }
         public CommentItem GetNewsById(int id)
         {
-            var result = (from s in m_db.comment                 
-                          where s.Id == id                      
+            var result = (from s in m_db.Comments
+                          where s.Id == id                   
                           select s).SingleOrDefault();          
             return result;                                              
         }

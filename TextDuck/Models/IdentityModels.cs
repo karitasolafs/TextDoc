@@ -26,7 +26,5 @@ namespace TextDuck.Models
 
             base.OnModelCreating(modelBuilder);
         }
-
-        public System.Linq.IQueryable<CommentItem> comment { get; set; }
     }
 }
