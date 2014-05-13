@@ -14,10 +14,7 @@ namespace TextDuck.Controllers
     public class HomeController : Controller
     {
         FileRepository repo = new FileRepository();
-        //FileContext Db = new FileContext();
-        //ApplicationDbContext Db = new ApplicationDbContext();
          
-     
         public ActionResult Index()
         {
             return View();
