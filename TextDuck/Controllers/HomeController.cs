@@ -256,6 +256,7 @@ namespace TextDuck.Controllers
 
             return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.srt", id));
         }
+    
 
         [Authorize]
         public ActionResult RequestMoved(int Id)
@@ -278,7 +279,6 @@ namespace TextDuck.Controllers
         }
 
         [Authorize]
-        //bleh bleh 
         public ActionResult FileAppearanceChanges(int Id)
         {
             if (Id == null)
@@ -287,15 +287,25 @@ namespace TextDuck.Controllers
 
             }
 
-            srtFiles srt = repo.GetFilesById(Id);
-            if (srt == null)
+            srtFiles skra = repo.GetFilesById(Id);
+            if (skra == null)
             {
                 return View("Error");
 
             }
-            //srt.Status = "Í vinnslu";
-            repo.Save();
-            return View();
+            return View(skra);
+        }
+        [HttpPost]
+        public ActionResult FileAppearanceChanges([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles skra)
+        {
+            if (ModelState.IsValid)
+            {
+                repo.SetModified(skra);
+                repo.Save();
+                return RedirectToAction("Index");
+            }
+            return View(skra);
+
         }
         [HttpGet]
         public ActionResult AddComment(int Id)
