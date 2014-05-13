@@ -15,15 +15,17 @@ namespace TextDuck.Controllers
     {
         FileRepository repo = new FileRepository();
         FileContext Db = new FileContext();
-         
-     
+        CommentRepository Comment = new CommentRepository();
+
+
+
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult Hjalp()
         {
-           // ViewBag.Message = "Your application description page.";
+            // ViewBag.Message = "Your application description page.";
 
             return View();
         }
@@ -64,7 +66,7 @@ namespace TextDuck.Controllers
         private void AddGenre()
         {
             List<SelectListItem> Genre = new List<SelectListItem>();
-            Genre.Add(new SelectListItem{Text = "Veldu", Value = "Veldu"});
+            Genre.Add(new SelectListItem { Text = "Veldu", Value = "Veldu" });
             Genre.Add(new SelectListItem { Text = "Hasar", Value = "Hasar" });
             Genre.Add(new SelectListItem { Text = "Gaman", Value = "Gaman" });
             Genre.Add(new SelectListItem { Text = "Rómantík", Value = "Rómantík" });
@@ -86,12 +88,17 @@ namespace TextDuck.Controllers
             Status.Add(new SelectListItem { Text = "Lokið", Value = "Lokið" });
             ViewBag.Status = Status;
         }
-    
+        public ActionResult Comments()
+        {
+            var comment = Comment.GetNews();
+            return View(comment);
+        }
+
         public ActionResult Status()
         {
             var statusinn = repo.GetStatus();
             return View(statusinn);
-          
+
         }
         public ActionResult Subtitle()
         {
@@ -103,7 +110,7 @@ namespace TextDuck.Controllers
             var statusinn = repo.GetRequest();
             return View(statusinn);
         }
-       
+
 
         [HttpGet]
         public ActionResult Create()
@@ -118,7 +125,7 @@ namespace TextDuck.Controllers
         [HttpPost]
         public ActionResult Create(FileUpload item)
         {
-          if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var b = new System.IO.BinaryReader(item.File.InputStream);
                 byte[] binData = b.ReadBytes((int)item.File.InputStream.Length);
@@ -148,9 +155,9 @@ namespace TextDuck.Controllers
                 AddCategories();
                 AddGenre();
                 return View(item);
-           }
-                //View(item);
-           
+            }
+            //View(item);
+
         }
         public ActionResult TextBoxSrt(int Id)
         {
@@ -159,7 +166,7 @@ namespace TextDuck.Controllers
                 return View("Error");
 
             }
-            
+
             var srt = repo.GetFilesById(Id);
             if (srt == null)
             {
@@ -193,6 +200,49 @@ namespace TextDuck.Controllers
 
             return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.srt", id));
         }
-  
+        [HttpGet]
+        public ActionResult AddComment()
+        {
+           /*  if(!id.HasValue)
+            {
+                return View("Error");
+            }
+            
+            var comment = repo.GetFilesById(id.Value);
+            if (comment == null)
+            {
+                return View("Error");
+            }*/
+          //  String strUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            return View(new CommentItem());
+            
+          
+
+        }
+        [HttpPost]
+        public ActionResult AddComment(FormCollection form) 
+        {
+           
+           /* var newItem = repo.GetFilesById(id.Value);
+            
+            if (newItem == null)
+            {
+                return View("Error");
+            }
+            else if (id == null)
+            {
+                return View("Error");
+            }
+            else
+            {*/
+               // String strUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                CommentItem item = new CommentItem();
+                UpdateModel(item);
+                Comment.AddNews(item);
+                Comment.Save();
+                return RedirectToAction("AddComment");
+            
+
+        }
     }
 }
