@@ -330,6 +330,20 @@ namespace TextDuck.Controllers
             return RedirectToAction("ViewComment");
         }
 
+        [HttpPost]
+        public ActionResult SearchResult(string query)
+        {
+            if (!String.IsNullOrEmpty(query))
+            {
+                var all = repo.GetAllFiles();
+                var result = (from item in all
+                              orderby item.Date
+                              where item.Title.Contains(query)
+                              select item);
+                return View(result);
+            }
+            return View("Index");
+        }
 
     }
 }
