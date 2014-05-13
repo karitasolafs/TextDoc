@@ -10,17 +10,18 @@ namespace TextDuck.DAL
 {
     public class FileContext : DbContext
     {
-     
 
-            public FileContext(): base("FileContext")
-            {
-            }
 
-            public DbSet<srtFiles> srtFiles { get; set; }
+        public FileContext()
+            : base("FileContext")
+        {
+        }
 
-            protected override void OnModelCreating(DbModelBuilder modelBuilder)
-            {
-                modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            }
+        public DbSet<CommentItem> comment { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
+}

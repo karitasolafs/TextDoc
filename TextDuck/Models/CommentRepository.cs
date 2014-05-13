@@ -3,53 +3,60 @@ using TextDuck.UF;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TextDuck.DAL;
+
 
 namespace TextDuck.Models
 {
     public class CommentRepository
     {
-        private static CommentRepository instance;
+        ApplicationDbContext m_db = new ApplicationDbContext();
 
-        public static CommentRepository Instance
+        public IQueryable<CommentItem> GetAllNews()
         {
-            get
+            return m_db.Comments.AsQueryable();
+        }
+
+        public IQueryable<CommentItem> GetNews()
+        {
+            var News = (from x in m_db.Comments
+                        orderby x.DateCreated
+                        where x.UserName != null
+                        select x);
+            return News;
+        }
+        public CommentItem GetNewsById(int id)
+        {
+            var result = (from s in m_db.Comments
+                          where s.Id == id                   
+                          select s).SingleOrDefault();          
+            return result;                                              
+        }
+
+        public void AddNews(CommentItem s)
+        {
+            m_db.Comments.Add(s);
+            m_db.SaveChanges();
+        }
+        public void Save()
+        {
+            m_db.SaveChanges();
+        }
+
+        public void UpdateNews(CommentItem s)
+        {
+            CommentItem t = GetNewsById(s.Id);
+            if (t != null)
             {
-                if (instance == null)
-                    instance = new CommentRepository();
-                return instance;
+                t.Title = s.Title;
+                t.Text = s.Text;
+                m_db.SaveChanges();
             }
         }
 
-        private List<CommentItem> comments = null;
+       // public DateTime LastModifiedDate { get; set; }
 
-        private CommentRepository()
-        {
-            this.comments = new List<CommentItem>();
-            CommentItem commment1 = new CommentItem { Id = 1, Text = "Great Video!", DateCreated = new DateTime(2014, 3, 1, 12, 30, 00), Title = "Patrekur" };
-            CommentItem commment2 = new CommentItem { Id = 2, Text = "Amazing content!", DateCreated = new DateTime(2014, 3, 5, 12, 30, 00), Title = "Siggi" };
-            this.comments.Add(commment1);
-            this.comments.Add(commment2);
-        }
-
-        public IEnumerable<CommentItem> GetComments()
-        {
-            var result = from c in comments
-                            orderby c.DateCreated ascending
-                            select c;
-            return result;
-        }
-
-        public void AddComment(CommentItem c)
-        {
-            int newID = 1;
-            if (comments.Count() > 0)
-            {
-                newID = comments.Max(x => x.Id) + 1;
-            }
-            c.Id = newID;
-            c.DateCreated = DateTime.Now;
-            comments.Add(c);
-        }
+     
     }
     
 }
