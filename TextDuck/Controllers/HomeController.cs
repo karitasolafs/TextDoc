@@ -9,12 +9,14 @@ using TextDuck.DAL;
 using TextDuck.Models;
 using TextDuck.UF;
 
+
+
 namespace TextDuck.Controllers
 {
     public class HomeController : Controller
     {
         FileRepository repo = new FileRepository();
-        FileContext Db = new FileContext();
+        ApplicationDbContext Db = new ApplicationDbContext();
          
      
         public ActionResult Index()
@@ -182,6 +184,8 @@ namespace TextDuck.Controllers
             return View(srt);
 
         }
+       
+       
         public ActionResult ViewSrt(int id)
         {
             var statusinn = repo.GetFilesById(id).Content;
@@ -193,6 +197,33 @@ namespace TextDuck.Controllers
 
             return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.srt", id));
         }
-  
+
+        public ActionResult SearchForFile(string fileTitle) {
+            
+            string searchString = fileTitle;
+            var files = from s in Db.Files
+                        select s;
+        
+
+            if (!String.IsNullOrEmpty(searchString)) {
+                files = files.Where(c => c.Title.Contains(searchString));
+            }
+            return View(files);
+        }
+        /*
+         public ActionResult Index(string id) 
+{ 
+    string searchString = id; 
+    var movies = from m in db.Movies 
+                 select m; 
+ 
+    if (!String.IsNullOrEmpty(searchString)) 
+    { 
+        movies = movies.Where(s => s.Title.Contains(searchString)); 
+    } 
+ 
+    return View(movies); 
+}
+         */
     }
 }

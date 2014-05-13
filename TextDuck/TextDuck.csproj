@@ -245,6 +245,8 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Account\UserInfo.cshtml" />
+    <Content Include="Views\Home\SearchForFile.cshtml" />
+    <Content Include="Views\Home\SearchResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

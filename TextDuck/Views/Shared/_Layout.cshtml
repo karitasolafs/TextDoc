@@ -33,6 +33,19 @@
             </div>
         </div>
     </div>
+<p>
+    @using (Html.BeginForm("SearchForFile", "File", FormMethod.Get))
+    {
+    <p>
+        File: @Html.TextBox("fileTitle")<br />
+        <input type="submit" value="SearchResult" />
+        RedirectTo("")
+    </p>
+    }
+    </p>
+    
+   
+ 
     <span id="MainMenu">
         <div class="valmyndFyrirsogn"><h2>Valmynd</h2> </div>
         <ul>
@@ -41,6 +54,7 @@
             <li>@Html.ActionLink("Beiðnir", "Request", "Home")</li>
             <li>@Html.ActionLink("Hafa samband", "Contact", "Home")</li>
             <li>@Html.ActionLink("Athugasemdir", "CreateComment", "Home")</li>
+            <li>@Html.ActionLink("Leita ad skra", "SearchForFile", "Home")</li>
         </ul>
     </span>
 
