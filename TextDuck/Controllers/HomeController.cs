@@ -108,6 +108,20 @@ namespace TextDuck.Controllers
             var comment = Comment.GetNews();
             return View(comment);
         }
+        
+        public void AddVote(int Id)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var vote = repo.GetFilesById(Id);
+                vote.Votes++;
+                repo.SetModified(vote);
+                RedirectToAction("Index");
+
+            }
+
+        }
 
         public ActionResult Status()
         {

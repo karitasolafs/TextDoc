@@ -7,7 +7,7 @@ namespace TextDuck.Models
 {
     public class Upvote
     {
-        public int commentID { get; set; }
+        public int srtId { get; set; }
 
         public int upvoteID { get; set; }
     }
