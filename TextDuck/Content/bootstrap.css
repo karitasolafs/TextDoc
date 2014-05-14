@@ -390,7 +390,13 @@ img {
   -webkit-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
 }
+p.Date {
+    float:right;
+}
 
+.Notendanafn {
+    float:right;
+}
 .img-circle {
   border-radius: 50%;
 }
@@ -4967,8 +4973,8 @@ a.list-group-item.active > .badge,
     padding-bottom: 48px;
   }
   .container .jumbotron {
-    padding-right: 60px;
-    padding-left: 60px;
+    padding-right: 30px;
+    padding-left: 30px;
   }
   .jumbotron h1 {
     font-size: 63px;
