@@ -21,7 +21,7 @@
             @Html.DisplayFor(modelItem => item.Category)
             <div>
                 @Html.ActionLink("Breyta skrá", "TextBoxSrt", new { Id = item.Id}, null)&nbsp;|&nbsp;
-                @Html.ActionLink("Breyta upplýsingum", "FileAppearanceChanges", new { Id = item.Id }, null)
+                @Html.ActionLink("Breyta upplýsingum", "FileAppearanceChanges", new { Id = item.Id }, null)&nbsp;|&nbsp;
                 @Html.ActionLink("Commenta", "AddComment", new { Id = item.Id }, null)
 
             </div>
