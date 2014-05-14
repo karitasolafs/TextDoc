@@ -15,7 +15,6 @@ namespace TextDuck.Controllers
     {
         FileRepository repo = new FileRepository();
          
-        //lalalalallalalaal
         
         public ActionResult Index()
         {
