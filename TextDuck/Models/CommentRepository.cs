@@ -20,8 +20,8 @@ namespace TextDuck.Models
         public IQueryable<CommentItem> GetNews()
         {
             var News = (from x in m_db.Comments
-                        orderby x.DateCreated
-                       // where x.UserName != null
+                        orderby x.srtId
+                        where x.UserName != null && x.srtId != null
                         select x);
             return News;
         }

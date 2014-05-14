@@ -16,6 +16,7 @@ namespace TextDuck.Models
         public DateTime DateCreated { get; set; }
         public string UserName      { get; set; }
         public int srtId            { get; set; }
+        public string srtTitle      { get; set; }
 
            public CommentItem()
         {
