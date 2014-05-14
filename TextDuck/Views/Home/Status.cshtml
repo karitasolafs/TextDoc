@@ -2,26 +2,53 @@
 
 <h1> srt Textar i Vinnslu</h1>
 
-@foreach (var item in Model)
-{
-      <div class="jumbotron">
-        <p class="Date">
-            @Html.DisplayFor(modelItem => item.Date)
-            <span class="glyphicon glyphicon-time"></span>
-        </p>
-        <h2 class="Status">@Html.ActionLink(item.Title, "Status")</h2>
-        @*@Html.DisplayFor(modelItem => item.Status) &nbsp;|&nbsp;*@
-        @Html.DisplayFor(modelItem => item.Language) &nbsp;|&nbsp;
-        @Html.DisplayFor(modelItem => item.Genre)&nbsp;|&nbsp;
-        @Html.DisplayFor(modelItem => item.Category)
-          <div>
-              @Html.ActionLink("Breyta skrá", "TextBoxSrt", new { Id = item.Id }, null)&nbsp;|&nbsp;
-              @Html.ActionLink("Breyta upplýsingum", "FileAppearanceChanges", new { Id = item.Id }, null)&nbsp;|&nbsp;
-              @Html.ActionLink("Commenta", "AddComment", new { Id = item.Id }, null)
-          </div>
-    </div>
+<table class="table">
+    <tr>
+        <th>
+            Nafn
+        </th>
+        <th>
+            Tungumal
+        </th>
+        <th>
+            Flokkur
+        </th>
+        <th>
+            Tegund
+        </th>
+        <th>
+            Dagsetning
+        </th>
+    </tr>
 
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Title, "Status")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Language)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Breyta skrá", "TextBoxSrt", new { id = item.Id }) |
+                @Html.ActionLink("Breyta upplýsingum", "FileAppearanceChanges", new { id = item.Id }) |
+                @Html.ActionLink("Commenta", "AddComment", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
 
 <div>
     @Html.ActionLink("Aftur a forsidu", "Index")
