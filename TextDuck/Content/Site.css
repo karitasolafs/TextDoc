@@ -7,8 +7,7 @@
 
 /* Set padding to keep content from hitting the edgess */
 .body-content {
-    padding-left: 200px;
-    padding-right: 15px;
+    align-content:center;
     padding-top: 20px;
 }
 
@@ -110,27 +109,12 @@ legend {
 }
 
 #navigation {
-	margin:0;
-	padding: 0;
-	clear:both;
-	width:950px;
-	height:51px;
-	background: #d6eaf8 url(images/dropdown-bg.gif) repeat-x left top;
+    display: inline;
+    font-size: medium;
+    background: #222222;
+    font-family:Tahoma, Geneva, sans-serif;
 }
 
-
-ul.nav-main,
-ul.nav-main li {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-
-ul.nav-main {
-	position: relative;
-	z-index: 597;
-}
 
 ul.nav-main li:hover > ul {
 	visibility: visible;
@@ -145,15 +129,11 @@ ul.nav-main li:hover {
 	background: url(images/dropdown-bg-hover.gif) repeat-x left top;
 }
 
-
-
 ul.nav-main li {
 	float:left;
 	display:block;
 	height: 51px;
 	color: #999;
-	font: 14px Arial, Helvetica, sans-serif;
-	background: url(images/separator.gif) no-repeat right center;
 }
 
 ul.nav-main li a {
@@ -161,21 +141,12 @@ ul.nav-main li a {
 	padding: 16px 16px 0 16px;
 	height: 35px;
 	color: #999;
-	font: 14px Arial, Helvetica, sans-serif;
 	text-decoration:none;
 }
 
 ul.nav-main li a:hover {
 	color:#D6D6D6;
 }
-
-
-
-ul.nav-main *.list {
-	padding-right: 22px;
-	background: url(images/navigation-arrow.gif) no-repeat right top;
-}
-
 
 
 ul.nav-sub {
@@ -194,6 +165,7 @@ ul.nav-sub {
 
 ul.nav-sub li {
 	list-style:none;
+    font-size:1em;
 	display:block;
 	padding: 0;
 	height: 27px;
@@ -210,8 +182,7 @@ ul.nav-sub li a {
 	height: 15px;
 	float: none;
 	width:145px;
-	background: none;
-	font: 12px Arial, Helvetica, sans-serif;	
+	background: none;	
 }
 
 
