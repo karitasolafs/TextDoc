@@ -241,7 +241,7 @@ namespace TextDuck.Controllers
             {
                 repo.SetModified(srt);
                 repo.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("ChangesMade");
             }
             return View(srt);
 
@@ -303,7 +303,7 @@ namespace TextDuck.Controllers
             {
                 repo.SetModified(skra);
                 repo.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("ChangesMade");
             }
             return View(skra);
 
