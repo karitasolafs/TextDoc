@@ -26,7 +26,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Heim", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Skjátextar", "Subtitle", "Home")</li>
+                    <li>@Html.ActionLink("Í vinnslu", "Status", "Home")</li>
+                    <li>@Html.ActionLink("Beiðnir", "Request", "Home")</li>
+                    <li>@Html.ActionLink("Hafa samband", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Hjálp", "Hjalp", "Home")</li>
+
                 </ul>
                     @Html.Partial("_LoginPartial")
             </div>
@@ -41,16 +46,7 @@
 }
     </span>
 
-    <span id="MainMenu">
-        <div class="valmyndFyrirsogn"><h2>Valmynd</h2> </div>
-        <ul>
-            <li>@Html.ActionLink("Skjátextar", "Subtitle", "Home")</li>
-            <li>@Html.ActionLink("Í vinnslu", "Status", "Home")</li>
-            <li>@Html.ActionLink("Beiðnir", "Request", "Home")</li>
-            <li>@Html.ActionLink("Hafa samband", "Contact", "Home")</li>
 
-        </ul>
-    </span>
 
     <div class="container body-content">
         @RenderBody()
