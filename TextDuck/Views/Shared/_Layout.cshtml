@@ -34,13 +34,13 @@
         </div>
     </div>
 
-    <div id="Search">
+    <span>
     @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
-    {
-        <input type="text" id="query" name="query" placeholder="Skrifadu inn titil her" />
-        <input type="submit" />
-    }
-    </div>
+{
+    <input type="search" id="query" name="query" placeholder="Skrifaðu titil efnis hér" />
+            <input type="submit" name="Leita" value="Leita"/>
+}
+    </span>
 
     <span id="MainMenu">
         <div class="valmyndFyrirsogn"><h2>Valmynd</h2> </div>
