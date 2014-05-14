@@ -21,6 +21,14 @@ namespace TextDuck.Controllers
         {
             return View();
         }
+        public ActionResult ChangesMade()
+        {
+            return View();
+        }
+        public ActionResult ChangesToFile()
+        {
+            return View();
+        }
         public ActionResult Hjalp()
         {
             // ViewBag.Message = "Your application description page.";
@@ -241,7 +249,7 @@ namespace TextDuck.Controllers
             {
                 repo.SetModified(srt);
                 repo.Save();
-                return RedirectToAction("ChangesMade");
+                return RedirectToAction("ChangesToFile");
             }
             return View(srt);
 
@@ -305,9 +313,10 @@ namespace TextDuck.Controllers
                 repo.Save();
                 return RedirectToAction("ChangesMade");
             }
-            return View(skra);
 
+            return View(skra);
         }
+
         [Authorize]
         [HttpGet]
         public ActionResult AddComment(int Id, string Title)
