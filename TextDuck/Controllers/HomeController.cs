@@ -333,6 +333,7 @@ namespace TextDuck.Controllers
             Comment.Save();
             return RedirectToAction("ViewComment");
             //comment
+            //comment2
         }
 
         [HttpPost]
