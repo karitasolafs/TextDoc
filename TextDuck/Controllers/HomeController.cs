@@ -108,6 +108,7 @@ namespace TextDuck.Controllers
             var comment = Comment.GetNews();
             return View(comment);
         }
+        //gaman saman
         public void AddVote(int Id)
         {
 
