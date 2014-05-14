@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using TextDuck.DAL;
 using TextDuck.Models;
 using TextDuck.UF;
@@ -265,8 +266,8 @@ namespace TextDuck.Controllers
 
             return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.srt", id));
         }
-    
 
+   
         [Authorize]
         public ActionResult RequestMoved(int Id)
         {

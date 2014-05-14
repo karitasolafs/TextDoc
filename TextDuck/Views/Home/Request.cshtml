@@ -56,9 +56,10 @@
                 @Html.ActionLink("Færa í \"í vinnslu\"", "RequestMoved", new { id = item.Id })
             </td>
             <td>
-                <button type="button">
-                    <span class="glyphicon glyphicon-arrow-up"></span>
-                </button>
+                <a href="@Url.Action("Index", new { id = item.Id })">
+                    <i class="glyphicon glyphicon-arrow-up"></i>
+                    <span class="sr-only">Index</span>
+                </a>
             </td>
         </tr>
     }
