@@ -151,7 +151,7 @@ figure {
 }
 
 fieldset {
-  padding: 0.35em 0.625em 0.75em;
+  padding: 25em 0.625em 25 em;
   margin: 0 2px;
   border: 1px solid #c0c0c0;
 }
@@ -209,8 +209,8 @@ input[type="search"] {
           box-sizing: content-box;
   -webkit-appearance: textfield;
   border-radius:25px;
-  margin-left: 35em;
-  margin-top: 2em;
+  margin-left: 25em;
+  margin-top: 4em;
   padding-left: 10em;
   padding-right: 10em;
 }
@@ -1499,7 +1499,7 @@ th {
 
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
-  background-color: #f5f5f5;
+  background-color: #555555;
 }
 
 table col[class*="col-"] {
@@ -1547,7 +1547,7 @@ table th[class*="col-"] {
 .table-hover > tbody > tr > td.success:hover,
 .table-hover > tbody > tr > th.success:hover,
 .table-hover > tbody > tr.success:hover > td {
-  background-color: #d0e9c6;
+  background-color: #d0e9c;
   border-color: #c9e2b3;
 }
 
@@ -4939,7 +4939,7 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  padding: 30px;
+  padding-top: 30;
   margin-bottom: 10px;
   font-size: 15px;
   font-weight: 200;
@@ -4963,12 +4963,13 @@ a.list-group-item.active > .badge,
 
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 4px;
+    padding-bottom: 8px;
+
   }
   .container .jumbotron {
-    padding-right: 60px;
-    padding-left: 60px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
   .jumbotron h1 {
     font-size: 63px;
@@ -6825,3 +6826,8 @@ td.visible-print {
     display: none !important;
   }
 }
+/**element.style {
+    padding-left: 5em;
+    padding-right: 5em;
+}
+
