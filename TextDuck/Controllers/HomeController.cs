@@ -328,6 +328,7 @@ namespace TextDuck.Controllers
             CommentItem item = new CommentItem();
             UpdateModel(item);
             item.UserName = User.Identity.Name;
+            item.DateCreated = DateTime.Now;
             Comment.AddNews(item);
             Comment.Save();
             return RedirectToAction("ViewComment");
