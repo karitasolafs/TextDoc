@@ -341,7 +341,7 @@ namespace TextDuck.Controllers
             {
                 var all = repo.GetAllFiles();
                 var result = (from item in all
-                              orderby item.Date
+                              orderby item.Title ascending
                               where item.Title.Contains(query)
                               select item);
                 return View(result);
