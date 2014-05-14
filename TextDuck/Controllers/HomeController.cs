@@ -310,9 +310,9 @@ namespace TextDuck.Controllers
         }
         [Authorize]
         [HttpGet]
-        public ActionResult AddComment(int Id)
+        public ActionResult AddComment(int Id, string Title)
         {
-            return View(new CommentItem() { srtId = Id });
+            return View(new CommentItem() { srtId = Id, srtTitle = Title });
 
         }
         [Authorize]
