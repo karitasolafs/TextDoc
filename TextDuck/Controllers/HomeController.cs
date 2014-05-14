@@ -15,7 +15,19 @@ namespace TextDuck.Controllers
     {
         FileRepository repo = new FileRepository();
          
+        //lalalalallalalaal
+        
         public ActionResult Index()
+        {
+            return View();
+        }
+
+ 
+        public ActionResult ChangesMade()
+        {
+            return View();
+        }
+        public ActionResult ChangesToFile()
         {
             return View();
         }
@@ -232,7 +244,7 @@ namespace TextDuck.Controllers
             {  
                 repo.SetModified(srt);
                 repo.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("ChangesToFile");
             }
             return View(srt);
 
@@ -294,7 +306,7 @@ namespace TextDuck.Controllers
             {
                 repo.SetModified(skra);
                 repo.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("ChangesMade");
             }
             return View(skra);
 

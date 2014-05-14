@@ -248,6 +248,8 @@
     <Content Include="Views\Home\RequestMoved.cshtml" />
     <Content Include="Views\Home\FileAppearanceChanges.cshtml" />
     <Content Include="Views\Home\SearchResult.cshtml" />
+    <Content Include="Views\Home\ChangesMade.cshtml" />
+    <Content Include="Views\Home\ChangesToFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
