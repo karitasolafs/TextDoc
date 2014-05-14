@@ -341,6 +341,9 @@ namespace TextDuck.Controllers
             Comment.AddNews(item);
             Comment.Save();
             return RedirectToAction("ViewComment");
+            //comment
+            //comment2
+            //laga
         }
 
         [HttpPost]
