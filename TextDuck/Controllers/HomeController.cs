@@ -162,7 +162,7 @@ namespace TextDuck.Controllers
 
                 repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
             else
             {
@@ -210,7 +210,7 @@ namespace TextDuck.Controllers
 
                 repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("CreateRequest");
             }
             else
             {
