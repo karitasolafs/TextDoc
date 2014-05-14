@@ -56,10 +56,9 @@
                 @Html.ActionLink("Færa í \"í vinnslu\"", "RequestMoved", new { id = item.Id })
             </td>
             <td>
-                <a href="@Url.Action("Index", new { id = item.Id })">
-                    <i class="glyphicon glyphicon-arrow-up"></i>
-                    <span class="sr-only">Index</span>
-                </a>
+                
+                @Html.ActionLink("Upvote", "AddVote", "Home", new { id = item.Id })
+
             </td>
         </tr>
     }

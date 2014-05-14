@@ -69,7 +69,7 @@ namespace TextDuck.Controllers
             Categories.Add(new SelectListItem { Text = "Þáttur", Value = "Þáttur" });
             ViewBag.Categories = Categories;
         }
-
+       
         private void AddGenre()
         {
             List<SelectListItem> Genre = new List<SelectListItem>();
@@ -107,6 +107,20 @@ namespace TextDuck.Controllers
         {
             var comment = Comment.GetNews();
             return View(comment);
+        }
+        
+        public void AddVote(int Id)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var vote = repo.GetFilesById(Id);
+                vote.Votes++;
+                repo.SetModified(vote);
+                RedirectToAction("Index");
+
+            }
+
         }
 
         public ActionResult Status()

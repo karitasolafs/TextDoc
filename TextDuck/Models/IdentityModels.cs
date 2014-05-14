@@ -19,6 +19,7 @@ namespace TextDuck.Models
 
         public DbSet<CommentItem> Comments { get; set; }
         public DbSet<srtFiles> Files { get; set; }
+        public DbSet<Upvote> Upvote { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
