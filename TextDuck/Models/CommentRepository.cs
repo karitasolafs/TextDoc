@@ -21,7 +21,7 @@ namespace TextDuck.Models
         {
             var News = (from x in m_db.Comments
                         orderby x.DateCreated
-                        where x.UserName != null
+                       // where x.UserName != null
                         select x);
             return News;
         }
