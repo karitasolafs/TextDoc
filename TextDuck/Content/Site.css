@@ -1,7 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    color: black;
+    color: #777777;
+    background-color: #282828;
 }
 
 /* Set padding to keep content from hitting the edgess */
@@ -44,13 +45,13 @@ input[type="checkbox"].input-validation-error {
 }
 #MainMenu {
     font-size: medium;
-    background: #fa6705;
+    background: #222222;
     font-family:Tahoma, Geneva, sans-serif;
     color:#1F1A17;
-    border:thin solid #e8ece9;
+    border: thin solid #080808;
     float: left;
-    width:200px;
-    padding:20px 20px 0 0;
+    width:15em;
+    padding:2em 2em 40em 0;
 }
 #navMain ul li a:hover{
 color:#e0993e;
@@ -95,6 +96,7 @@ li
     margin-left: 0px;
 }
 .valmyndFyrirsogn{
+   color: black;
    margin-left: 40px;
 }
 fieldset {
@@ -105,10 +107,4 @@ fieldset {
 legend {
     text-align: left;
     font-weight: bold;
-}
-
-#Search{
-    display: block;
-    margin-left: auto;
-    margin-right: auto }
 }
