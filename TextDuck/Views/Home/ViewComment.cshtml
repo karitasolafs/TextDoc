@@ -1,9 +1,6 @@
 ﻿@model IQueryable<TextDuck.Models.CommentItem>
 
 <link href="/Content/Table.css" rel="stylesheet" />
-<div>
-    @Html.ActionLink("Bæta við athugasemd", "AddComment", "Home")
-</div>
 <h1>Latest Comments</h1>
 
 @foreach (var item in Model)
@@ -16,6 +13,7 @@
         <h2 class="Title">@Html.ActionLink(item.Title, "AddComment", new { id = item.Id })</h2>
         <p class="Text">@Html.DisplayFor(modelItem => item.Text)</p>
         <p class="Text">@Html.DisplayFor(modelItem => item.UserName)</p>
+        @Html.ActionLink("Ny athugasemd", "AddComment", new { Id = item.Id, Title = item.Title }, null)
     </div>
 
 }
