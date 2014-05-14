@@ -26,32 +26,27 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Heim", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Skjátextar", "Subtitle", "Home")</li>
+                    <li>@Html.ActionLink("Í vinnslu", "Status", "Home")</li>
+                    <li>@Html.ActionLink("Beiðnir", "Request", "Home")</li>
+                    <li>@Html.ActionLink("Hafa samband", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Hjálp", "Hjalp", "Home")</li>
-                    <li>@Html.ActionLink("Comment", "ViewComment", "Home")</li>
+
                 </ul>
                     @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-
-    <div id="Search">
+    @*lol*@
+    <span>
     @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
-    {
-        <input type="text" id="query" name="query" placeholder="Skrifadu inn titil her" />
-        <input type="submit" />
-    }
-    </div>
-
-    <span id="MainMenu">
-        <div class="valmyndFyrirsogn"><h2>Valmynd</h2> </div>
-        <ul>
-            <li>@Html.ActionLink("Skjátextar", "Subtitle", "Home")</li>
-            <li>@Html.ActionLink("Í vinnslu", "Status", "Home")</li>
-            <li>@Html.ActionLink("Beiðnir", "Request", "Home")</li>
-            <li>@Html.ActionLink("Hafa samband", "Contact", "Home")</li>
-            <li>@Html.ActionLink("Athugasemdir", "CreateComment", "Home")</li>
-        </ul>
+{
+    <input type="search" id="query" name="query" placeholder="Skrifaðu titil efnis hér" />
+            <input type="submit" name="Leita" value="Leita"/>
+}
     </span>
+
+
 
     <div class="container body-content">
         @RenderBody()

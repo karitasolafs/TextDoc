@@ -160,7 +160,7 @@ namespace TextDuck.Controllers
             bool hasPassword = HasPassword();
             ViewBag.HasLocalPassword = hasPassword;
             ViewBag.ReturnUrl = Url.Action("Manage");
-            if (hasPassword)
+            if (hasPassword) //comment
             {
                 if (ModelState.IsValid)
                 {

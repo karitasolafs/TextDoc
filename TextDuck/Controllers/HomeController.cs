@@ -69,7 +69,7 @@ namespace TextDuck.Controllers
             Categories.Add(new SelectListItem { Text = "Þáttur", Value = "Þáttur" });
             ViewBag.Categories = Categories;
         }
-
+       
         private void AddGenre()
         {
             List<SelectListItem> Genre = new List<SelectListItem>();
@@ -355,6 +355,9 @@ namespace TextDuck.Controllers
             Comment.AddNews(item);
             Comment.Save();
             return RedirectToAction("ViewComment");
+            //comment
+            //comment2
+            //laga
         }
 
         [HttpPost]
