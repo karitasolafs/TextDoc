@@ -1,7 +1,9 @@
 ﻿@model IQueryable<TextDuck.Models.CommentItem>
 
 <link href="/Content/Table.css" rel="stylesheet" />
-
+<div>
+    @Html.ActionLink("Bæta við athugasemd", "AddComment", "Home")
+</div>
 <h1>Latest Comments</h1>
 
 @foreach (var item in Model)
@@ -18,13 +20,9 @@
 
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Aftur a forsidu", "Index")
 </div>
 
 @section Scripts {
