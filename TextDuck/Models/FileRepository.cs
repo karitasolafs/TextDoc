@@ -20,7 +20,7 @@ namespace TextDuck.Models
             public IQueryable<srtFiles> GetStatus()
             {
                 var Status = (from item in Db.Files
-                             orderby item.Date
+                             orderby item.Title ascending
                               where item.Status == "Í vinnslu"
                              select item).Take(10);
                 return Status;
@@ -28,7 +28,7 @@ namespace TextDuck.Models
             public IQueryable<srtFiles> GetTexts()
             {
                 var Text = (from item in Db.Files
-                           orderby item.Date
+                            orderby item.Title ascending
                             where item.Status == "Lokið"
                            select item);
                 return Text;
@@ -36,7 +36,7 @@ namespace TextDuck.Models
             public IQueryable<srtFiles> GetRequest()
             {
                 var request = (from item in Db.Files
-                               orderby item.Date
+                               orderby item.Title ascending
                                where item.Status == "Beiðni"
                                select item).Take(10);
                 return request;

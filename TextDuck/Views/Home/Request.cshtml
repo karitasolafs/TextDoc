@@ -1,32 +1,71 @@
 ﻿@model IQueryable<TextDuck.Models.srtFiles>
 
-<h1>Beiðnir</h1>
+
+<h1>Beidnir</h1>
 <div>
 @Html.ActionLink("Bæta við beiðni", "CreateRequest", "Home")
 </div>
 
-@foreach (var item in Model)
-{
-   <div class="jumbotron">
-        <p class="Date">
-            @Html.DisplayFor(modelItem => item.Date)
-            <span class="glyphicon glyphicon-time"></span>
-        </p>
-        <h2 class="Title">@Html.ActionLink(item.Title, "ViewSrt", new { Id = item.Id })</h2>
-       @* @Html.DisplayFor(modelItem => item.Status) &nbsp; | &nbsp;*@
-        @Html.DisplayFor(modelItem => item.Language) &nbsp; | &nbsp;
-        @Html.DisplayFor(modelItem => item.Genre) &nbsp; | &nbsp;
-       @Html.DisplayFor(modelItem => item.Category)
-       <p>@Html.ActionLink("Færa í \"í vinnslu\"", "RequestMoved", new { Id = item.Id })</p> 
 
-       <button type="button">
-           <span class="glyphicon glyphicon-arrow-up"></span>
-       </button>
-     
-    </div>
-    
-}
+
+
+<table class="table">
+    <tr>
+        <th>
+            Nafn
+        </th>
+        <th>
+            Tungumal
+        </th>
+        <th>
+            Flokkur
+        </th>
+        <th>
+            Tegund
+        </th>
+        <th>
+            Dagsetning
+        </th>
+        <th>
+        </th>
+        <th>
+            Eftirspurn
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Title, "ViewSrt", new { Id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Language)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Færa í \"í vinnslu\"", "RequestMoved", new { id = item.Id })
+            </td>
+            <td>
+                <button type="button">
+                    <span class="glyphicon glyphicon-arrow-up"></span>
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Aftur a forsidu", "Index")
 </div>

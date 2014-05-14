@@ -233,6 +233,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\FileAppearance.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\CommentView.cshtml" />
     <Content Include="Views\Home\CreateComment.cshtml" />
     <Content Include="Views\Home\Subtitles.cshtml" />
@@ -244,12 +245,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Account\UserInfo.cshtml" />
-    <Content Include="Views\Home\Create.cshtml" />
-    <Content Include="Views\Home\RequestMoved.cshtml" />
-    <Content Include="Views\Home\FileAppearanceChanges.cshtml" />
-    <Content Include="Views\Home\SearchResult.cshtml" />
-    <Content Include="Views\Home\ChangesMade.cshtml" />
-    <Content Include="Views\Home\ChangesToFile.cshtml" />
+    <Content Include="Views\Home\AddComment.cshtml" />
+    <Content Include="Views\Home\ViewComment.cshtml" />
+    <Content Include="Views\Home\tofluview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
