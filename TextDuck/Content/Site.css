@@ -107,6 +107,8 @@ legend {
     font-weight: bold;
 }
 
-.Search{
-    align-content: center;
+#Search{
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
 }

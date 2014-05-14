@@ -21,6 +21,14 @@ namespace TextDuck.Controllers
         {
             return View();
         }
+        public ActionResult ChangesMade()
+        {
+            return View();
+        }
+        public ActionResult ChangesToFile()
+        {
+            return View();
+        }
         public ActionResult Hjalp()
         {
             // ViewBag.Message = "Your application description page.";
@@ -154,7 +162,7 @@ namespace TextDuck.Controllers
 
                 repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
             else
             {
@@ -202,7 +210,7 @@ namespace TextDuck.Controllers
 
                 repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("CreateRequest");
             }
             else
             {
@@ -241,7 +249,7 @@ namespace TextDuck.Controllers
             {
                 repo.SetModified(srt);
                 repo.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("ChangesToFile");
             }
             return View(srt);
 
@@ -303,11 +311,12 @@ namespace TextDuck.Controllers
             {
                 repo.SetModified(skra);
                 repo.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("ChangesMade");
             }
-            return View(skra);
 
+            return View(skra);
         }
+
         [Authorize]
         [HttpGet]
         public ActionResult AddComment(int Id, string Title)
@@ -344,13 +353,15 @@ namespace TextDuck.Controllers
             {
                 var all = repo.GetAllFiles();
                 var result = (from item in all
-                              orderby item.Date
+                              orderby item.Title ascending
                               where item.Title.Contains(query)
                               select item);
                 return View(result);
             }
             return View("Index");
         }
+
+
 
     }
 }
