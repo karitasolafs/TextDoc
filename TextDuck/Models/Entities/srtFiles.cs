@@ -14,7 +14,9 @@ namespace TextDuck.Models
         public DateTime Date { get; set; }
         public string Category { get; set; }
         public string Genre { get; set; }
-        public string Language { get; set;}
+        public string Language { get; set; }
+        public int Votes { get; set; }
+
        // public string Text { get; set; }
        // public string UserName { get; set; }
     }
