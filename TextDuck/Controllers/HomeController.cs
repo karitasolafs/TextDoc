@@ -216,6 +216,7 @@ namespace TextDuck.Controllers
 
         }
 
+        [Authorize]
         public ActionResult TextBoxSrt(int Id)
         {
             if (Id == null)
@@ -307,12 +308,14 @@ namespace TextDuck.Controllers
             return View(skra);
 
         }
+        [Authorize]
         [HttpGet]
         public ActionResult AddComment(int Id)
         {
             return View(new CommentItem() { srtId = Id });
 
         }
+        [Authorize]
         [HttpGet]
         public ActionResult ViewComment()
         {
