@@ -4950,6 +4950,12 @@ a.list-group-item.active > .badge,
   color: inherit;
   background-color: #eeeeee;
 }
+p.Date {
+    float:right;
+}
+p.Notendanafn {
+    float:right;
+}
 
 .jumbotron h1 {
   line-height: 1;
