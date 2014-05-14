@@ -334,6 +334,7 @@ namespace TextDuck.Controllers
             return RedirectToAction("ViewComment");
             //comment
             //comment2
+            //laga
         }
 
         [HttpPost]
