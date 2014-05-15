@@ -6,7 +6,7 @@
 }
 
 /* Set padding to keep content from hitting the edgess */
-.body-content {
+.body-content{
     align-content:center;
     padding-top: 20px;
 }
@@ -185,5 +185,14 @@ ul.nav-sub li a {
 	background: none;	
 }
 #loginform{
+    align-content: center;
+}
+
+.Recommended{
+    width: 100%;
+}
+
+.tableRecommend{
+    width:100%;
     align-content: center;
 }

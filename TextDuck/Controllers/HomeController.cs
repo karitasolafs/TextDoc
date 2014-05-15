@@ -108,29 +108,21 @@ namespace TextDuck.Controllers
             var comment = Comment.GetNews();
             return View(comment);
         }
-        
+ 
         public ActionResult AddVote(int Id)
         {
-               if(Id == null)
-               {
-                   return View("Error");
-               }
        
+
             var vote = repo.GetFilesById(Id);
 
-            if (vote == null)
-            {
-                return View("Error");
-            }
 
                 vote.Votes++;
                 repo.SetModified(vote);
-
-                return View("Register");
+                repo.Save();
                 
+                return RedirectToAction("Request");     
 
         }
-        //hlaskfd
         public ActionResult Status()
         {
             var statusinn = repo.GetStatus();
@@ -369,28 +361,18 @@ namespace TextDuck.Controllers
         }
 
         [HttpPost]
-        public ActionResult SearchResult(string query, string category)
+        public ActionResult SearchResult(string query)
         {
-             var all = repo.GetAllFiles();
             if (!String.IsNullOrEmpty(query))
             {
-                
+                var all = repo.GetAllFiles();
                 var result = (from item in all
                               orderby item.Title ascending
                               where item.Title.Contains(query)
                               select item);
                 return View(result);
             }
-            if (!String.IsNullOrEmpty(category)) {
-
-                var result = (from item in all
-                              orderby item.Category ascending
-                              where item.Category == category
-                              select item);
-                return View(result);
-            }
-           
-            return View("Index");
+            return View("Hjalp");
         }
 
 

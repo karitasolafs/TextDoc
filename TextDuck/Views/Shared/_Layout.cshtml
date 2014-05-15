@@ -8,68 +8,65 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<div class="page-wrap">
-    <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-                    <a href="/home">
-                        <img src='@Url.Content("http://i.imgur.com/bIT1VnI.png?1?8795")' />
-                    </a>
+                <a href="/home">
+                    <img src='@Url.Content("http://i.imgur.com/bIT1VnI.png?1?8795")' />
+                </a>
 
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul id="navigation" class="nav-main">
-                        <li>@Html.ActionLink("Heim", "Index", "Home")</li>
-
-                        <li class="list">
-                            <a href="#">Skjátextar</a>
-                            <ul class="nav-sub">
-                                <li>@Html.ActionLink("Tilbúnir Skjátextar", "Subtitle", "Home")</li>
-                                <li>@Html.ActionLink("Í vinnslu", "Status", "Home")</li>
-                                <li>@Html.ActionLink("Beiðnir", "Request", "Home")</li>
-                            </ul>
-                        </li>
-
-                        <li>@Html.ActionLink("Hafa samband", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Hjálp", "Hjalp", "Home")</li>
-
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
             </div>
-        
-      
-        <span>
-            @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
-            {
-                <input type="search" id="query" name="query" placeholder="Skrifaðu titil efnis hér" />
-                <input type="submit" name="Leita" value="Leita" />
-            }
-        </span>
+            <div class="navbar-collapse collapse">
+                <ul id="navigation" class="nav-main">
+                    <li>@Html.ActionLink("Heim", "Index", "Home")</li>
 
-   </div>
-</div>
+                    <li class="list">
+                        <a href="#">Skjátextar <span class="glyphicon glyphicon-chevron-down"></span></a>
+                        <ul class="nav-sub">
+                            <li>@Html.ActionLink("Tilbúnir Skjátextar", "Subtitle", "Home")</li>
+                            <li>@Html.ActionLink("Í vinnslu", "Status", "Home")</li>
+                            <li>@Html.ActionLink("Beiðnir", "Request", "Home")</li>
+                        </ul>
+                    </li>
 
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-           
-            <footer class="site-footer">
-                <p>
-                    &copy;TextDuck   |   Menntavegur 1   |   101 Reykjavik   |   s:555-5555  |   <a href="mailto:samband@TextDuck.is">samband@TextDuck.is</a>.
-                </p>
-            </footer>
+                    <li>@Html.ActionLink("Hafa samband", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Hjálp", "Hjalp", "Home")</li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
         </div>
+    </div>
+    @*lol*@
+    <span>
+        @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
+        {
+            <input type="search" id="query" name="query" placeholder="Skrifaðu titil efnis hér" />
+            <input type="submit" name="Leita" value="Leita" />
+        }
+    </span>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>
+                &copy;TextDuck   |   Menntavegur 1   |   101 Reykjavik   |   s:555-5555  |   <a href="mailto:samband@TextDuck.is">samband@TextDuck.is</a>.
+            </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
 </html>
