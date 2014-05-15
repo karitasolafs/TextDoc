@@ -380,7 +380,7 @@ namespace TextDuck.Controllers
                               select item);
                 return View(result);
             }
-            return View("Index");
+            return View("Hjalp");
         }
 
 
