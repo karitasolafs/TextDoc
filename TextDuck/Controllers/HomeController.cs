@@ -56,7 +56,7 @@ namespace TextDuck.Controllers
         private void AddLanguages()
         {
             List<SelectListItem> Language = new List<SelectListItem>();
-            Language.Add(new SelectListItem { Text = "Veldu", Value = "Veldu" });
+            Language.Add(new SelectListItem { Text = "Veldu", Value = null });
             Language.Add(new SelectListItem { Text = "Enska", Value = "Enska" });
             Language.Add(new SelectListItem { Text = "Íslenska", Value = "Íslenska" });
             ViewBag.Language = Language;
@@ -64,7 +64,7 @@ namespace TextDuck.Controllers
         private void AddCategories()
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
-            Categories.Add(new SelectListItem { Text = "Veldu", Value = "Veldu" });
+            Categories.Add(new SelectListItem { Text = "Veldu", Value = null });
             Categories.Add(new SelectListItem { Text = "Bíómynd", Value = "Bíómynd" });
             Categories.Add(new SelectListItem { Text = "Þáttur", Value = "Þáttur" });
             ViewBag.Categories = Categories;
@@ -73,7 +73,7 @@ namespace TextDuck.Controllers
         private void AddGenre()
         {
             List<SelectListItem> Genre = new List<SelectListItem>();
-            Genre.Add(new SelectListItem { Text = "Veldu", Value = "Veldu" });
+            Genre.Add(new SelectListItem { Text = "Veldu", Value = null });
             Genre.Add(new SelectListItem { Text = "Hasar", Value = "Hasar" });
             Genre.Add(new SelectListItem { Text = "Gaman", Value = "Gaman" });
             Genre.Add(new SelectListItem { Text = "Rómantík", Value = "Rómantík" });
@@ -89,7 +89,7 @@ namespace TextDuck.Controllers
         private void AddStatus()
         {
             List<SelectListItem> Status = new List<SelectListItem>();
-            Status.Add(new SelectListItem { Text = "Veldu", Value = "Veldu" });
+            Status.Add(new SelectListItem { Text = "Veldu", Value = null });
             Status.Add(new SelectListItem { Text = "Beiðni", Value = "Beiðni" });
             Status.Add(new SelectListItem { Text = "Í vinnslu", Value = "Í vinnslu" });
             Status.Add(new SelectListItem { Text = "Lokið", Value = "Lokið" });
@@ -111,29 +111,44 @@ namespace TextDuck.Controllers
  
         public ActionResult AddVote(int Id)
         {
-       
-
             var vote = repo.GetFilesById(Id);
-
-
                 vote.Votes++;
                 repo.SetModified(vote);
                 repo.Save();
                 
                 return RedirectToAction("Request");     
-
         }
         public ActionResult Status()
         {
             var statusinn = repo.GetStatus();
             return View(statusinn);
-
         }
         public ActionResult Subtitle()
         {
             var statusinn = repo.GetTexts();
             return View(statusinn);
         }
+        public ActionResult SubtitleDate()
+        {
+            var date = repo.GetTextsByDate();
+            return View(date);
+        }
+        public ActionResult SubtitleGenre()
+        {
+            var genre = repo.GetTextsByGenre();
+            return View(genre);
+        }
+        public ActionResult SubtitleCategory()
+        {
+            var cat = repo.GetTextsByCategory();
+            return View(cat);
+        }
+        public ActionResult SubtitleLanguage()
+        {
+            var lang = repo.GetTextsByLanguage();
+            return View(lang);
+        }
+
         public ActionResult Request()
         {
             var statusinn = repo.GetRequest();
@@ -370,9 +385,14 @@ namespace TextDuck.Controllers
                               orderby item.Title ascending
                               where item.Title.Contains(query)
                               select item);
+                var list = result.ToList();
+                if(list.Count <= 0)
+                {
+                    return View("NoResult");
+                }
                 return View(result);
             }
-            return View("Hjalp");
+            return RedirectToAction("Subtitle");
         }
 
 

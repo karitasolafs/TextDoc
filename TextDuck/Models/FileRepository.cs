@@ -33,6 +33,38 @@ namespace TextDuck.Models
                            select item);
                 return Text;
             }
+            public IQueryable<srtFiles> GetTextsByDate()
+            {
+                var Text = (from item in Db.Files
+                            orderby item.Date descending
+                            where item.Status == "Lokið"
+                            select item);
+                return Text;
+            }
+            public IQueryable<srtFiles> GetTextsByGenre()
+            {
+                var Text = (from item in Db.Files
+                            orderby item.Genre ascending
+                            where item.Status == "Lokið"
+                            select item);
+                return Text;
+            }
+            public IQueryable<srtFiles> GetTextsByCategory()
+            {
+                var Text = (from item in Db.Files
+                            orderby item.Category ascending
+                            where item.Status == "Lokið"
+                            select item);
+                return Text;
+            }
+            public IQueryable<srtFiles> GetTextsByLanguage()
+            {
+                var Text = (from item in Db.Files
+                            orderby item.Language ascending
+                            where item.Status == "Lokið"
+                            select item);
+                return Text;
+            }
             public IQueryable<srtFiles> GetRequest()
             {
                 var request = (from item in Db.Files
