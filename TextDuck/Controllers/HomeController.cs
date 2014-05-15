@@ -369,7 +369,7 @@ namespace TextDuck.Controllers
             }
             return View("Hjalp");
         }
-
+        // fyrir unit testing
         public IQueryable<srtFiles> Search(IQueryable<srtFiles> all, string query)
         {
             return from item in all
