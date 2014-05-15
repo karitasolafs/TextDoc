@@ -201,8 +201,25 @@ ul.nav-sub {
     color: black;
 }
 
-#home{
+.home{
     color: orange;
+    font-size:230%;
+    font-weight:bold;
+    margin-top:5px;
+    margin-right:40px;
+  
+   
+
+}
+.homeLogo{
+    color: orange;
+
+    
+}
+.homeLogo:hover
+{
+    color: orange;
+    text-decoration:none;
 }
 
 

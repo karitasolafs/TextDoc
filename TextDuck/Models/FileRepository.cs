@@ -113,6 +113,11 @@ namespace TextDuck.Models
                            
             }
 
+
+            public object GetTexts(IQueryable<srtFiles> data, string p)
+            {
+                throw new NotImplementedException();
+            }
     }
      
 }

@@ -532,7 +532,10 @@ h1,
 
 h2,
 .h2 {
-  font-size: 20px;
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 0.5em;
+
 }
 
 h3,
