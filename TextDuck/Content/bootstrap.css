@@ -137,8 +137,8 @@ sub {
 
 img {
   vertical-align: middle;
-  margin-left: -143px;
-  margin-top: 10px;
+  margin-left: -10em;
+  margin-top: 1em;
   width: 100%;
 }
 
@@ -151,7 +151,7 @@ figure {
 }
 
 fieldset {
-  padding: 25em 0.625em 25 em;
+  padding: 25em 0.625em 25em;
   margin: 0 2px;
   border: 1px solid #c0c0c0;
 }
@@ -209,7 +209,7 @@ input[type="search"] {
           box-sizing: content-box;
   -webkit-appearance: textfield;
   border-radius:25px;
-  margin-left: 25em;
+  margin-left: 35em;
   margin-top: 4em;
   padding-left: 10em;
   padding-right: 10em;
@@ -526,6 +526,7 @@ h1,
 .h1 {
   font-size: 36px;
   text-align: center;
+  padding-bottom: 0.5em;
 }
 
 h2,
@@ -1548,7 +1549,7 @@ table th[class*="col-"] {
 .table-hover > tbody > tr > td.success:hover,
 .table-hover > tbody > tr > th.success:hover,
 .table-hover > tbody > tr.success:hover > td {
-  background-color: #d0e9c;
+  background-color: #0d0e9c;
   border-color: #c9e2b3;
 }
 
@@ -4942,7 +4943,7 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  padding-top: 30;
+  padding-top: 30px;
   margin-bottom: 10px;
   font-size: 15px;
   font-weight: 200;
@@ -6832,5 +6833,5 @@ td.visible-print {
 /**element.style {
     padding-left: 5em;
     padding-right: 5em;
-}
+}*/
 

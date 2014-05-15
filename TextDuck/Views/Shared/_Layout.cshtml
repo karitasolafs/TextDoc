@@ -28,13 +28,13 @@
                     <li>@Html.ActionLink("Heim", "Index", "Home")</li>
 
                     <li class="list">
-                        <a href="#">Skjatextar</a>
-                        <ul class="nav-sub">
-                            <li>@Html.ActionLink("Tilbunir Skjatextar", "Subtitle", "Home")</li>
-                            <li>@Html.ActionLink("Í vinnslu", "Status", "Home")</li>
-                            <li>@Html.ActionLink("Beiðnir", "Request", "Home")</li>
-                        </ul>
-                    </li>
+                        <a href="#">Skjatextar <span class="glyphicon glyphicon-chevron-down"></span></a>
+    <ul class="nav-sub">
+        <li>@Html.ActionLink("Tilbunir Skjatextar", "Subtitle", "Home")</li>
+        <li>@Html.ActionLink("Í vinnslu", "Status", "Home")</li>
+        <li>@Html.ActionLink("Beiðnir", "Request", "Home")</li>
+    </ul>
+</li>
 
                     <li>@Html.ActionLink("Hafa samband", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Hjálp", "Hjalp", "Home")</li>
@@ -45,6 +45,7 @@
         </div>
     </div>
     @*lol*@
+
     <span>
         @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
         {
