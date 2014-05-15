@@ -156,7 +156,7 @@ ul.nav-sub {
 	top: 48px;
 	left: 0;
 	z-index: 598;
-	background: #353535 url(images/dropdown-list-bg.gif) repeat-x left top;
+	background: #353535;
 	border-right: 1px solid #000;
 	border-bottom: 1px solid #000;
 	border-left: 1px solid #000;
@@ -187,10 +187,16 @@ ul.nav-sub li a {
 #loginform{
     align-content: center;
 }
-#Text
-{
-    margin-top:2em;
-    margin-bottom:2em;
+
+.Recommended{
+    width: 100%;
 }
 
+.tableRecommend{
+    width:100%;
+    align-content: center;
+}
 
+.btn btn-default a{
+    color: black;
+}
