@@ -1,6 +1,6 @@
 ﻿@model IQueryable<TextDuck.Models.srtFiles>
 
-<h1> srt Textar i Vinnslu</h1>
+<h1> Skjátextar í vinnslu</h1>
 
 <table class="table">
     <tr>
@@ -45,7 +45,7 @@
             <td>
                 @Html.ActionLink("Breyta skrá", "TextBoxSrt", new { id = item.Id }) |
                 @Html.ActionLink("Breyta upplýsingum", "FileAppearanceChanges", new { id = item.Id }) |
-                @Html.ActionLink("Commenta", "AddComment", new { id = item.Id })
+                @Html.ActionLink("Bæta við athugasemd", "AddComment", new { id = item.Id })
             </td>
         </tr>
     }
