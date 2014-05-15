@@ -1,7 +1,7 @@
 ﻿@model IQueryable<TextDuck.Models.CommentItem>
 
 <link href="/Content/Table.css" rel="stylesheet" />
-<h1>Latest Comments</h1>
+<h1>Athugasemdir</h1>
 
 @foreach (var item in Model)
 {
@@ -10,10 +10,10 @@
             @Html.DisplayFor(modelItem => item.DateCreated)
             <span class="glyphicon glyphicon-time"></span>
         </p>
-        <h2 class="Title">@Html.ActionLink(item.Title, "AddComment", new { id = item.Id })</h2>
+        <h2 class="Title">srt skrá: @Html.ActionLink(item.Title, "AddComment", new { id = item.Id })</h2>
         <p class="Text">@Html.DisplayFor(modelItem => item.Text)</p>
-        <p class="Text">Notandi: @Html.DisplayFor(modelItem => item.UserName)</p>
-        @Html.ActionLink("Ny athugasemd", "AddComment", new { Id = item.Id, Title = item.Title }, null)
+        <p class="Notendanafn">Notandi: @Html.DisplayFor(modelItem => item.UserName)</p>
+       <div class="Ny-Athugasemd"> @Html.ActionLink("Ny athugasemd", "AddComment", new { Id = item.Id, Title = item.Title }, null)</div>
     </div>
 
 }
