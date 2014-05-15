@@ -22,7 +22,7 @@ namespace TextDuck.Models
                 var Status = (from item in Db.Files
                              orderby item.Title ascending
                               where item.Status == "Í vinnslu"
-                             select item);
+                             select item).Take(10);
                 return Status;
             }
             public IQueryable<srtFiles> GetTexts()

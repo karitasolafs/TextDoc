@@ -259,6 +259,9 @@
     <Content Include="Views\Home\SubtitleLanguage.cshtml" />
     <Content Include="Views\Home\SubtitleCategory.cshtml" />
     <Content Include="Views\Home\SubtitleGenre.cshtml" />
+    <Content Include="Views\Home\RequestMade.cshtml" />
+    <Content Include="Views\Home\SubtitleMade.cshtml" />
+    <Content Include="Views\Home\FileAppearanceRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

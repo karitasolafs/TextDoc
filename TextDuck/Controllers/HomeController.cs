@@ -25,6 +25,14 @@ namespace TextDuck.Controllers
         {
             return View();
         }
+        public ActionResult SubtitleMade()
+        {
+            return View();
+        }
+        public ActionResult RequestMade()
+        {
+            return View();
+        }
         public ActionResult ChangesToFile()
         {
             return View();
@@ -105,7 +113,7 @@ namespace TextDuck.Controllers
 
         public ActionResult Comments()
         {
-            var comment = Comment.GetComment();
+            var comment = Comment.GetNews();
             return View(comment);
         }
  
@@ -191,7 +199,7 @@ namespace TextDuck.Controllers
 
                 repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("Create");
+                return RedirectToAction("SubtitleMade");
             }
             else
             {
@@ -201,8 +209,6 @@ namespace TextDuck.Controllers
                 AddStatus();
                 return View(item);
             }
-            //View(item);
-
         }
 
         public ActionResult CreateRequest()
@@ -239,7 +245,7 @@ namespace TextDuck.Controllers
 
                 repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("Request");
+                return RedirectToAction("RequestMade");
             }
             else
             {
@@ -357,7 +363,7 @@ namespace TextDuck.Controllers
         [HttpGet]
         public ActionResult ViewComment()
         {
-            return View(Comment.GetComment());
+            return View(Comment.GetNews());
         }
 
         [HttpPost]
@@ -367,7 +373,6 @@ namespace TextDuck.Controllers
             UpdateModel(item);
             item.UserName = User.Identity.Name;
             item.DateCreated = DateTime.Now;
-
             Comment.AddNews(item);
             Comment.Save();
             return RedirectToAction("ViewComment");
