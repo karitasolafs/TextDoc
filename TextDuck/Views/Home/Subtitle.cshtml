@@ -3,10 +3,8 @@
 <h1>Skjátextar</h1>
 
 <div>
-    @Html.ActionLink("Bæta við skjátexta", "Create", "Home")
-</div>
-<div>
-    @Html.ActionLink("Athugasemdir skjátexta", "ViewComment", "Home")
+    <button type="button" class="btn btn-default">@Html.ActionLink("Bæta við skjátexta", "Create", "Home")</button>
+    <button type="button" class="btn btn-default"> @Html.ActionLink("Athugasemdir skjátexta", "ViewComment", "Home")</button>
 </div>
 
 
@@ -63,5 +61,5 @@
 
 
 <div>
-    @Html.ActionLink("Fara á forsíðu", "Index")
+    <button type="button" class="btn btn-default">@Html.ActionLink("Fara á forsíðu", "Index")</button>
 </div>

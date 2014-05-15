@@ -197,3 +197,6 @@ ul.nav-sub li a {
     align-content: center;
 }
 
+.btn btn-default a{
+    color: black;
+}
