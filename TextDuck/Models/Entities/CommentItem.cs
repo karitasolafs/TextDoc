@@ -10,6 +10,8 @@ namespace TextDuck.Models
     {
         public int Id               { get; set; }
         [Required(ErrorMessage = "Title is required.")]
+        [Display(Name = "Nafn ")]
+
         public string Title         { get; set; }
         [Required(ErrorMessage = "Text is required.")]
         public string Text          { get; set; }

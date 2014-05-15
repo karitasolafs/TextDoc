@@ -23,7 +23,7 @@ namespace TextDuck.Models
         public string Category { get; set; }
         [Display(Name = "Tegund")]
         public string Genre { get; set; }
-        [Display(Name = "Tungumal")]
+        [Display(Name = "Tungumál")]
         public string Language { get; set; }
         public int Votes { get; set; }
 
