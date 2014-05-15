@@ -19,7 +19,7 @@
                 </button>
 
                 <a href="/home">
-                    <img src='@Url.Content("http://i.imgur.com/bIT1VnI.png?1?8795")' />
+                    <span id="home">TextDuck</span>
                 </a>
 
             </div>
@@ -38,25 +38,35 @@
 
                     <li>@Html.ActionLink("Hafa samband", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Hjálp", "Hjalp", "Home")</li>
-               
+
 
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    @*lol*@
-    <span>
-        @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
-        {
-            <input type="search" id="query" name="query" placeholder="Skrifaðu titil efnis hér" />
-            <input type="submit" name="Leita" value="Leita" />
-        }
-    </span>
-
 
 
     <div class="container body-content">
+        @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post, new { id = "search" }))
+        {
+            @*<div class="input-group input-group-lg">
+                    <span class="input-group-addon">Search</span>
+                    <input type="text" class="form-control" id="query" name="query" placeholder="Skrifaðu titil efnis hér" />
+                    <input type="submit" id="searchBtn" name="Leita" value="Leita" />
+                </div>*@
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="query" name="query" placeholder="Skrifaðu titil efnis hér" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Leita</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        }
         @RenderBody()
         <hr />
         <footer>
