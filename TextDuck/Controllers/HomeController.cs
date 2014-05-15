@@ -109,28 +109,18 @@ namespace TextDuck.Controllers
             return View(comment);
         }
         
-        public ActionResult AddVote(int Id)
+        public void AddVote(int Id)
         {
-               if(Id == null)
-               {
-                   return View("Error");
-               }
        
+
             var vote = repo.GetFilesById(Id);
 
-            if (vote == null)
-            {
-                return View("Error");
-            }
 
                 vote.Votes++;
                 repo.SetModified(vote);
-
-                return View("Register");
-                
+                RedirectToAction("Request");       
 
         }
-        //hlaskfd
         public ActionResult Status()
         {
             var statusinn = repo.GetStatus();
