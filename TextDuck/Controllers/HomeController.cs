@@ -105,7 +105,7 @@ namespace TextDuck.Controllers
 
         public ActionResult Comments()
         {
-            var comment = Comment.GetNews();
+            var comment = Comment.GetComment();
             return View(comment);
         }
  
@@ -239,7 +239,7 @@ namespace TextDuck.Controllers
 
                 repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("CreateRequest");
+                return RedirectToAction("Request");
             }
             else
             {
@@ -357,7 +357,7 @@ namespace TextDuck.Controllers
         [HttpGet]
         public ActionResult ViewComment()
         {
-            return View(Comment.GetNews());
+            return View(Comment.GetComment());
         }
 
         [HttpPost]
@@ -367,6 +367,7 @@ namespace TextDuck.Controllers
             UpdateModel(item);
             item.UserName = User.Identity.Name;
             item.DateCreated = DateTime.Now;
+
             Comment.AddNews(item);
             Comment.Save();
             return RedirectToAction("ViewComment");
