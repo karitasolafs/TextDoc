@@ -25,6 +25,14 @@ namespace TextDuck.Controllers
         {
             return View();
         }
+        public ActionResult SubtitleMade()
+        {
+            return View();
+        }
+        public ActionResult RequestMade()
+        {
+            return View();
+        }
         public ActionResult ChangesToFile()
         {
             return View();
@@ -191,7 +199,7 @@ namespace TextDuck.Controllers
 
                 repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("Create");
+                return RedirectToAction("SubtitleMade");
             }
             else
             {
@@ -201,8 +209,6 @@ namespace TextDuck.Controllers
                 AddStatus();
                 return View(item);
             }
-            //View(item);
-
         }
 
         public ActionResult CreateRequest()
@@ -239,7 +245,7 @@ namespace TextDuck.Controllers
 
                 repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("CreateRequest");
+                return RedirectToAction("RequestMade");
             }
             else
             {

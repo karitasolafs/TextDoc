@@ -70,7 +70,7 @@ namespace TextDuck.Models
                 var request = (from item in Db.Files
                                orderby item.Votes descending
                                where item.Status == "Beiðni"
-                               select item).Take(10);
+                               select item);
                 return request;
             }
 
