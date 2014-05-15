@@ -6842,4 +6842,18 @@ td.visible-print {
     padding-left: 5em;
     padding-right: 5em;
 }*/
-
+* {
+padding: 0;
+}
+html, body {
+height: 100%;
+}
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+padding: 0 auto -4em;
+}
+.footer, .push {
+height: 4em;
+}
