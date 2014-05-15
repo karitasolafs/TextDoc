@@ -69,7 +69,7 @@ namespace TextDuck.Controllers
             Categories.Add(new SelectListItem { Text = "Þáttur", Value = "Þáttur" });
             ViewBag.Categories = Categories;
         }
-       
+
         private void AddGenre()
         {
             List<SelectListItem> Genre = new List<SelectListItem>();
@@ -108,19 +108,19 @@ namespace TextDuck.Controllers
             var comment = Comment.GetNews();
             return View(comment);
         }
- 
+
         public ActionResult AddVote(int Id)
         {
-       
+
 
             var vote = repo.GetFilesById(Id);
 
 
-                vote.Votes++;
-                repo.SetModified(vote);
-                repo.Save();
-                
-                return RedirectToAction("Request");     
+            vote.Votes++;
+            repo.SetModified(vote);
+            repo.Save();
+
+            return RedirectToAction("Request");
 
         }
         public ActionResult Status()
@@ -279,7 +279,7 @@ namespace TextDuck.Controllers
 
             return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.srt", id));
         }
-    
+
 
         [Authorize]
         public ActionResult RequestMoved(int Id)
@@ -355,9 +355,7 @@ namespace TextDuck.Controllers
             Comment.AddNews(item);
             Comment.Save();
             return RedirectToAction("ViewComment");
-            //comment
-            //comment2
-            //laga
+
         }
 
         [HttpPost]
@@ -366,16 +364,19 @@ namespace TextDuck.Controllers
             if (!String.IsNullOrEmpty(query))
             {
                 var all = repo.GetAllFiles();
-                var result = (from item in all
-                              orderby item.Title ascending
-                              where item.Title.Contains(query)
-                              select item);
-                return View(result);
+                var searched = Search(all, query);
+                return View(searched);
             }
             return View("Hjalp");
         }
 
-
+        public IQueryable<srtFiles> Search(IQueryable<srtFiles> all, string query)
+        {
+            return from item in all
+                   orderby item.Title ascending
+                   where item.Title.Contains(query)
+                   select item;
+        }
 
     }
 }
