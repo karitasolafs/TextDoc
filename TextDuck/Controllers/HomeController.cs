@@ -69,6 +69,7 @@ namespace TextDuck.Controllers
             Language.Add(new SelectListItem { Text = "Íslenska", Value = "Íslenska" });
             ViewBag.Language = Language;
         }
+        //hahah
         private void AddCategories()
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
