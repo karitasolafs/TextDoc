@@ -113,10 +113,10 @@ namespace TextDuck.Controllers
 
         public ActionResult Comments()
         {
-            var comment = Comment.GetNews();
+            var comment = Comment.GetComment();
             return View(comment);
         }
- 
+ //lol
         public ActionResult AddVote(int Id)
         {
             var vote = repo.GetFilesById(Id);
@@ -363,7 +363,7 @@ namespace TextDuck.Controllers
         [HttpGet]
         public ActionResult ViewComment()
         {
-            return View(Comment.GetNews());
+            return View(Comment.GetComment());
         }
 
         [HttpPost]
@@ -373,7 +373,7 @@ namespace TextDuck.Controllers
             UpdateModel(item);
             item.UserName = User.Identity.Name;
             item.DateCreated = DateTime.Now;
-            Comment.AddNews(item);
+            Comment.AddComment(item);
             Comment.Save();
             return RedirectToAction("ViewComment");
             //comment
