@@ -377,6 +377,9 @@ img {
 .img-rounded {
   border-radius: 6px;
 }
+.Title {
+    align-content:center;
+}
 
 .img-thumbnail {
   display: inline-block;
