@@ -1,12 +1,10 @@
 ﻿@model IQueryable<TextDuck.Models.srtFiles>
 
 <h1>Skjátextar</h1>
-
 <div>
     <button type="button" class="btn btn-default">@Html.ActionLink("Bæta við skjátexta", "Create", "Home")</button>
-    <button type="button" class="btn btn-default"> @Html.ActionLink("Athugasemdir skjátexta", "ViewComment", "Home")</button>
+    <button type="button" class="btn btn-default">@Html.ActionLink("Athugasemdir skjátexta", "ViewComment", "Home")</button>
 </div>
-
 
 <table class="table table-hover">
     <tr>
@@ -29,12 +27,11 @@
             Aðgerðir
         </th>
     </tr>
-
     @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.ActionLink(item.Title, "ViewSrt", new { Id = item.Id,})
+                @Html.ActionLink(item.Title, "ViewSrt", new { Id = item.Id, })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Language)
@@ -49,16 +46,13 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.ActionLink("Breyta skrá", "TextBoxSrt", new { Id = item.Id}, null) |
-                @Html.ActionLink("Breyta upplýsingum", "FileAppearanceChanges", new { Id = item.Id},null)|
+                @Html.ActionLink("Breyta skrá", "TextBoxSrt", new { Id = item.Id }, null) |
+                @Html.ActionLink("Breyta upplýsingum", "FileAppearanceChanges", new { Id = item.Id }, null) |
                 @Html.ActionLink("Bæta við athugasemd", "AddComment", new { Id = item.Id, Title = item.Title }, null)
             </td>
         </tr>
     }
-
 </table>
-
-
 
 <div>
     <button type="button" class="btn btn-default">@Html.ActionLink("Fara á forsíðu", "Index")</button>

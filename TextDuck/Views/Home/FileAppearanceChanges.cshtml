@@ -6,7 +6,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>srtFiles</h4>
+        <h4>srt skrár</h4>
         <hr />
 
         @Html.ValidationSummary(true)
@@ -23,7 +23,7 @@
                 @Html.ValidationMessageFor(model => model.Title)
             </div>
         </div>
-
+        
         <div class="form-group">
             @Html.LabelFor(model => model.Language, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
@@ -33,26 +33,26 @@
                 @Html.RadioButtonFor(model => model.Language, "Enska", new { @class = "Enska" })
             </div>
         </div>
-
+        
         <div class="form-group">
             @Html.LabelFor(model => model.Genre, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @Html.Label("Hasar", "Hasar")
-                @Html.RadioButtonFor(model => model.Genre, "Hasar", new { @class = "Hasar" })
+                @Html.RadioButtonFor(model => model.Genre, "Hasar", new { @class = "Hasar" })   &nbsp;
                 @Html.Label("Gaman", "Gaman")
-                @Html.RadioButtonFor(model => model.Genre, "Gaman", new { @class = "Gaman" })
+                @Html.RadioButtonFor(model => model.Genre, "Gaman", new { @class = "Gaman" })  &nbsp;
                 @Html.Label("Rómantík", "Rómantík")
-                @Html.RadioButtonFor(model => model.Genre, "Rómantík", new { @class = "Rómantík" })
+                @Html.RadioButtonFor(model => model.Genre, "Rómantík", new { @class = "Rómantík" })  &nbsp;
                 @Html.Label("Drama", "Drama")
-                @Html.RadioButtonFor(model => model.Genre, "Drama", new { @class = "Drama" })
+                @Html.RadioButtonFor(model => model.Genre, "Drama", new { @class = "Drama" })  &nbsp;
                 @Html.Label("Spennutryllir", "Spennutryllir")
-                @Html.RadioButtonFor(model => model.Genre, "Spennutryllir", new { @class = "Spennutrylir" })
+                @Html.RadioButtonFor(model => model.Genre, "Spennutryllir", new { @class = "Spennutrylir" })  &nbsp;
                 @Html.Label("Barna", "Barna")
-                @Html.RadioButtonFor(model => model.Genre, "Barna", new { @class = "Barna" })
+                @Html.RadioButtonFor(model => model.Genre, "Barna", new { @class = "Barna" })  &nbsp;
                 @Html.Label("Hryllings", "Hryllings")
-                @Html.RadioButtonFor(model => model.Genre, "Hryllings", new { @class = "Hryllings" })
+                @Html.RadioButtonFor(model => model.Genre, "Hryllings", new { @class = "Hryllings" })  &nbsp;
                 @Html.Label("Heimildamynd", "Heimildamynd")
-                @Html.RadioButtonFor(model => model.Genre, "Heimildamynd", new { @class = "Heimildamynd" })
+                @Html.RadioButtonFor(model => model.Genre, "Heimildamynd", new { @class = "Heimildamynd" })  &nbsp;
             </div>
         </div>
 

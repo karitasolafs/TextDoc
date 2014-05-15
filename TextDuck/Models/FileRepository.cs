@@ -22,7 +22,7 @@ namespace TextDuck.Models
                 var Status = (from item in Db.Files
                              orderby item.Title ascending
                               where item.Status == "Í vinnslu"
-                             select item);
+                             select item).Take(10);
                 return Status;
             }
             public IQueryable<srtFiles> GetTexts()
@@ -31,6 +31,38 @@ namespace TextDuck.Models
                             orderby item.Title ascending
                             where item.Status == "Lokið"
                            select item);
+                return Text;
+            }
+            public IQueryable<srtFiles> GetTextsByDate()
+            {
+                var Text = (from item in Db.Files
+                            orderby item.Date descending
+                            where item.Status == "Lokið"
+                            select item);
+                return Text;
+            }
+            public IQueryable<srtFiles> GetTextsByGenre()
+            {
+                var Text = (from item in Db.Files
+                            orderby item.Genre ascending
+                            where item.Status == "Lokið"
+                            select item);
+                return Text;
+            }
+            public IQueryable<srtFiles> GetTextsByCategory()
+            {
+                var Text = (from item in Db.Files
+                            orderby item.Category ascending
+                            where item.Status == "Lokið"
+                            select item);
+                return Text;
+            }
+            public IQueryable<srtFiles> GetTextsByLanguage()
+            {
+                var Text = (from item in Db.Files
+                            orderby item.Language ascending
+                            where item.Status == "Lokið"
+                            select item);
                 return Text;
             }
             public IQueryable<srtFiles> GetRequest()

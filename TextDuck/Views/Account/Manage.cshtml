@@ -1,13 +1,8 @@
-﻿@*@using TextDuck.Models;
-        @using Microsoft.AspNet.Identity;
-        @{
-            ViewBag.Title = "Manage Account";
-        }
-
-    <h2>@User.Identity.GetUserName()</h2>
-*@
-@model TextDuck.Models.srtFiles
-
+﻿@using TextDuck.Models;
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Manage Account";
+}
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div class="row">

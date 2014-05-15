@@ -6,8 +6,8 @@
 }
 
 /* Set padding to keep content from hitting the edgess */
-.body-content{
-    align-content:center;
+.body-content {
+    align-content: center;
     padding-top: 20px;
 }
 
@@ -15,7 +15,6 @@
 input,
 select,
 textarea {
-
 }
 
 /* styles for validation helpers */
@@ -42,68 +41,68 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
 #MainMenu {
     font-size: medium;
     background: #222222;
-    font-family:Tahoma, Geneva, sans-serif;
-    color:#1F1A17;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #1F1A17;
     border: thin solid #080808;
     float: left;
-    width:15em;
-    padding:2em 2em 40em 0;
-}
-#navMain ul li a:hover{
-color:#e0993e;
+    width: 15em;
+    padding: 2em 2em 40em 0;
 }
 
-#navMain ul li a{
-color:#1F1A17;
+#navMain ul li a:hover {
+    color: #e0993e;
 }
 
-ul
-{
-	list-style:none;
+#navMain ul li a {
+    color: #1F1A17;
 }
 
-#MainMenu li a:link
-{
-	color: black;
-	text-decoration: none;
-	
+ul {
+    list-style: none;
 }
 
-#MainMenu li a:visited
-{
-	color: black;
+#MainMenu li a:link {
+    color: black;
+    text-decoration: none;
+}
+
+#MainMenu li a:visited {
+    color: black;
     text-decoration: underline;
 }
 
-#MainMenu li a:hover
-{
-	color: black;
+#MainMenu li a:hover {
+    color: black;
     text-decoration: underline;
     font-weight: bold;
 }
 
 
-li
-{
-	padding-top: 5px;
-	padding-bottom: 5px;
+li {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
+
 .form-horizontal {
     margin-left: 0px;
 }
-.valmyndFyrirsogn{
-   color: black;
-   margin-left: 40px;
+
+.valmyndFyrirsogn {
+    color: black;
+    margin-left: 40px;
 }
+
 fieldset {
     align-content: center;
     border: 1px groove #ddd;
     padding: 0 1.4em 1.4em 1.4em;
     margin: 0 0 1.5em 0;
 }
+
 legend {
     text-align: left;
     font-weight: bold;
@@ -113,86 +112,110 @@ legend {
     display: inline;
     font-size: medium;
     background: #222222;
-    font-family:Tahoma, Geneva, sans-serif;
+    font-family: Tahoma, Geneva, sans-serif;
 }
 
 ul.nav-main li:hover > ul {
-	visibility: visible;
+    visibility: visible;
 }
 
 
 ul.nav-main li.hover,
 ul.nav-main li:hover {
-	position: relative;
-	z-index: 599;
-	cursor: pointer;
-	background: url(images/dropdown-bg-hover.gif) repeat-x left top;
+    position: relative;
+    z-index: 599;
+    cursor: pointer;
+    background: url(images/dropdown-bg-hover.gif) repeat-x left top;
 }
 
 ul.nav-main li {
-	float:left;
-	display:block;
-	height: 51px;
-	color: #999;
+    float: left;
+    display: block;
+    height: 51px;
+    color: #999;
 }
 
-ul.nav-main li a {
-	display:block;
-	padding: 16px 16px 0 16px;
-	height: 35px;
-	color: #999;
-	text-decoration:none;
-}
+    ul.nav-main li a {
+        display: block;
+        padding: 16px 16px 0 16px;
+        height: 35px;
+        color: #999;
+        text-decoration: none;
+    }
 
-ul.nav-main li a:hover {
-	color:#D6D6D6;
-}
+        ul.nav-main li a:hover {
+            color: #D6D6D6;
+        }
 
 
 ul.nav-sub {
-	visibility: hidden;
-	position: absolute;
-	padding:10px;
-	top: 48px;
-	left: 0;
-	z-index: 598;
-	background: #353535 url(images/dropdown-list-bg.gif) repeat-x left top;
-	border-right: 1px solid #000;
-	border-bottom: 1px solid #000;
-	border-left: 1px solid #000;
+    visibility: hidden;
+    position: absolute;
+    padding: 10px;
+    top: 48px;
+    left: 0;
+    z-index: 598;
+    background: #353535;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
 }
 
 
-ul.nav-sub li {
-	list-style:none;
-    font-size:1em;
-	display:block;
-	padding: 0;
-	height: 27px;
-	float: none;
-	width:145px;
-	border-bottom: 1px solid #5a5a5a;
-	background: none;
-}
+    ul.nav-sub li {
+        list-style: none;
+        font-size: 1em;
+        display: block;
+        padding: 0;
+        height: 27px;
+        float: none;
+        width: 145px;
+        border-bottom: 1px solid #5a5a5a;
+        background: none;
+    }
 
-ul.nav-sub li a {
-	list-style:none;
-	display:block;
-	padding: 6px 5px 6px 5px;
-	height: 15px;
-	float: none;
-	width:145px;
-	background: none;	
-}
-#loginform{
+        ul.nav-sub li a {
+            list-style: none;
+            display: block;
+            padding: 6px 5px 6px 5px;
+            height: 15px;
+            float: none;
+            width: 145px;
+            background: none;
+        }
+
+#loginform {
     align-content: center;
 }
 
-.Recommended{
+.Recommended {
     width: 100%;
 }
 
-.tableRecommend{
-    width:100%;
+.tableRecommend {
+    width: 100%;
     align-content: center;
 }
+
+.btn btn-default a {
+    color: black;
+}
+
+#home{
+    color: orange;
+
+}
+
+
+/*#search {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}*/
+/*#query {
+    margin: auto, 0;
+}
+#searchBtn {
+    margin: auto, 0;
+}*/

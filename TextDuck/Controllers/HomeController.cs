@@ -25,6 +25,14 @@ namespace TextDuck.Controllers
         {
             return View();
         }
+        public ActionResult SubtitleMade()
+        {
+            return View();
+        }
+        public ActionResult RequestMade()
+        {
+            return View();
+        }
         public ActionResult ChangesToFile()
         {
             return View();
@@ -56,7 +64,7 @@ namespace TextDuck.Controllers
         private void AddLanguages()
         {
             List<SelectListItem> Language = new List<SelectListItem>();
-            Language.Add(new SelectListItem { Text = "Veldu", Value = "Veldu" });
+            Language.Add(new SelectListItem { Text = "Veldu", Value = null });
             Language.Add(new SelectListItem { Text = "Enska", Value = "Enska" });
             Language.Add(new SelectListItem { Text = "Íslenska", Value = "Íslenska" });
             ViewBag.Language = Language;
@@ -64,16 +72,16 @@ namespace TextDuck.Controllers
         private void AddCategories()
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
-            Categories.Add(new SelectListItem { Text = "Veldu", Value = "Veldu" });
+            Categories.Add(new SelectListItem { Text = "Veldu", Value = null });
             Categories.Add(new SelectListItem { Text = "Bíómynd", Value = "Bíómynd" });
             Categories.Add(new SelectListItem { Text = "Þáttur", Value = "Þáttur" });
             ViewBag.Categories = Categories;
         }
-
+       
         private void AddGenre()
         {
             List<SelectListItem> Genre = new List<SelectListItem>();
-            Genre.Add(new SelectListItem { Text = "Veldu", Value = "Veldu" });
+            Genre.Add(new SelectListItem { Text = "Veldu", Value = null });
             Genre.Add(new SelectListItem { Text = "Hasar", Value = "Hasar" });
             Genre.Add(new SelectListItem { Text = "Gaman", Value = "Gaman" });
             Genre.Add(new SelectListItem { Text = "Rómantík", Value = "Rómantík" });
@@ -89,7 +97,7 @@ namespace TextDuck.Controllers
         private void AddStatus()
         {
             List<SelectListItem> Status = new List<SelectListItem>();
-            Status.Add(new SelectListItem { Text = "Veldu", Value = "Veldu" });
+            Status.Add(new SelectListItem { Text = "Veldu", Value = null });
             Status.Add(new SelectListItem { Text = "Beiðni", Value = "Beiðni" });
             Status.Add(new SelectListItem { Text = "Í vinnslu", Value = "Í vinnslu" });
             Status.Add(new SelectListItem { Text = "Lokið", Value = "Lokið" });
@@ -108,32 +116,47 @@ namespace TextDuck.Controllers
             var comment = Comment.GetNews();
             return View(comment);
         }
-
+ 
         public ActionResult AddVote(int Id)
         {
-
-
             var vote = repo.GetFilesById(Id);
-
-
-            vote.Votes++;
-            repo.SetModified(vote);
-            repo.Save();
-
-            return RedirectToAction("Request");
-
+                vote.Votes++;
+                repo.SetModified(vote);
+                repo.Save();
+                
+                return RedirectToAction("Request");     
         }
         public ActionResult Status()
         {
             var statusinn = repo.GetStatus();
             return View(statusinn);
-
         }
         public ActionResult Subtitle()
         {
             var statusinn = repo.GetTexts();
             return View(statusinn);
         }
+        public ActionResult SubtitleDate()
+        {
+            var date = repo.GetTextsByDate();
+            return View(date);
+        }
+        public ActionResult SubtitleGenre()
+        {
+            var genre = repo.GetTextsByGenre();
+            return View(genre);
+        }
+        public ActionResult SubtitleCategory()
+        {
+            var cat = repo.GetTextsByCategory();
+            return View(cat);
+        }
+        public ActionResult SubtitleLanguage()
+        {
+            var lang = repo.GetTextsByLanguage();
+            return View(lang);
+        }
+
         public ActionResult Request()
         {
             var statusinn = repo.GetRequest();
@@ -176,7 +199,7 @@ namespace TextDuck.Controllers
 
                 repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("Create");
+                return RedirectToAction("SubtitleMade");
             }
             else
             {
@@ -186,8 +209,6 @@ namespace TextDuck.Controllers
                 AddStatus();
                 return View(item);
             }
-            //View(item);
-
         }
 
         public ActionResult CreateRequest()
@@ -224,7 +245,7 @@ namespace TextDuck.Controllers
 
                 repo.AddFile(entityObj);
                 repo.Save();
-                return RedirectToAction("CreateRequest");
+                return RedirectToAction("RequestMade");
             }
             else
             {
@@ -279,7 +300,7 @@ namespace TextDuck.Controllers
 
             return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.srt", id));
         }
-
+    
 
         [Authorize]
         public ActionResult RequestMoved(int Id)
@@ -355,7 +376,9 @@ namespace TextDuck.Controllers
             Comment.AddNews(item);
             Comment.Save();
             return RedirectToAction("ViewComment");
-
+            //comment
+            //comment2
+            //laga
         }
 
         [HttpPost]
@@ -364,19 +387,21 @@ namespace TextDuck.Controllers
             if (!String.IsNullOrEmpty(query))
             {
                 var all = repo.GetAllFiles();
-                var searched = Search(all, query);
-                return View(searched);
+                var result = (from item in all
+                              orderby item.Title ascending
+                              where item.Title.Contains(query)
+                              select item);
+                var list = result.ToList();
+                if(list.Count <= 0)
+                {
+                    return View("NoResult");
+                }
+                return View(result);
             }
-            return View("Hjalp");
+            return RedirectToAction("Subtitle");
         }
-        // fyrir unit testing
-        public IQueryable<srtFiles> Search(IQueryable<srtFiles> all, string query)
-        {
-            return from item in all
-                   orderby item.Title ascending
-                   where item.Title.Contains(query)
-                   select item;
-        }
+
+
 
     }
 }
