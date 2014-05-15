@@ -6,7 +6,7 @@
 }
 
 /* Set padding to keep content from hitting the edgess */
-.body-content {
+.body-content{
     align-content:center;
     padding-top: 20px;
 }
