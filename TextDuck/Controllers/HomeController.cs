@@ -108,7 +108,7 @@ namespace TextDuck.Controllers
             var comment = Comment.GetComment();
             return View(comment);
         }
- 
+ //lol
         public ActionResult AddVote(int Id)
         {
             var vote = repo.GetFilesById(Id);
