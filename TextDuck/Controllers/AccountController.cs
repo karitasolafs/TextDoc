@@ -202,10 +202,10 @@ namespace TextDuck.Controllers
             return View(model);
         }
 
-        public ActionResult UserInfo()
+        /*public ActionResult UserInfo()
         {
             return View();
-        }
+        }*/
 
         //
         // POST: /Account/ExternalLogin
