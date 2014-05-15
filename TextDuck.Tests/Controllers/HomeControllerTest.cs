@@ -38,6 +38,16 @@ namespace TextDuck.Tests.Controllers
             Assert.AreEqual(1, result.Count());
             Assert.AreEqual(friend, result.First());
         }
+        public void RequestTest()
+        {
+            FileRepository repository = new FileRepository();
+            var request = new srtFiles { Status = "Lokið" };
+            var data = new[] { request }.AsQueryable();
+
+            var result = repository.GetTexts(data, "Lokið");
+            Assert.AreEqual(1, result.Count());
+            Assert.AreEqual(, result.First());
+        }
 
         [TestMethod]
         public void Contact()

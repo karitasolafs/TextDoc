@@ -387,20 +387,19 @@ namespace TextDuck.Controllers
             if (!String.IsNullOrEmpty(query))
             {
                 var all = repo.GetAllFiles();
-                var result = (from item in all
-                              orderby item.Title ascending
-                              where item.Title.Contains(query)
-                              select item);
-                var list = result.ToList();
-                if(list.Count <= 0)
-                {
-                    return View("NoResult");
-                }
-                return View(result);
+                var searched = Search(all, query);
+                return View(searched);
             }
-            return RedirectToAction("Subtitle");
+            return View("Hjalp");
         }
 
+        public IQueryable<srtFiles> Search(IQueryable<srtFiles> all, string query)
+        {
+            return from item in all
+                   orderby item.Title ascending
+                   where item.Title.Contains(query)
+                   select item;
+        }
 
 
     }
