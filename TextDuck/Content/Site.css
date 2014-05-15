@@ -99,6 +99,7 @@ li
    margin-left: 40px;
 }
 fieldset {
+    align-content: center;
     border: 1px groove #ddd;
     padding: 0 1.4em 1.4em 1.4em;
     margin: 0 0 1.5em 0;
@@ -114,7 +115,6 @@ legend {
     background: #222222;
     font-family:Tahoma, Geneva, sans-serif;
 }
-
 
 ul.nav-main li:hover > ul {
 	visibility: visible;
@@ -183,6 +183,9 @@ ul.nav-sub li a {
 	float: none;
 	width:145px;
 	background: none;	
+}
+#loginform{
+    align-content: center;
 }
 
 

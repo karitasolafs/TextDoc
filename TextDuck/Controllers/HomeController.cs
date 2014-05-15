@@ -45,7 +45,7 @@ namespace TextDuck.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact()//comment
         {
             ViewBag.Message = "Your contact page.";
 
