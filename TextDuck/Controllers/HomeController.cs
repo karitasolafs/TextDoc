@@ -369,17 +369,27 @@ namespace TextDuck.Controllers
         }
 
         [HttpPost]
-        public ActionResult SearchResult(string query)
+        public ActionResult SearchResult(string query, string category)
         {
+             var all = repo.GetAllFiles();
             if (!String.IsNullOrEmpty(query))
             {
-                var all = repo.GetAllFiles();
+                
                 var result = (from item in all
                               orderby item.Title ascending
                               where item.Title.Contains(query)
                               select item);
                 return View(result);
             }
+            if (!String.IsNullOrEmpty(category)) {
+
+                var result = (from item in all
+                              orderby item.Category ascending
+                              where item.Category == category
+                              select item);
+                return View(result);
+            }
+           
             return View("Index");
         }
 
