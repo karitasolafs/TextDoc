@@ -108,8 +108,8 @@ namespace TextDuck.Controllers
             var comment = Comment.GetNews();
             return View(comment);
         }
-        
-        public void AddVote(int Id)
+ 
+        public ActionResult AddVote(int Id)
         {
        
 
@@ -118,7 +118,9 @@ namespace TextDuck.Controllers
 
                 vote.Votes++;
                 repo.SetModified(vote);
-                RedirectToAction("Request");       
+                repo.Save();
+                
+                return RedirectToAction("Request");     
 
         }
         public ActionResult Status()

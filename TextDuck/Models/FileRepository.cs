@@ -36,7 +36,7 @@ namespace TextDuck.Models
             public IQueryable<srtFiles> GetRequest()
             {
                 var request = (from item in Db.Files
-                               orderby item.Title ascending
+                               orderby item.Votes descending
                                where item.Status == "Beiðni"
                                select item).Take(10);
                 return request;
@@ -78,8 +78,7 @@ namespace TextDuck.Models
             {
                
                     Db.Entry(entity).State = EntityState.Modified;
-               
-                
+                           
             }
 
     }

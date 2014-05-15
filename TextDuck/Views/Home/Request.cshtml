@@ -34,8 +34,13 @@
         </th>
     </tr>
 
+ 
+
     @foreach (var item in Model)
     {
+         @Html.HiddenFor(modelItem => item.Status)
+         @Html.HiddenFor(modelItem => item.Id)
+         
         <tr>
             <td>
                 @Html.ActionLink(item.Title, "ViewSrt", new { Id = item.Id })
@@ -57,11 +62,12 @@
             </td>
             <td>
                 
+                
                 <a href="@Url.Action("AddVote", new { item.Id })">
                     <i class="glyphicon glyphicon-arrow-up"></i>
-                        <span class="sr-only">AddVote</span>
+                    <span class="sr-only">AddVote</span>
                 </a>
-
+               @Html.DisplayFor(modelItem => item.Votes)
 
             </td>
         </tr>
