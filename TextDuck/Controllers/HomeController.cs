@@ -111,18 +111,16 @@ namespace TextDuck.Controllers
         
         public void AddVote(int Id)
         {
+       
 
-            if (ModelState.IsValid)
-            {
-                var vote = repo.GetFilesById(Id);
+            var vote = repo.GetFilesById(Id);
+
+
                 vote.Votes++;
                 repo.SetModified(vote);
-                RedirectToAction("Index");
-
-            }
+                RedirectToAction("Request");       
 
         }
-
         public ActionResult Status()
         {
             var statusinn = repo.GetStatus();

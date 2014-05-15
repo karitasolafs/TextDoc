@@ -53,7 +53,7 @@
             <td>
                 @Html.ActionLink("Breyta skrá", "TextBoxSrt", new { Id = item.Id }, null) |
                 @Html.ActionLink("Breyta upplýsingum", "FileAppearanceChanges", new { Id = item.Id }, null) |
-                @Html.ActionLink("Commenta", "AddComment", new { Id = item.Id, Title = item.Title }, null)
+                @Html.ActionLink("Bæta við athugasemd", "AddComment", new { Id = item.Id, Title = item.Title }, null)
             </td>
         </tr>
     }
@@ -63,5 +63,5 @@
 
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Fara á forsíðu", "Index")
 </div>
