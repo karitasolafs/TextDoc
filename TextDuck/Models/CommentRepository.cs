@@ -12,20 +12,20 @@ namespace TextDuck.Models
     {
         ApplicationDbContext m_db = new ApplicationDbContext();
 
-        public IQueryable<CommentItem> GetAllNews()
+        public IQueryable<CommentItem> GetAllComments()
         {
             return m_db.Comments.AsQueryable();
         }
 
         public IQueryable<CommentItem> GetComment()
         {
-            var News = (from x in m_db.Comments
+            var Comment = (from x in m_db.Comments
                         orderby x.DateCreated descending
                         where x.UserName != null && x.srtId != null
                         select x);
-            return News;
+            return Comment;
         }
-        public CommentItem GetNewsById(int id)
+        public CommentItem GetCommentsById(int id)
         {
             var result = (from s in m_db.Comments
                           where s.Id == id                   
@@ -33,7 +33,7 @@ namespace TextDuck.Models
             return result;                                              
         }
 
-        public void AddNews(CommentItem s)
+        public void AddComment(CommentItem s)
         {
             m_db.Comments.Add(s);
             m_db.SaveChanges();
@@ -43,9 +43,9 @@ namespace TextDuck.Models
             m_db.SaveChanges();
         }
 
-        public void UpdateNews(CommentItem s)
+        public void UpdateComment(CommentItem s)
         {
-            CommentItem t = GetNewsById(s.Id);
+            CommentItem t = GetCommentsById(s.Id);
             if (t != null)
             {
                 t.Title = s.Title;
