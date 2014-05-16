@@ -268,22 +268,57 @@ margin-bottom: 1em;
 #searchBtn {
     margin: auto, 0;
 }*/
-#tvLogo {
-    vertical-align: middle;
-    /*margin-left: 10em;*/
+#tvLogo1 {
     margin-top: 1em;   
     width: 30%;
-    height: 10em;
+    height: 11em;
+    margin-left: -90px;
 }
-#filmLogo {
-vertical-align: central;
-margin-top: 1em;
-width: 100%;
-height: 10em;
+#tvLogo2
+{
+    margin-top: 1em;   
+    width: 550%;
+    height: 11em;
+    margin-left: -406px;
+
+}
+#tvLogo3
+{
+    margin-top: 1em;   
+    width: 150%;
+    height: 11em;
+    margin-left: -180px;
+}
+#filmLogo1 {
+
+margin-top: 2em;
+width: 30%;
+height: 13em;
+margin-left: -90px;
+margin-bottom:4em;
+
+}
+#filmLogo2
+{
+margin-top: 2em;
+width: 550%;
+height: 13em;
+margin-left: -406px;
+margin-bottom:4em;
+
+}
+#filmLogo3
+{
+margin-top: 2em;
+width: 150%;
+height: 13em;
+margin-left: -180px;
+margin-bottom:4em;
 
 }
 #tableHead {
     width: 80%;
+   text-align:initial;
 }
 p {
     font-size:120%;
