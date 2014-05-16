@@ -27,7 +27,5 @@ namespace TextDuck.Models
         public string Language { get; set; }
         public int Votes { get; set; }
 
-       // public string Text { get; set; }
-       // public string UserName { get; set; }
     }
 }

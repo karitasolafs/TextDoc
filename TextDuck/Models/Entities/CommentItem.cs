@@ -22,7 +22,7 @@ namespace TextDuck.Models
 
            public CommentItem()
         {
-            DateCreated = DateTime.Now; // fáum tíma og dagsetningu automatically
+            DateCreated = DateTime.Now; // Gets time and date automatically
         }
     }
 }

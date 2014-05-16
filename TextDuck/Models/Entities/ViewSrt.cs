@@ -7,6 +7,6 @@ namespace TextDuck.Models.Entities
 {
     public class ViewSrt
     {
-       // public string Resault { get; set; }
+       
     }
 }

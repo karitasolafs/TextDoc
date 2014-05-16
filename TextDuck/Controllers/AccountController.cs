@@ -62,6 +62,7 @@ namespace TextDuck.Controllers
             return View(model);
         }
 
+        //Does not allow children under the age of 15 to register to the site
         private void AddYear()
         {
             List<SelectListItem> Year = new List<SelectListItem>();
@@ -103,6 +104,8 @@ namespace TextDuck.Controllers
                 {
                     AddYear();
                     AddErrors(result);
+
+                    //Constructor for UserInfo
                     var entityObj = new UserInfo
                     {
                         Name = model.Name,
