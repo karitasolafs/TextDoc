@@ -414,6 +414,11 @@ namespace TextDuck.Controllers
             {
                 var all = repo.GetAllFiles();
                 var searched = Search(all, query);
+                var listSearch = searched.ToList();
+                if(listSearch.Count < 1)
+                {
+                    return View("NoResult");
+                }
                 return View(searched);
             }
             return RedirectToAction("Subtitle");
@@ -424,7 +429,7 @@ namespace TextDuck.Controllers
         {
             return from item in all
                    orderby item.Title ascending
-                   where item.Title.Contains(query)
+                   where item.Title.Contains(query) && item.Status == "Lokið"
                    select item;
         }
 
