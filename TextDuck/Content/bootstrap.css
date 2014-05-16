@@ -6856,7 +6856,7 @@ height: 100%;
 min-height: 100%;
 height: auto !important;
 height: 100%;
-padding: 0 auto -4em;
+padding: 0 0 -4em;
 }
 .footer, .push {
 height: 4em;
