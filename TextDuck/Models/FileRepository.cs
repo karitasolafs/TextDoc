@@ -21,7 +21,7 @@ namespace TextDuck.Models
             {
                 var Status = (from item in Db.Files
                              orderby item.Title ascending
-                              where item.Status == "Í vinnslu"
+                             where item.Status == "Í vinnslu"
                              select item).Take(10);
                 return Status;
             }
@@ -74,7 +74,7 @@ namespace TextDuck.Models
                 return request;
             }
 
-            public srtFiles GetFilesById(int id)
+            public srtFiles GetFilesById(int? id)
             {
                 var result = (from s in Db.Files
                               where s.Id == id

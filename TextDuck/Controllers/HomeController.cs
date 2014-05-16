@@ -117,7 +117,7 @@ namespace TextDuck.Controllers
         }
 
         //Adds an upvote to a request
-        public ActionResult AddVote(int Id)
+        public ActionResult AddVote(int? Id)
         {
             var vote = repo.GetFilesById(Id);
                 vote.Votes++;
@@ -280,7 +280,7 @@ namespace TextDuck.Controllers
         }
         //The get function for editing the file
         [Authorize]
-        public ActionResult TextBoxSrt(int Id)
+        public ActionResult TextBoxSrt(int? Id)
         {
             if (Id == null)
             {
@@ -311,7 +311,7 @@ namespace TextDuck.Controllers
 
         }
         //The function that allows you to download the file to your computer
-        public ActionResult ViewSrt(int id)
+        public ActionResult ViewSrt(int? id)
         {
             var statusinn = repo.GetFilesById(id).Content;
             Response.Clear();
@@ -324,9 +324,9 @@ namespace TextDuck.Controllers
         }
     
         //A function that changes the status of the file from "Beiðni" to "Í vinnslu"
-        //Saves the changes to the database
+        //Saves the changes to the database!
         [Authorize]
-        public ActionResult RequestMoved(int Id)
+        public ActionResult RequestMoved(int? Id)
         {
             if (Id == null)
             {
@@ -346,7 +346,7 @@ namespace TextDuck.Controllers
         }
         //The get function for changing the information about the file
         [Authorize]
-        public ActionResult FileAppearanceChanges(int Id)
+        public ActionResult FileAppearanceChanges(int? Id)
         {
             if (Id == null)
             {
@@ -380,7 +380,7 @@ namespace TextDuck.Controllers
         //The function that gets the srtId and the srtTitle for the view ViewComment
         [Authorize]
         [HttpGet]
-        public ActionResult AddComment(int Id, string Title)
+        public ActionResult AddComment(int? Id, string Title)
         {
             return View(new CommentItem() { srtId = Id, srtTitle = Title });
 
