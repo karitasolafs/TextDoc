@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TextDuck.BundleConfig">
+    <Position X="0.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.FilterConfig">
+    <Position X="6.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.RouteConfig">
+    <Position X="4.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Startup">
+    <Position X="3" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\Startup.Auth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.MvcApplication">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Controllers.AccountController">
+    <Position X="14.5" Y="0.5" Width="2.5" />
+    <NestedTypes>
+      <Enum Name="TextDuck.Controllers.AccountController.ManageMessageId" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\AccountController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Class Name="TextDuck.Controllers.AccountController.ChallengeResult" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\AccountController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAACAQCAAAgABAAEAEgEAAAABICIACEAVAAQkAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Controllers.HomeController">
+    <Position X="17.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>gAkAAAANIAAIAAAgSBEBAAAAAEAIiMEAACcgwAggIAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Migrations.InitialCreate" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201405081240430_InitialCreate.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TextDuck.Migrations.Configuration">
+    <Position X="4.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.ExternalLoginConfirmationViewModel">
+    <Position X="6.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.ManageUserViewModel">
+    <Position X="3" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.LoginViewModel">
+    <Position X="12.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAgAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.RegisterViewModel">
+    <Position X="12.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACAAAACAAAAAAAQAAAAAAAACAQAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.CommentRepository">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAIAAAAAAJAAAAAAAAAQAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CommentRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.CommentItem">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACQAAAAAAAAEAAAAAAAAAIAAAAAAAAAQAECAAAAAA=</HashCode>
+      <FileName>Models\Entities\CommentItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.srtFiles">
+    <Position X="10.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAECgAAAEAAAAIAAAAAAAAAAAABAAAAAAAACAA=</HashCode>
+      <FileName>Models\Entities\srtFiles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.FileRepository">
+    <Position X="12.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAABYAAQEAAAAIAEEAAABCGQQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FileRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.FileUpload">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACCAgEDAAAAAAAAAIIAAA=</HashCode>
+      <FileName>Models\FileUpload.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.ApplicationUser">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.ApplicationDbContext">
+    <Position X="2.5" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIIA=</HashCode>
+      <FileName>Models\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.Entities.File">
+    <Position X="8.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAACCAgADAAAAAAAAAIIAAA=</HashCode>
+      <FileName>Models\Entities\File.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.Models.Entities.UserInfo">
+    <Position X="9" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACAAAACAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entities\UserInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDuck.UF.ValidateFileAttribute">
+    <Position X="6.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UF\ValidateFileAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
