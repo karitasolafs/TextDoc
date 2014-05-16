@@ -160,7 +160,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DAL\FileContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,7 +174,6 @@
     <Compile Include="Models\Entities\File.cs" />
     <Compile Include="Models\Entities\srtFiles.cs" />
     <Compile Include="Models\Entities\UserInfo.cs" />
-    <Compile Include="Models\Entities\ViewSrt.cs" />
     <Compile Include="Models\FileRepository.cs" />
     <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\HomeViewModels.cs" />

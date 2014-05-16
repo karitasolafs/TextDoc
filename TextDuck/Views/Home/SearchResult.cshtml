@@ -20,7 +20,7 @@
             Dagsetning
         </th>
         <th>
-            Adgerdir
+            Aðgerðir
         </th>
     </tr>
 
@@ -42,10 +42,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
+
             <td>
                 @Html.ActionLink("Breyta skrá", "TextBoxSrt", new { Id = item.Id }, null) |
                 @Html.ActionLink("Breyta upplýsingum", "FileAppearanceChanges", new { Id = item.Id }, null) |
-                @Html.ActionLink("Commenta", "AddComment", new { Id = item.Id }, null)
+                @Html.ActionLink("Skrifa athugasemd", "AddComment", new { Id = item.Id }, null)
             </td>
         </tr>
     }
