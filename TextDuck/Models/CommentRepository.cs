@@ -47,9 +47,6 @@ namespace TextDuck.Models
         }
      
 
-       // public DateTime LastModifiedDate { get; set; }
-
-     
     }
     
 }

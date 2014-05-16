@@ -255,19 +255,6 @@ margin-bottom: 1em;
     text-align:left;
 }
 
-
-/*#search {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}*/
-/*#query {
-    margin: auto, 0;
-}
-#searchBtn {
-    margin: auto, 0;
-}*/
 #tvLogo1 {
     margin-top: 1em;   
     width: 30%;
@@ -325,8 +312,4 @@ p {
 .tableRecommend
 {
     align-content:center;
-}
-.thattur
-{
-
 }
