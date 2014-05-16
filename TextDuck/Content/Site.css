@@ -129,10 +129,15 @@ ul.nav-main li:hover {
 }
 
 ul.nav-main li {
+   
     float: left;
     display: block;
     height: 51px;
     color: #999;
+    font-size: 21px;
+    padding-bottom: 2em;
+    padding-top: 0em;
+
 }
 
     ul.nav-main li a {
