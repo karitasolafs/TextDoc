@@ -407,7 +407,7 @@ namespace TextDuck.Controllers
 
         }
         //The function that accepts a string from the user
-        //Calls the help function Search
+        //Calls the help function Search!
         [HttpPost]
         public ActionResult SearchResult(string query)
         {
