@@ -8,7 +8,7 @@ namespace TextDuck.Models
 {
     public class CommentItem
     {
-        public int Id               { get; set; }
+        public int? Id               { get; set; }
         [Required(ErrorMessage = "Title is required.")]
         [Display(Name = "Nafn ")]
 
@@ -17,7 +17,7 @@ namespace TextDuck.Models
         public string Text          { get; set; }
         public DateTime DateCreated { get; set; }
         public string UserName      { get; set; }
-        public int srtId            { get; set; }
+        public int? srtId            { get; set; }
         public string srtTitle      { get; set; }
 
            public CommentItem()

@@ -74,7 +74,7 @@ namespace TextDuck.Models
                 return request;
             }
 
-            public srtFiles GetFilesById(int id)
+            public srtFiles GetFilesById(int? id)
             {
                 var result = (from s in Db.Files
                               where s.Id == id
