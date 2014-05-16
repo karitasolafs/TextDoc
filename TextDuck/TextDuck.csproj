@@ -247,13 +247,11 @@
     <Content Include="Views\Account\UserInfo.cshtml" />
     <Content Include="Views\Home\AddComment.cshtml" />
     <Content Include="Views\Home\ViewComment.cshtml" />
-    <Content Include="Views\Home\tofluview.cshtml" />
     <Content Include="Views\Home\ChangesMade.cshtml" />
     <Content Include="Views\Home\ChangesToFile.cshtml" />
     <Content Include="Views\Home\FileAppearanceChanges.cshtml" />
     <Content Include="Views\Home\RequestMoved.cshtml" />
     <Content Include="Views\Home\SearchResult.cshtml" />
-    <Content Include="Views\Home\SearchForFile.cshtml" />
     <Content Include="Views\Home\NoResult.cshtml" />
     <Content Include="Views\Home\SubtitleDate.cshtml" />
     <Content Include="Views\Home\SubtitleLanguage.cshtml" />

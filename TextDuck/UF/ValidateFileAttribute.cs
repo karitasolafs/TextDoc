@@ -17,16 +17,17 @@ namespace TextDuck.UF
                 {
                     return false;
                 }
-                string extension = Path.GetExtension(value.FileName);
+                string strExtension = value.ToString();
+                string extension = Path.GetExtension(strExtension);
                 if (extension == null)
                 {
                     return false;
                 }
-                if (extension == ".srt")
+                if (extension != ".srt")
                 {
-                    return true;
+                    return false;
                 }
-                return false;
+                return true;
             }
     }
 }

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TextDuck;
 using TextDuck.Controllers;
+using TextDuck.Models;
 
 namespace TextDuck.Tests.Controllers
 {
@@ -26,16 +27,26 @@ namespace TextDuck.Tests.Controllers
         }
 
         [TestMethod]
-        public void About()
+        public void SearchTest()
         {
             // Arrange
             HomeController controller = new HomeController();
+            var friend = new srtFiles { Title = "Friends" };
+            var data = new[] { friend }.AsQueryable();
 
-            // Act
-            ViewResult result = controller.Hjalp() as ViewResult;
+            var result = controller.Search(data,"Friends");
+            Assert.AreEqual(1, result.Count());
+            Assert.AreEqual(friend, result.First());
+        }
+        public void RequestTest()
+        {
+            FileRepository repository = new FileRepository();
+            var request = new srtFiles { Status = "Lokið" };
+            var data = new[] { request }.AsQueryable();
 
-            // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            var result = repository.GetTexts(data, "Lokið");
+            Assert.AreEqual(1, result.Count());
+            Assert.AreEqual(, result.First());
         }
 
         [TestMethod]
