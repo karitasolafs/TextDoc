@@ -13,54 +13,50 @@ namespace TextDuck.Controllers
 {
     public class HomeController : Controller
     {
+        //New instance of FileRepository
         FileRepository repo = new FileRepository();
-        FileContext Db = new FileContext();
+        //New instance of CommentRepository
         CommentRepository Comment = new CommentRepository();
 
+        //Returns the home page of the site
         public ActionResult Index()
         {
             return View();
         }
+
+        //Confirmation that the information about the file has been changed
         public ActionResult ChangesMade()
         {
             return View();
         }
+        //Confirmation that a new Subtitle file has been added
         public ActionResult SubtitleMade()
         {
             return View();
         }
+        //Confirmation that a new Request has been added
         public ActionResult RequestMade()
         {
             return View();
         }
+        //Confirmation that the content of the file has been changed
         public ActionResult ChangesToFile()
         {
             return View();
         }
-        public ActionResult Hjalp()
-        {
-            // ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-        public ActionResult Subtitles()
+        //Returns the Help page
+        public ActionResult Help()
         {
             return View();
         }
-
-        public ActionResult Requests()
+        //Returns the Contact page 
+        public ActionResult Contact()
         {
-            return View();
-        }
-
-        public ActionResult Contact()//comment
-        {
-            ViewBag.Message = "Your contact page.";
 
             return View();
         }
 
-
+        //Creates a drop down list for the language of the file
         private void AddLanguages()
         {
             List<SelectListItem> Language = new List<SelectListItem>();
@@ -69,7 +65,7 @@ namespace TextDuck.Controllers
             Language.Add(new SelectListItem { Text = "Íslenska", Value = "Íslenska" });
             ViewBag.Language = Language;
         }
-        //hahah
+        //Creates a drop down list for the category of the file
         private void AddCategories()
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
@@ -78,7 +74,8 @@ namespace TextDuck.Controllers
             Categories.Add(new SelectListItem { Text = "Þáttur", Value = "Þáttur" });
             ViewBag.Categories = Categories;
         }
-       
+
+        //Creates a drop down list for the genre of the file
         private void AddGenre()
         {
             List<SelectListItem> Genre = new List<SelectListItem>();
@@ -95,6 +92,7 @@ namespace TextDuck.Controllers
             ViewBag.Genre = Genre;
         }
 
+        //Creates a drop down list for the status of the file
         private void AddStatus()
         {
             List<SelectListItem> Status = new List<SelectListItem>();
@@ -104,20 +102,21 @@ namespace TextDuck.Controllers
             Status.Add(new SelectListItem { Text = "Lokið", Value = "Lokið" });
             ViewBag.Status = Status;
         }
-
+        //Creates a drop down list for the status of the file that only allows you to pick request
         private void AddStatusRequest()
         {
             List<SelectListItem> Status = new List<SelectListItem>();
             Status.Add(new SelectListItem { Text = "Beiðni", Value = "Beiðni" });
             ViewBag.Status = Status;
         }
-
+        //A get function for all the comments
         public ActionResult Comments()
         {
             var comment = Comment.GetComment();
             return View(comment);
         }
- //lol
+
+        //Adds an upvote to a request
         public ActionResult AddVote(int Id)
         {
             var vote = repo.GetFilesById(Id);
@@ -127,44 +126,60 @@ namespace TextDuck.Controllers
                 
                 return RedirectToAction("Request");     
         }
+        //Calls a function in the repository that orders the .srt files with the status
+        //"Í vinnslu" by name
         public ActionResult Status()
         {
-            var statusinn = repo.GetStatus();
-            return View(statusinn);
+            var status = repo.GetStatus();
+            return View(status);
         }
+        //Calls a function in the repository that orders the .srt files with the status
+        //"Lokið" by name
         public ActionResult Subtitle()
         {
-            var statusinn = repo.GetTexts();
-            return View(statusinn);
+            var subtitle = repo.GetTexts();
+            return View(subtitle);
         }
+        //Calls a function in the repository that orders the .srt files with the status
+        //"Lokið" by date
         public ActionResult SubtitleDate()
         {
             var date = repo.GetTextsByDate();
             return View(date);
         }
+        //Calls a function in the repository that orders the .srt files with the status
+        //"Lokið" by genre
         public ActionResult SubtitleGenre()
         {
             var genre = repo.GetTextsByGenre();
             return View(genre);
         }
+        //Calls a function in the repository that orders the .srt files with the status
+        //"Lokið" by category
         public ActionResult SubtitleCategory()
         {
             var cat = repo.GetTextsByCategory();
             return View(cat);
         }
+
+        //Calls a function in the repository that orders the .srt files with the status
+        //"Lokið" by language
         public ActionResult SubtitleLanguage()
         {
             var lang = repo.GetTextsByLanguage();
             return View(lang);
         }
-
+        //Calls a function in the repository that orders the .srt files with the status
+        //"Beiðni" by votes
         public ActionResult Request()
         {
-            var statusinn = repo.GetRequest();
-            return View(statusinn);
+            var request = repo.GetRequest();
+            return View(request);
         }
 
-        [Authorize]
+        //The get function for uploading a .srt file
+
+        [Authorize] //Only "Innskráðir notendur" can access this function
         [HttpGet]
         public ActionResult Create()
         {
@@ -175,17 +190,20 @@ namespace TextDuck.Controllers
             return View(new FileUpload());
         }
 
+        //The post function for uploading a file
         [HttpPost]
         public ActionResult Create(FileUpload item)
         {
             if (ModelState.IsValid)
             {
+               //Reads the .srt file content into a string
                 var b = new System.IO.BinaryReader(item.File.InputStream);
                 byte[] binData = b.ReadBytes((int)item.File.InputStream.Length);
                 string result = System.Text.Encoding.UTF8.GetString(binData);
 
                 System.Diagnostics.Debug.Write(result);
 
+                //Constructor for srtFiles
                 var entityObj = new srtFiles
                 {
                     Title = item.FileTitle,
@@ -197,13 +215,14 @@ namespace TextDuck.Controllers
                     Language = item.FileLanguage
 
                 };
-
+                //Saves the object into the database
                 repo.AddFile(entityObj);
                 repo.Save();
                 return RedirectToAction("SubtitleMade");
             }
             else
             {
+                //if the model is not valid it loads the view again
                 AddLanguages();
                 AddCategories();
                 AddGenre();
@@ -212,6 +231,7 @@ namespace TextDuck.Controllers
             }
         }
 
+        //The get function for uploading requests
         public ActionResult CreateRequest()
         {
             AddLanguages();
@@ -221,6 +241,7 @@ namespace TextDuck.Controllers
             return View(new FileUpload());
         }
 
+        //The post function for uploading requests 
         [HttpPost]
         public ActionResult CreateRequest(FileUpload item)
         {
@@ -256,10 +277,8 @@ namespace TextDuck.Controllers
                 AddStatusRequest();
                 return View(item);
             }
-            //View(item);
-
         }
-
+        //The get function for editing the file
         [Authorize]
         public ActionResult TextBoxSrt(int Id)
         {
@@ -277,7 +296,8 @@ namespace TextDuck.Controllers
             }
             return View(srt);
         }
-
+        //The post function for the content of the file for editing
+        //Saves the changes to the file to the database
         [HttpPost]
         public ActionResult TextBoxSrt([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles srt)
         {
@@ -290,6 +310,7 @@ namespace TextDuck.Controllers
             return View(srt);
 
         }
+        //The function that allows you to download the file to your computer
         public ActionResult ViewSrt(int id)
         {
             var statusinn = repo.GetFilesById(id).Content;
@@ -302,7 +323,8 @@ namespace TextDuck.Controllers
             return File(Encoding.UTF8.GetBytes(statusinn), "Apllication/octet-stream", string.Format("{0}.srt", id));
         }
     
-
+        //A function that changes the status of the file from "Beiðni" to "Í vinnslu"
+        //Saves the changes to the database
         [Authorize]
         public ActionResult RequestMoved(int Id)
         {
@@ -322,7 +344,7 @@ namespace TextDuck.Controllers
             repo.Save();
             return View();
         }
-
+        //The get function for changing the information about the file
         [Authorize]
         public ActionResult FileAppearanceChanges(int Id)
         {
@@ -340,6 +362,8 @@ namespace TextDuck.Controllers
             }
             return View(skra);
         }
+        //The post function for changing the information about the file
+        //Saves the changes to the database
         [HttpPost]
         public ActionResult FileAppearanceChanges([Bind(Include = "Id,Title,Content,Status,Date,Category,Genre,Language")] srtFiles skra)
         {
@@ -353,6 +377,7 @@ namespace TextDuck.Controllers
             return View(skra);
         }
 
+        //The function that gets the srtId and the srtTitle for the view ViewComment
         [Authorize]
         [HttpGet]
         public ActionResult AddComment(int Id, string Title)
@@ -360,6 +385,7 @@ namespace TextDuck.Controllers
             return View(new CommentItem() { srtId = Id, srtTitle = Title });
 
         }
+        //The get function for the comments
         [Authorize]
         [HttpGet]
         public ActionResult ViewComment()
@@ -367,6 +393,7 @@ namespace TextDuck.Controllers
             return View(Comment.GetComment());
         }
 
+        //The function that saves the comments to the database and returns the ViewComment view
         [HttpPost]
         public ActionResult AddComment(FormCollection form)
         {
@@ -377,11 +404,10 @@ namespace TextDuck.Controllers
             Comment.AddComment(item);
             Comment.Save();
             return RedirectToAction("ViewComment");
-            //comment
-            //comment2
-            //laga
-        }
 
+        }
+        //The function that accepts a string from the user
+        //Calls the help function Search 
         [HttpPost]
         public ActionResult SearchResult(string query)
         {
@@ -391,9 +417,10 @@ namespace TextDuck.Controllers
                 var searched = Search(all, query);
                 return View(searched);
             }
-            return View("Hjalp");
+            return RedirectToAction("Subtitle");
         }
-
+        //checks if the string that SearchResult accepts excists in the database
+        //also a helper function for unit testing 
         public IQueryable<srtFiles> Search(IQueryable<srtFiles> all, string query)
         {
             return from item in all

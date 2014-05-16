@@ -203,6 +203,16 @@ ul.nav-sub {
 
 .btn btn-default a {
     color: black;
+    background-color: #cccccc;
+    border-color: #cccccc;
+}
+element.style {
+}
+.btn-default {
+color: #333333;
+background-color: #cccccc;
+border-color: #cccccc;
+margin-bottom: 1em;
 }
 
 .home{
@@ -228,7 +238,6 @@ ul.nav-sub {
 .Text
 {
     margin-top:20px;
-   // margin-left:142px;
     margin-bottom:20px;
 
 }
@@ -268,4 +277,7 @@ height: 10em;
 }
 #tableHead {
     width: 80%;
+}
+p {
+    font-size:120%;
 }

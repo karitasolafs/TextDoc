@@ -6,7 +6,7 @@ using System.Web;
 
 namespace TextDuck.Models
 {
-    public class SubtitlesViewModel
+  /*  public class SubtitlesViewModel
     {
         [Required]
         [Display(Name = "Flokkur")]
@@ -15,5 +15,5 @@ namespace TextDuck.Models
         [Display(Name = "Tegund")]
         public bool Type { get; set; }
 
-    }
+    }*/
 }
