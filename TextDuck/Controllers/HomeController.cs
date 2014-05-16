@@ -41,7 +41,7 @@ namespace TextDuck.Controllers
         {
             // ViewBag.Message = "Your application description page.";
 
-            return View();
+           return View();
         }
         public ActionResult Subtitles()
         {
