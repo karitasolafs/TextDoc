@@ -8,7 +8,7 @@ using TextDuck.UF;
 
 namespace TextDuck.Models
 {
-    public class FileRepository //comment
+    public class FileRepository 
     {
             ApplicationDbContext Db = new ApplicationDbContext();
 
