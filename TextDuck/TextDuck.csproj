@@ -218,7 +218,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Hjalp.cshtml" />
+    <Content Include="Views\Home\Help.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -236,7 +236,6 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\CommentView.cshtml" />
     <Content Include="Views\Home\CreateComment.cshtml" />
-    <Content Include="Views\Home\Subtitles.cshtml" />
     <Content Include="Views\Home\Status.cshtml" />
     <Content Include="Views\Home\Subtitle.cshtml" />
     <Content Include="Views\Home\Request.cshtml" />

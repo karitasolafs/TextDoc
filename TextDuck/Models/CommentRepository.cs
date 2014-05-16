@@ -25,7 +25,7 @@ namespace TextDuck.Models
                         select x);
             return Comment;
         }
-        public CommentItem GetCommentsById(int id)
+        public CommentItem GetCommentsById(int? id)
         {
             var result = (from s in m_db.Comments
                           where s.Id == id                   
