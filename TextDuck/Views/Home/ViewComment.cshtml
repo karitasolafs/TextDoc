@@ -10,8 +10,8 @@
             @Html.DisplayFor(modelItem => item.DateCreated)
             <span class="glyphicon glyphicon-time"></span>
         </p>
-        <h2 class="Title">skjátexti fyrir: @Html.ActionLink(item.Title, "AddComment", new { id = item.Id })</h2>
-        <p class="Text">@Html.DisplayFor(modelItem => item.Text)</p>
+     <div class="titill"> <h3 class="Title">Skjátexti fyrir: @Html.ActionLink(item.Title, "AddComment", new { id = item.Id })</h3></div>
+      <div class="text">  <p class="Text">@Html.DisplayFor(modelItem => item.Text)</p></div>
         <p class="Notendanafn">Notandi: @Html.DisplayFor(modelItem => item.UserName)</p>
        <div class="Ny-Athugasemd"> @Html.ActionLink("Ný athugasemd", "AddComment", new { Id = item.Id, Title = item.Title }, null)</div>
     </div>
