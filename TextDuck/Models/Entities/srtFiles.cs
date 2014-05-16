@@ -11,7 +11,7 @@ namespace TextDuck.Models
 {
     public class srtFiles
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
          [Display(Name = "Nafn ")]
         public string Title { get; set; }
         public string Content { get; set; }
