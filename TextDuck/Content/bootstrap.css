@@ -323,7 +323,7 @@ html {
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.428571429;
   color: #333333;
   background-color: #ffffff;
@@ -1434,6 +1434,7 @@ table {
 
 th {
   text-align: left;
+  font-size: 22px;
 }
 
 .table {
@@ -2023,7 +2024,7 @@ textarea.input-lg {
   padding: 6px 12px;
   margin-bottom: 0;
   font-size: 14px;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1.428571429;
   text-align: center;
   white-space: nowrap;
