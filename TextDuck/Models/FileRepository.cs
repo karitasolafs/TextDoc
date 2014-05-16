@@ -21,7 +21,7 @@ namespace TextDuck.Models
             {
                 var Status = (from item in Db.Files
                              orderby item.Title ascending
-                              where item.Status == "Í vinnslu"
+                             where item.Status == "Í vinnslu"
                              select item).Take(10);
                 return Status;
             }
