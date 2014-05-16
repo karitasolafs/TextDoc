@@ -221,6 +221,9 @@ ul.nav-sub {
     color: orange;
     text-decoration:none;
 }
+.titill {
+    text-align:left;
+}
 
 
 /*#search {
