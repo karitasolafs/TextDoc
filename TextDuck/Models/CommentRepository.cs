@@ -21,7 +21,7 @@ namespace TextDuck.Models
         public IQueryable<CommentItem> GetComment()
         {
             var Comment = (from x in m_db.Comments
-                        orderby x.DateCreated descending
+                        orderby x.srtId
                         where x.UserName != null && x.srtId != null
                         select x);
             return Comment;
