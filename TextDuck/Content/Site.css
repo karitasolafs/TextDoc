@@ -165,16 +165,17 @@ ul.nav-sub {
     border-right: 1px solid #000;
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
+
+
 }
 
 
     ul.nav-sub li {
+        font-size: medium;
         list-style: none;
-        font-size: 1em;
         display: block;
-        padding: 0;
-        height: 27px;
-        float: none;
+        margin-bottom: 0px;
+        padding-top: 22px;
         width: 145px;
         border-bottom: 1px solid #5a5a5a;
         background: none;

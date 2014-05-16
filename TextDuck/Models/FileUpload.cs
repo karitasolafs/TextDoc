@@ -11,29 +11,29 @@ namespace TextDuck.Models
     {
         public int? FileId { get; set; }
 
-        [Required(ErrorMessage = "Title is required.")]
+        [Required(ErrorMessage = "Titil vantar")]
         [Display(Name = "Nafn ")]
         public string FileTitle { get; set; }
 
-        [ValidateFileAttribute(ErrorMessage = "Please select a .srt file")]
+        [ValidateFileAttribute(ErrorMessage = "Vinsamlegast settu inn .srt skrá")]
         [Display(Name = "Velja skrá ")]
         public HttpPostedFileBase File { get; set; }
 
         public DateTime FileDate { get; set; }
 
-        [Required(ErrorMessage = "Category is required.")]
+        [Required(ErrorMessage = "Vinsamlegast veldu flokk")]
         [Display(Name = "Flokkur ")]
         public string FileCategory { get; set; }
 
-        [Required(ErrorMessage = "Genre is required.")]
+        [Required(ErrorMessage = "Vinsamlegast veldu tegund")]
         [Display(Name = "Tegund ")]
         public string FileGenre { get; set; }
 
-        [Required(ErrorMessage = "Status is required.")]
+        [Required(ErrorMessage = "Vinsamlegast veldu ástand")]
         [Display(Name = "Ástand")]
         public string FileStatus { get; set; }
 
-        [Required(ErrorMessage = "Language is required.")]
+        [Required(ErrorMessage = "Vinsamlegast veldu tungumál")]
         [Display(Name = "Tungumál")]
         public string FileLanguage { get; set; }
 

@@ -22,14 +22,14 @@ namespace TextDuck.Models
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "Lykilorðið {0} verður að vera að minnsta kosti {2} stafir", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Lykilorðið verður að vera að minnsta kosti {2} stafir", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Nýtt lykilorð")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Staðfesta")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Compare("NewPassword", ErrorMessage = "Ekki var samræmi á milli lykilorða")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -72,14 +72,14 @@ namespace TextDuck.Models
         public string UserName { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} verður að vera að minnsta kost {2} tákn að lengd.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Lykilorð")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Staðfesta lykilorð")]
-        [Compare("Password", ErrorMessage = "Ekki var samræmi milli lykilorða")]
+        [Compare("Password", ErrorMessage = "Ekki var samræmi á milli lykilorða")]
         public string ConfirmPassword { get; set; }
     }
 }
