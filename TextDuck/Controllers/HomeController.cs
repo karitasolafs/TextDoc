@@ -324,7 +324,7 @@ namespace TextDuck.Controllers
         }
     
         //A function that changes the status of the file from "Beiðni" to "Í vinnslu"
-        //Saves the changes to the database
+        //Saves the changes to the database!
         [Authorize]
         public ActionResult RequestMoved(int? Id)
         {
