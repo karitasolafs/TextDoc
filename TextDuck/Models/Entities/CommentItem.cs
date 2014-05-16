@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
+// Entity class for CommentItem
 namespace TextDuck.Models
 {
     public class CommentItem

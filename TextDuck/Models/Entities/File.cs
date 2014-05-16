@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+// Entity class for File 
 namespace TextDuck.Models.Entities
 {
     public class File

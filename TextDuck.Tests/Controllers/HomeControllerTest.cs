@@ -25,7 +25,7 @@ namespace TextDuck.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
-
+        // unit test the SearchResult function in HomeController
         [TestMethod]
         public void SearchTest()
         {
@@ -33,20 +33,9 @@ namespace TextDuck.Tests.Controllers
             HomeController controller = new HomeController();
             var friend = new srtFiles { Title = "Friends" };
             var data = new[] { friend }.AsQueryable();
-
             var result = controller.Search(data,"Friends");
             Assert.AreEqual(1, result.Count());
             Assert.AreEqual(friend, result.First());
-        }
-        public void RequestTest()
-        {
-            FileRepository repository = new FileRepository();
-            var request = new srtFiles { Status = "Lokið" };
-            var data = new[] { request }.AsQueryable();
-
-            var result = repository.GetTexts(data, "Lokið");
-            Assert.AreEqual(1, result.Count());
-            Assert.AreEqual(, result.First());
         }
 
         [TestMethod]

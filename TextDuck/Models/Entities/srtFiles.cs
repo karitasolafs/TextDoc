@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using TextDuck.UF;
 
 
-
+// Entity class for srtFiles
 namespace TextDuck.Models
 {
     public class srtFiles

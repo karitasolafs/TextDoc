@@ -16,8 +16,9 @@ namespace TextDuck.Models
             : base("AppDataContext")
         {
         }
-
+        //Get connections to the database that stores the data for comment item
         public DbSet<CommentItem> Comments { get; set; }
+        //Get connections to the database that stores the data for srt files
         public DbSet<srtFiles> Files { get; set; }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

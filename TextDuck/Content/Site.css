@@ -271,39 +271,39 @@ margin-bottom: 1em;
 #tvLogo1 {
     margin-top: 1em;   
     width: 30%;
-    height: 11em;
-    margin-left: -90px;
+    height: 14em;
+    margin-left: -125px;
 }
 #tvLogo2
 {
     margin-top: 1em;   
-    width: 550%;
-    height: 11em;
-    margin-left: -406px;
+    width: 617%;
+    height: 14em;
+    margin-left: -364px;
 
 }
 #tvLogo3
 {
     margin-top: 1em;   
     width: 150%;
-    height: 11em;
-    margin-left: -180px;
+    height: 14em;
+    margin-left: 5px;
 }
 #filmLogo1 {
 
 margin-top: 2em;
 width: 30%;
 height: 13em;
-margin-left: -90px;
+margin-left: -125px;
 margin-bottom:4em;
 
 }
 #filmLogo2
 {
 margin-top: 2em;
-width: 550%;
+width: 617%;
 height: 13em;
-margin-left: -406px;
+margin-left: -364px;
 margin-bottom:4em;
 
 }
@@ -312,14 +312,21 @@ margin-bottom:4em;
 margin-top: 2em;
 width: 150%;
 height: 13em;
-margin-left: -180px;
+margin-left: 9px;
 margin-bottom:4em;
 
 }
 #tableHead {
     width: 80%;
-   text-align:initial;
 }
 p {
     font-size:120%;
+}
+.tableRecommend
+{
+    align-content:center;
+}
+.thattur
+{
+
 }
